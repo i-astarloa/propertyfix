@@ -1,0 +1,22 @@
+# Secretos — NUNCA subir
+.env
+**/credentials.json
+**/token*.json
+**/client_secret*.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Datos de ejecución
+app/runtime/
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
