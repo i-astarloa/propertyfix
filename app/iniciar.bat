@@ -3,13 +3,12 @@ REM Arranque de PropertyFix en Windows: doble clic en este archivo.
 cd /d "%~dp0"
 chcp 65001 >nul
 
-where python >nul 2>nul
-if errorlevel 1 (
-  echo [!] No se encuentra Python. Instala Python 3.12 desde https://www.python.org/downloads/ marcando "Add python.exe to PATH".
-  pause & exit /b 1
-)
-
 if not exist ".venv\Scripts\python.exe" (
+  where python >nul 2>nul
+  if errorlevel 1 (
+    echo [!] No se encuentra Python. Instala Python 3.12 desde https://www.python.org/downloads/ marcando "Add python.exe to PATH".
+    pause & exit /b 1
+  )
   echo Creando el entorno virtual e instalando dependencias ^(solo la primera vez, 1-2 minutos^)...
   python -m venv .venv || (pause & exit /b 1)
   ".venv\Scripts\python.exe" -m pip install --quiet --upgrade pip
