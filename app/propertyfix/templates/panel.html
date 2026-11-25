@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% from "_macros.html" import chip_estado, chip_urgencia %}
+{% block titulo %}Panel{% endblock %}
+{% block contenido %}
+<div class="cabecera">
+  <div><h1>Hola, {{ usuario.nombre }}</h1><p class="sub">Estado de las incidencias de tus inmuebles.</p></div>
+  <a class="boton grande" href="/incidencias/nueva">+ Nueva incidencia</a>
+</div>
+
+<div class="rejilla r4" style="margin-bottom:16px">
+  <div class="tarjeta kpi"><div class="etq">Abiertas</div><div class="valor">{{ n_abiertas }}</div><div class="nota">{{ urgentes }} urgentes o de prioridad alta</div></div>
+  <div class="tarjeta kpi"><div class="etq">Pendientes de aprobación</div><div class="valor" style="color:var(--aviso)">{{ conteo.get('pendiente_aprobacion', 0) }}</div><div class="nota"><a href="/aprobaciones">Ir al centro de aprobaciones →</a></div></div>
+  <div class="tarjeta kpi"><div class="etq">Reservadas / cerradas</div><div class="valor" style="color:var(--marca)">{{ conteo.get('reservada', 0) }} / {{ conteo.get('cerrada', 0) }}</div><div class="nota">Con cita en el calendario</div></div>
+  <div class="tarjeta kpi"><div class="etq">Gasto aprobado</div><div class="valor">{{ gasto|eur }}</div><div class="nota">IVA incluido</div></div>
+</div>
+
+<div class="rejilla r-detalle">
+  <div class="tarjeta" style="padding:8px 8px 4px">
+    <h2 style="padding:12px 12px 0">Incidencias</h2>
+    {% if incidencias %}
+    <table>
+      <tr><th>Id</th><th>Problema</th><th>Urgencia</th><th>Estado</th><th class="num">Importe</th><th>Actualizada</th></tr>
+      {% for i in incidencias %}
+      <tr>
+        <td><a href="/incidencias/{{ i.id }}"><b>{{ i.id }}</b></a>{% if i.origen == 'email' %}<br><span class="chip" title="Recibida por email">✉ email</span>{% endif %}</td>
+        <td><a href="/incidencias/{{ i.id }}" style="color:inherit">{{ (i.clasificacion.trabajo_descripcion if i.clasificacion else i.descripcion)|truncate(60) }}</a><br><span class="ayuda">{{ i.direccion or 'Sin dirección' }}</span></td>
+        <td>{{ chip_urgencia(i.clasificacion.urgencia if i.clasificacion else None) }}</td>
+        <td>{{ chip_estado(i.estado) }}</td>
+        <td class="num">{% if i.propuesta %}{{ i.propuesta.presupuesto.total|eur }}{% endif %}</td>
+        <td class="ayuda">{{ i.actualizado|fecha }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <div class="vacio">Todavía no hay incidencias.<br><br><a class="boton" href="/incidencias/nueva">Registrar la primera</a></div>
+    {% endif %}
+  </div>
+
+  <div class="rejilla">
+    <div class="tarjeta">
+      <h2>Próximas visitas</h2>
+      {% for i in proximas %}
+        <div class="dato"><span><b style="color:var(--texto)">{{ i.propuesta.cita.inicio|fecha_larga }}</b><br>{{ i.propuesta.proveedor.nombre }}</span><a href="/incidencias/{{ i.id }}">{{ i.id }}</a></div>
+      {% else %}
+        <p class="ayuda">No hay visitas programadas.</p>
+      {% endfor %}
+    </div>
+    <div class="tarjeta">
+      <h2>Buzón automático</h2>
+      <p class="ayuda" style="margin-top:0">Cada {{ buzon.intervalo_s }} s un agente revisa la bandeja de Gmail y convierte en incidencia los correos con «incidencia», «avería» o «reparación» en el asunto.</p>
+      <div class="dato"><span>Estado</span><span>{% if not buzon.activo %}<span class="chip">Desactivado</span>{% elif buzon.pausado %}<span class="chip rojo">Pausado</span>{% else %}<span class="chip verde">Activo</span>{% endif %}</span></div>
+      <div class="dato"><span>Última revisión</span><span>{{ buzon.ultima_vuelta or '—' }}</span></div>
+      <div class="dato"><span>Vueltas · incidencias creadas</span><span>{{ buzon.vueltas }} · {{ buzon.creadas }}</span></div>
+      {% if buzon.pausado %}<p class="ayuda" style="color:var(--peligro)">{{ buzon.mensaje }}</p><form method="post" action="/buzon/reanudar"><button class="boton sec">Reanudar</button></form>{% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

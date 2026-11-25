@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block titulo %}Google simulado{% endblock %}
+{% block contenido %}
+<h1>Google simulado</h1>
+<p class="sub">En modo demo, los servidores MCP de Gmail, Calendar, Drive y Sheets guardan aquí lo que harían en tu cuenta real. Así se puede comprobar todo sin credenciales.</p>
+{% if request.query_params.get('enviado') %}<div class="aviso verde">Correo simulado recibido. El buzón automático lo convertirá en incidencia en la próxima revisión (como máximo {{ buzon.intervalo_s }} s).</div>{% endif %}
+
+<div class="rejilla r2" style="margin-bottom:16px">
+  <div class="tarjeta" id="entrada">
+    <h2>📥 Simular email de un inquilino</h2>
+    <form method="post" action="/demo/google/email">
+      <label>De</label><input name="de" value="lucia.inquilina@ejemplo.es">
+      <label>Asunto</label><input name="asunto" value="Incidencia: no hay agua caliente">
+      <label>Mensaje</label><textarea name="texto" style="min-height:90px">Hola, desde esta mañana el termo no calienta el agua y no podemos ducharnos. Vivo en el piso de la calle Bravo Murillo 210, 28020 Madrid. Gracias.</textarea>
+      <button class="boton" style="margin-top:12px">Enviar a la bandeja</button>
+    </form>
+    {% if entrada %}<h3 style="margin-top:20px">Bandeja de entrada</h3>
+    {% for c in entrada %}<div class="dato"><span>{{ c.asunto }}<br><span class="ayuda">{{ c.de }}</span></span><span>{% if c.leido %}<span class="chip verde">procesado</span>{% else %}<span class="chip ambar">pendiente</span>{% endif %}</span></div>{% endfor %}{% endif %}
+  </div>
+  <div class="tarjeta" id="calendario">
+    <h2>📅 Calendar</h2>
+    {% for e in eventos %}
+      <div class="dato"><span>{% if e.propio %}<b style="color:var(--marca)">{{ e.titulo }}</b>{% else %}{{ e.titulo }}{% endif %}<br><span class="ayuda">{{ e.ubicacion or '' }}</span></span><span>{{ e.inicio|fecha_larga }}</span></div>
+    {% else %}<p class="ayuda">Sin eventos.</p>{% endfor %}
+  </div>
+</div>
+
+<div class="tarjeta" style="margin-bottom:16px">
+  <h2>📤 Gmail · enviados</h2>
+  {% for m in enviados %}
+    <details style="border-bottom:1px solid var(--borde);padding:10px 0">
+      <summary>{{ m.asunto }} <span class="ayuda">→ {{ m.para }} · {{ m.fecha|fecha }}</span>{% if m.adjunto %} 📎{% endif %}</summary>
+      <div style="margin-top:10px">{{ m.cuerpo_html|safe }}</div>
+      {% if m.adjunto %}<a href="/documentos/{{ m.adjunto.replace('\\', '/').split('/')[-1] }}" target="_blank">Ver adjunto (presupuesto)</a>{% endif %}
+    </details>
+  {% else %}<p class="ayuda">Todavía no se ha enviado nada.</p>{% endfor %}
+</div>
+
+<div class="tarjeta" id="hoja" style="padding:8px">
+  <h2 style="padding:12px 12px 0">📊 Sheets · Registro de incidencias</h2>
+  {% if hoja|length > 1 %}
+  <table>
+    <tr>{% for h in hoja[0] %}<th>{{ h }}</th>{% endfor %}</tr>
+    {% for f in hoja[1:]|reverse %}<tr>{% for v in f %}<td class="ayuda">{{ v }}</td>{% endfor %}</tr>{% endfor %}
+  </table>
+  {% else %}<p class="ayuda" style="padding:0 12px">Sin filas todavía.</p>{% endif %}
+</div>
+{% endblock %}

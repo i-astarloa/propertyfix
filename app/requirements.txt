@@ -1,9 +1,14 @@
-anthropic
-mcp
-fastapi
-uvicorn[standard]
-python-dotenv
-pydantic
-google-api-python-client
-google-auth-oauthlib
-pytest
+# Versiones fijadas para que la app arranque igual en cualquier ordenador.
+fastapi==0.165.0
+uvicorn[standard]==0.54.0
+Jinja2==3.1.6
+python-multipart==0.0.34
+itsdangerous==2.2.0
+httpx==0.28.1
+mcp==1.30.0
+python-dotenv==1.2.4
+pydantic==2.14.4
+google-api-python-client==2.202.0
+google-auth==2.63.1
+google-auth-oauthlib==1.5.0
+pytest==9.2.0

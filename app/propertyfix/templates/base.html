@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}PropertyFix{% endblock %} · PropertyFix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+{% if usuario %}
+<div class="app">
+  <aside class="lateral">
+    <div class="logo"><div class="logo-icono">🔧</div>PropertyFix</div>
+    {% set ruta = request.url.path %}
+    <a class="nav {% if ruta == '/' %}activo{% endif %}" href="/">Panel de incidencias</a>
+    <a class="nav {% if ruta.startswith('/incidencias/nueva') %}activo{% endif %}" href="/incidencias/nueva">Nueva incidencia</a>
+    <a class="nav {% if ruta.startswith('/aprobaciones') %}activo{% endif %}" href="/aprobaciones">Centro de aprobaciones {% if n_pendientes %}<span class="contador">{{ n_pendientes }}</span>{% endif %}</a>
+    <a class="nav {% if ruta.startswith('/proveedores') %}activo{% endif %}" href="/proveedores">Directorio de proveedores</a>
+    <a class="nav {% if ruta.startswith('/analitica') %}activo{% endif %}" href="/analitica">Analítica y consumo</a>
+    {% if usuario.modo == 'demo' %}<a class="nav {% if ruta.startswith('/demo') %}activo{% endif %}" href="/demo/google">Google simulado</a>{% endif %}
+    <div class="pie">
+      <b>{{ usuario.nombre }}</b>
+      <span>{{ usuario.email }}</span>
+      <div class="estado-sistema" style="margin-top:10px"><span class="punto {% if not modelo_ok %}mal{% endif %}"></span>{{ modelo_texto }}</div>
+      <div class="estado-sistema"><span class="punto {% if usuario.modo != 'google' %}mal{% endif %}" style="{% if usuario.modo != 'google' %}background:#e8a13a{% endif %}"></span>{% if usuario.modo == 'google' %}Google conectado{% else %}Google en modo simulado{% endif %}</div>
+      <a href="/logout">Cerrar sesión</a>
+    </div>
+  </aside>
+  <main class="contenido">
+    {% if not modelo_ok %}<div class="aviso ambar"><b>El modelo de IA no está disponible</b> ({{ modelo_texto }}). Los agentes funcionarán con reglas de respaldo. Consulta el README para arrancar Ollama.</div>{% endif %}
+    {% block contenido %}{% endblock %}
+  </main>
+</div>
+{% else %}
+{% block publico %}{% endblock %}
+{% endif %}
+<script src="/static/app.js"></script>
+</body>
+</html>

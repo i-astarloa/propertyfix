@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block titulo %}Proveedores{% endblock %}
+{% block contenido %}
+<div class="cabecera">
+  <div><h1>Directorio de proveedores</h1><p class="sub">{{ proveedores|length }} profesionales registrados (ficticios) en la Comunidad de Madrid.</p></div>
+  <select id="filtro-especialidad" style="max-width:260px">
+    <option value="">Todas las especialidades</option>
+    {% for t, info in CATALOGO().items() %}<option value="{{ t }}">{{ info.nombre }}</option>{% endfor %}
+  </select>
+</div>
+<div class="tarjeta" style="padding:8px">
+<table id="tabla-proveedores">
+  <tr><th>Proveedor</th><th>Especialidades</th><th>Zona</th><th class="num">€/hora</th><th class="num">Despl.</th><th class="num">★</th><th>Disponibilidad</th><th>Urgencias</th></tr>
+  {% for p in proveedores %}
+  <tr data-esp="{{ p.especialidades|join(' ') }}">
+    <td><b>{{ p.nombre }}</b><br><span class="ayuda">{{ p.telefono }}</span></td>
+    <td>{% for e in p.especialidades %}<span class="chip" style="margin:1px">{{ CATALOGO()[e].nombre }}</span> {% endfor %}</td>
+    <td>{{ p.zona }}<br><span class="ayuda">radio {{ p.radio_km }} km</span></td>
+    <td class="num">{{ p.tarifa_hora }} €</td>
+    <td class="num">{{ p.desplazamiento }} €</td>
+    <td class="num">{{ p.valoracion }}<br><span class="ayuda">{{ p.num_resenas }}</span></td>
+    <td class="ayuda">{{ p.dias|map('truncate', 3, True, '')|join(', ') }}<br>{{ p.franja }} · antelación {{ p.antelacion_dias }} d</td>
+    <td>{% if p.urgencias_24h %}<span class="chip rojo">24h +{{ (p.recargo_urgencia * 100)|int }} %</span>{% else %}<span class="ayuda">—</span>{% endif %}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+{% endblock %}

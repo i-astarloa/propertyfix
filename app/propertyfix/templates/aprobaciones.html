@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% from "_macros.html" import chip_estado, chip_urgencia %}
+{% block titulo %}Aprobaciones{% endblock %}
+{% block contenido %}
+<h1>Centro de aprobaciones</h1>
+<p class="sub">Acciones que los agentes no pueden hacer sin ti: comprometer un gasto, reservar una cita o enviar comunicaciones.</p>
+<div class="rejilla">
+{% for i in incidencias %}
+  {% set p = i.propuesta %}
+  <div class="tarjeta" style="display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap">
+    <div>
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:4px"><b>{{ i.id }}</b> {{ chip_estado(i.estado) }} {{ chip_urgencia(i.clasificacion.urgencia if i.clasificacion else None) }}</div>
+      <div><b>{{ i.clasificacion.trabajo_descripcion if i.clasificacion else i.descripcion|truncate(80) }}</b></div>
+      <div class="ayuda">{{ i.direccion }} {{ i.cp }}</div>
+      {% if p and i.estado == 'pendiente_aprobacion' %}<div style="margin-top:6px">{{ p.proveedor.nombre }} · {{ p.cita.inicio|fecha_larga }}</div>{% else %}<div class="ayuda" style="margin-top:6px">{{ i.mensaje_agente }}</div>{% endif %}
+    </div>
+    <div style="text-align:right">
+      {% if p and i.estado == 'pendiente_aprobacion' %}<div class="precio-grande" style="font-size:24px">{{ p.presupuesto.total|eur }}</div>{% endif %}
+      <a class="boton" href="/incidencias/{{ i.id }}">Revisar</a>
+    </div>
+  </div>
+{% else %}
+  <div class="tarjeta vacio">No hay nada pendiente de aprobación. ✓</div>
+{% endfor %}
+</div>
+{% endblock %}

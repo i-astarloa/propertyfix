@@ -1,0 +1,212 @@
+{
+  "fontaneria": {
+    "nombre": "Fontanería",
+    "trabajos": {
+      "fuga_tuberia": {
+        "descripcion": "Reparación de fuga en tubería",
+        "horas": 2.0,
+        "materiales": 40
+      },
+      "atasco_desague": {
+        "descripcion": "Desatasco de desagüe o bajante",
+        "horas": 1.5,
+        "materiales": 15
+      },
+      "cambio_grifo": {
+        "descripcion": "Sustitución de grifo o monomando",
+        "horas": 1.0,
+        "materiales": 60
+      },
+      "reparacion_cisterna": {
+        "descripcion": "Reparación de cisterna o mecanismo del WC",
+        "horas": 1.0,
+        "materiales": 35
+      },
+      "calentador_termo": {
+        "descripcion": "Reparación de calentador o termo eléctrico",
+        "horas": 2.5,
+        "materiales": 120
+      }
+    }
+  },
+  "humedades": {
+    "nombre": "Humedades y goteras",
+    "trabajos": {
+      "gotera_tejado": {
+        "descripcion": "Reparación de gotera en cubierta o tejado",
+        "horas": 4.0,
+        "materiales": 150
+      },
+      "humedad_capilaridad": {
+        "descripcion": "Tratamiento de humedad por capilaridad",
+        "horas": 6.0,
+        "materiales": 300
+      },
+      "humedad_condensacion": {
+        "descripcion": "Tratamiento de humedad por condensación y moho",
+        "horas": 3.0,
+        "materiales": 120
+      },
+      "filtracion_terraza": {
+        "descripcion": "Impermeabilización de terraza con filtraciones",
+        "horas": 5.0,
+        "materiales": 220
+      }
+    }
+  },
+  "electricidad": {
+    "nombre": "Electricidad",
+    "trabajos": {
+      "averia_enchufes": {
+        "descripcion": "Avería en enchufes o mecanismos",
+        "horas": 1.5,
+        "materiales": 25
+      },
+      "salta_diferencial": {
+        "descripcion": "Localización de avería: salta el diferencial",
+        "horas": 2.0,
+        "materiales": 40
+      },
+      "cuadro_electrico": {
+        "descripcion": "Reparación o renovación del cuadro eléctrico",
+        "horas": 3.0,
+        "materiales": 180
+      },
+      "cambio_iluminacion": {
+        "descripcion": "Sustitución de puntos de luz o lámparas",
+        "horas": 1.5,
+        "materiales": 50
+      }
+    }
+  },
+  "pintura": {
+    "nombre": "Pintura",
+    "trabajos": {
+      "pintar_habitacion": {
+        "descripcion": "Pintura de una habitación (paredes y techo)",
+        "horas": 8.0,
+        "materiales": 120
+      },
+      "pintar_techo_humedad": {
+        "descripcion": "Saneado y pintura de techo con mancha de humedad",
+        "horas": 5.0,
+        "materiales": 90
+      },
+      "pintar_vivienda": {
+        "descripcion": "Pintura completa de vivienda (aprox. 80 m²)",
+        "horas": 32.0,
+        "materiales": 450
+      }
+    }
+  },
+  "climatizacion": {
+    "nombre": "Climatización y calefacción",
+    "trabajos": {
+      "reparacion_aire": {
+        "descripcion": "Reparación de aire acondicionado",
+        "horas": 2.0,
+        "materiales": 80
+      },
+      "recarga_gas": {
+        "descripcion": "Recarga de gas refrigerante",
+        "horas": 1.5,
+        "materiales": 90
+      },
+      "instalacion_split": {
+        "descripcion": "Instalación de split de aire acondicionado",
+        "horas": 5.0,
+        "materiales": 550
+      },
+      "caldera_calefaccion": {
+        "descripcion": "Reparación de caldera o calefacción",
+        "horas": 2.5,
+        "materiales": 110
+      }
+    }
+  },
+  "cerrajeria": {
+    "nombre": "Cerrajería",
+    "trabajos": {
+      "apertura_puerta": {
+        "descripcion": "Apertura de puerta sin rotura",
+        "horas": 1.0,
+        "materiales": 0
+      },
+      "cambio_cerradura": {
+        "descripcion": "Cambio de cerradura",
+        "horas": 1.5,
+        "materiales": 90
+      },
+      "bombin_seguridad": {
+        "descripcion": "Sustitución de bombín de seguridad",
+        "horas": 1.0,
+        "materiales": 70
+      }
+    }
+  },
+  "bano_albanileria": {
+    "nombre": "Baño y albañilería",
+    "trabajos": {
+      "reparacion_ducha": {
+        "descripcion": "Reparación de ducha, mampara o rociador",
+        "horas": 3.0,
+        "materiales": 120
+      },
+      "cambio_plato_ducha": {
+        "descripcion": "Sustitución de plato de ducha",
+        "horas": 8.0,
+        "materiales": 350
+      },
+      "azulejos": {
+        "descripcion": "Reposición de azulejos rotos",
+        "horas": 5.0,
+        "materiales": 150
+      },
+      "sellado_juntas": {
+        "descripcion": "Sellado de juntas de bañera o ducha",
+        "horas": 2.0,
+        "materiales": 30
+      }
+    }
+  },
+  "electrodomesticos": {
+    "nombre": "Electrodomésticos",
+    "trabajos": {
+      "lavadora": {
+        "descripcion": "Reparación de lavadora",
+        "horas": 1.5,
+        "materiales": 60
+      },
+      "frigorifico": {
+        "descripcion": "Reparación de frigorífico",
+        "horas": 1.5,
+        "materiales": 80
+      },
+      "horno_vitro": {
+        "descripcion": "Reparación de horno o vitrocerámica",
+        "horas": 1.5,
+        "materiales": 70
+      }
+    }
+  },
+  "carpinteria": {
+    "nombre": "Carpintería y ventanas",
+    "trabajos": {
+      "puerta_interior": {
+        "descripcion": "Ajuste o reparación de puerta interior",
+        "horas": 2.0,
+        "materiales": 60
+      },
+      "ventana_persiana": {
+        "descripcion": "Reparación de ventana o persiana",
+        "horas": 2.0,
+        "materiales": 70
+      },
+      "armario": {
+        "descripcion": "Reparación de armario empotrado",
+        "horas": 2.0,
+        "materiales": 40
+      }
+    }
+  }
+}

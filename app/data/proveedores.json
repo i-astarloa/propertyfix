@@ -1,0 +1,823 @@
+[
+  {
+    "id": "PRV-001",
+    "nombre": "Fontanería Hermanos Robledo",
+    "especialidades": [
+      "fontaneria"
+    ],
+    "zona": "Tetuán",
+    "lat": 40.46212,
+    "lon": -3.69329,
+    "radio_km": 10,
+    "tarifa_hora": 42,
+    "desplazamiento": 15,
+    "margen_materiales": 0.05,
+    "valoracion": 3.7,
+    "num_resenas": 131,
+    "dias": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "sábado"
+    ],
+    "franja": "tarde",
+    "antelacion_dias": 2,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 12,
+    "email": "fontaneria-hermanos-robledo@proveedores.example",
+    "telefono": "+34 600 127 674"
+  },
+  {
+    "id": "PRV-002",
+    "nombre": "AquaFix Madrid Sur",
+    "especialidades": [
+      "fontaneria",
+      "bano_albanileria"
+    ],
+    "zona": "Carabanchel",
+    "lat": 40.37708,
+    "lon": -3.72433,
+    "radio_km": 25,
+    "tarifa_hora": 40,
+    "desplazamiento": 25,
+    "margen_materiales": 0.1,
+    "valoracion": 3.9,
+    "num_resenas": 402,
+    "dias": [
+      "lunes",
+      "martes",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 1,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 3,
+    "email": "aquafix-madrid-sur@proveedores.example",
+    "telefono": "+34 600 194 489"
+  },
+  {
+    "id": "PRV-003",
+    "nombre": "Desatascos Rápidos Castellana",
+    "especialidades": [
+      "fontaneria"
+    ],
+    "zona": "Chamartín",
+    "lat": 40.46368,
+    "lon": -3.67846,
+    "radio_km": 30,
+    "tarifa_hora": 38,
+    "desplazamiento": 35,
+    "margen_materiales": 0.15,
+    "valoracion": 4.4,
+    "num_resenas": 372,
+    "dias": [
+      "lunes",
+      "miércoles",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 0,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 3,
+    "email": "desatascos-rapidos-castellana@proveedores.example",
+    "telefono": "+34 600 777 333"
+  },
+  {
+    "id": "PRV-004",
+    "nombre": "Tuberías y Grifos Llorente",
+    "especialidades": [
+      "fontaneria"
+    ],
+    "zona": "Alcobendas",
+    "lat": 40.54538,
+    "lon": -3.64356,
+    "radio_km": 15,
+    "tarifa_hora": 38,
+    "desplazamiento": 15,
+    "margen_materiales": 0.1,
+    "valoracion": 4.3,
+    "num_resenas": 137,
+    "dias": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 1,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 12,
+    "email": "tuberias-y-grifos-llorente@proveedores.example",
+    "telefono": "+34 600 488 376"
+  },
+  {
+    "id": "PRV-005",
+    "nombre": "Impermeabilizaciones Sierra Norte",
+    "especialidades": [
+      "humedades"
+    ],
+    "zona": "Las Rozas",
+    "lat": 40.48779,
+    "lon": -3.86904,
+    "radio_km": 30,
+    "tarifa_hora": 40,
+    "desplazamiento": 20,
+    "margen_materiales": 0.2,
+    "valoracion": 4.1,
+    "num_resenas": 341,
+    "dias": [
+      "lunes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 2,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 6,
+    "email": "impermeabilizaciones-sierra-norte@proveedores.example",
+    "telefono": "+34 600 371 242"
+  },
+  {
+    "id": "PRV-006",
+    "nombre": "SecaMuro Soluciones",
+    "especialidades": [
+      "humedades",
+      "pintura"
+    ],
+    "zona": "Ciudad Lineal",
+    "lat": 40.44397,
+    "lon": -3.65734,
+    "radio_km": 25,
+    "tarifa_hora": 30,
+    "desplazamiento": 15,
+    "margen_materiales": 0.05,
+    "valoracion": 3.8,
+    "num_resenas": 93,
+    "dias": [
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 4,
+    "urgencias_24h": true,
+    "recargo_urgencia": 0.5,
+    "garantia_meses": 12,
+    "email": "secamuro-soluciones@proveedores.example",
+    "telefono": "+34 600 165 494"
+  },
+  {
+    "id": "PRV-007",
+    "nombre": "Cubiertas y Tejados Moratilla",
+    "especialidades": [
+      "humedades"
+    ],
+    "zona": "Getafe",
+    "lat": 40.30308,
+    "lon": -3.73548,
+    "radio_km": 15,
+    "tarifa_hora": 45,
+    "desplazamiento": 15,
+    "margen_materiales": 0.15,
+    "valoracion": 4.9,
+    "num_resenas": 402,
+    "dias": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 1,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 12,
+    "email": "cubiertas-y-tejados-moratilla@proveedores.example",
+    "telefono": "+34 600 208 991"
+  },
+  {
+    "id": "PRV-008",
+    "nombre": "HumedadCero Centro",
+    "especialidades": [
+      "humedades"
+    ],
+    "zona": "Arganzuela",
+    "lat": 40.40134,
+    "lon": -3.69664,
+    "radio_km": 10,
+    "tarifa_hora": 40,
+    "desplazamiento": 30,
+    "margen_materiales": 0.05,
+    "valoracion": 3.7,
+    "num_resenas": 197,
+    "dias": [
+      "lunes",
+      "martes",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "tarde",
+    "antelacion_dias": 4,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 6,
+    "email": "humedadcero-centro@proveedores.example",
+    "telefono": "+34 600 345 159"
+  },
+  {
+    "id": "PRV-009",
+    "nombre": "Electricidad Ruano e Hijos",
+    "especialidades": [
+      "electricidad"
+    ],
+    "zona": "Latina",
+    "lat": 40.40339,
+    "lon": -3.74949,
+    "radio_km": 25,
+    "tarifa_hora": 50,
+    "desplazamiento": 20,
+    "margen_materiales": 0.15,
+    "valoracion": 4.3,
+    "num_resenas": 322,
+    "dias": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "mañana",
+    "antelacion_dias": 2,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 6,
+    "email": "electricidad-ruano-e-hijos@proveedores.example",
+    "telefono": "+34 600 652 873"
+  },
+  {
+    "id": "PRV-010",
+    "nombre": "Voltio Instalaciones",
+    "especialidades": [
+      "electricidad",
+      "climatizacion"
+    ],
+    "zona": "Salamanca",
+    "lat": 40.42942,
+    "lon": -3.68003,
+    "radio_km": 10,
+    "tarifa_hora": 40,
+    "desplazamiento": 15,
+    "margen_materiales": 0.1,
+    "valoracion": 4.4,
+    "num_resenas": 15,
+    "dias": [
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 0,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 24,
+    "email": "voltio-instalaciones@proveedores.example",
+    "telefono": "+34 600 746 160"
+  },
+  {
+    "id": "PRV-011",
+    "nombre": "Chispa Electricistas 24h",
+    "especialidades": [
+      "electricidad"
+    ],
+    "zona": "Puente de Vallecas",
+    "lat": 40.38757,
+    "lon": -3.66241,
+    "radio_km": 30,
+    "tarifa_hora": 45,
+    "desplazamiento": 20,
+    "margen_materiales": 0.2,
+    "valoracion": 4.6,
+    "num_resenas": 109,
+    "dias": [
+      "lunes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 0,
+    "urgencias_24h": true,
+    "recargo_urgencia": 0.25,
+    "garantia_meses": 24,
+    "email": "chispa-electricistas-24h@proveedores.example",
+    "telefono": "+34 600 541 462"
+  },
+  {
+    "id": "PRV-012",
+    "nombre": "Pinturas Alcázar",
+    "especialidades": [
+      "pintura"
+    ],
+    "zona": "Móstoles",
+    "lat": 40.32561,
+    "lon": -3.86969,
+    "radio_km": 15,
+    "tarifa_hora": 35,
+    "desplazamiento": 35,
+    "margen_materiales": 0.2,
+    "valoracion": 3.8,
+    "num_resenas": 105,
+    "dias": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 1,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 12,
+    "email": "pinturas-alcazar@proveedores.example",
+    "telefono": "+34 600 355 995"
+  },
+  {
+    "id": "PRV-013",
+    "nombre": "Color y Acabados Vega",
+    "especialidades": [
+      "pintura"
+    ],
+    "zona": "Chamberí",
+    "lat": 40.43912,
+    "lon": -3.69982,
+    "radio_km": 15,
+    "tarifa_hora": 42,
+    "desplazamiento": 30,
+    "margen_materiales": 0.2,
+    "valoracion": 3.9,
+    "num_resenas": 217,
+    "dias": [
+      "lunes",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "mañana",
+    "antelacion_dias": 0,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 6,
+    "email": "color-y-acabados-vega@proveedores.example",
+    "telefono": "+34 600 488 102"
+  },
+  {
+    "id": "PRV-014",
+    "nombre": "Brocha Fina Reformas",
+    "especialidades": [
+      "pintura",
+      "bano_albanileria"
+    ],
+    "zona": "Hortaleza",
+    "lat": 40.47862,
+    "lon": -3.64005,
+    "radio_km": 30,
+    "tarifa_hora": 28,
+    "desplazamiento": 25,
+    "margen_materiales": 0.05,
+    "valoracion": 3.7,
+    "num_resenas": 256,
+    "dias": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "tarde",
+    "antelacion_dias": 2,
+    "urgencias_24h": true,
+    "recargo_urgencia": 0.3,
+    "garantia_meses": 3,
+    "email": "brocha-fina-reformas@proveedores.example",
+    "telefono": "+34 600 620 182"
+  },
+  {
+    "id": "PRV-015",
+    "nombre": "ClimaConfort Madrid",
+    "especialidades": [
+      "climatizacion"
+    ],
+    "zona": "Fuencarral-El Pardo",
+    "lat": 40.49968,
+    "lon": -3.71305,
+    "radio_km": 30,
+    "tarifa_hora": 28,
+    "desplazamiento": 35,
+    "margen_materiales": 0.05,
+    "valoracion": 4.1,
+    "num_resenas": 310,
+    "dias": [
+      "lunes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 2,
+    "urgencias_24h": true,
+    "recargo_urgencia": 0.4,
+    "garantia_meses": 6,
+    "email": "climaconfort-madrid@proveedores.example",
+    "telefono": "+34 600 309 785"
+  },
+  {
+    "id": "PRV-016",
+    "nombre": "FríoCalor Servicio Técnico",
+    "especialidades": [
+      "climatizacion",
+      "electrodomesticos"
+    ],
+    "zona": "Leganés",
+    "lat": 40.33102,
+    "lon": -3.76913,
+    "radio_km": 25,
+    "tarifa_hora": 30,
+    "desplazamiento": 15,
+    "margen_materiales": 0.1,
+    "valoracion": 4.3,
+    "num_resenas": 79,
+    "dias": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 1,
+    "urgencias_24h": true,
+    "recargo_urgencia": 0.25,
+    "garantia_meses": 6,
+    "email": "friocalor-servicio-tecnico@proveedores.example",
+    "telefono": "+34 600 478 391"
+  },
+  {
+    "id": "PRV-017",
+    "nombre": "Aire Norte Instaladores",
+    "especialidades": [
+      "climatizacion"
+    ],
+    "zona": "Pozuelo de Alarcón",
+    "lat": 40.43024,
+    "lon": -3.80846,
+    "radio_km": 20,
+    "tarifa_hora": 30,
+    "desplazamiento": 15,
+    "margen_materiales": 0.1,
+    "valoracion": 4.0,
+    "num_resenas": 321,
+    "dias": [
+      "lunes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 1,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 24,
+    "email": "aire-norte-instaladores@proveedores.example",
+    "telefono": "+34 600 451 308"
+  },
+  {
+    "id": "PRV-018",
+    "nombre": "Cerrajería La Llave de Oro",
+    "especialidades": [
+      "cerrajeria"
+    ],
+    "zona": "Centro",
+    "lat": 40.41133,
+    "lon": -3.7058,
+    "radio_km": 15,
+    "tarifa_hora": 38,
+    "desplazamiento": 20,
+    "margen_materiales": 0.2,
+    "valoracion": 4.3,
+    "num_resenas": 230,
+    "dias": [
+      "lunes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 2,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 3,
+    "email": "cerrajeria-la-llave-de-oro@proveedores.example",
+    "telefono": "+34 600 214 177"
+  },
+  {
+    "id": "PRV-019",
+    "nombre": "Cerrajeros Express Retiro",
+    "especialidades": [
+      "cerrajeria"
+    ],
+    "zona": "Retiro",
+    "lat": 40.4087,
+    "lon": -3.67121,
+    "radio_km": 10,
+    "tarifa_hora": 40,
+    "desplazamiento": 20,
+    "margen_materiales": 0.1,
+    "valoracion": 4.5,
+    "num_resenas": 193,
+    "dias": [
+      "lunes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 4,
+    "urgencias_24h": true,
+    "recargo_urgencia": 0.5,
+    "garantia_meses": 12,
+    "email": "cerrajeros-express-retiro@proveedores.example",
+    "telefono": "+34 600 867 258"
+  },
+  {
+    "id": "PRV-020",
+    "nombre": "Seguridad Bombín Pro",
+    "especialidades": [
+      "cerrajeria",
+      "carpinteria"
+    ],
+    "zona": "Usera",
+    "lat": 40.38394,
+    "lon": -3.70496,
+    "radio_km": 15,
+    "tarifa_hora": 38,
+    "desplazamiento": 20,
+    "margen_materiales": 0.05,
+    "valoracion": 4.1,
+    "num_resenas": 31,
+    "dias": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 4,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 12,
+    "email": "seguridad-bombin-pro@proveedores.example",
+    "telefono": "+34 600 327 304"
+  },
+  {
+    "id": "PRV-021",
+    "nombre": "Reformas Baño Perfecto",
+    "especialidades": [
+      "bano_albanileria"
+    ],
+    "zona": "San Blas-Canillejas",
+    "lat": 40.43337,
+    "lon": -3.6054,
+    "radio_km": 20,
+    "tarifa_hora": 40,
+    "desplazamiento": 35,
+    "margen_materiales": 0.2,
+    "valoracion": 4.5,
+    "num_resenas": 286,
+    "dias": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 1,
+    "urgencias_24h": true,
+    "recargo_urgencia": 0.25,
+    "garantia_meses": 3,
+    "email": "reformas-bano-perfecto@proveedores.example",
+    "telefono": "+34 600 998 367"
+  },
+  {
+    "id": "PRV-022",
+    "nombre": "Albañilería Ortega",
+    "especialidades": [
+      "bano_albanileria",
+      "humedades"
+    ],
+    "zona": "Villaverde",
+    "lat": 40.34376,
+    "lon": -3.70773,
+    "radio_km": 30,
+    "tarifa_hora": 30,
+    "desplazamiento": 30,
+    "margen_materiales": 0.1,
+    "valoracion": 3.9,
+    "num_resenas": 374,
+    "dias": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 2,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 3,
+    "email": "albanileria-ortega@proveedores.example",
+    "telefono": "+34 600 632 925"
+  },
+  {
+    "id": "PRV-023",
+    "nombre": "TecnoHogar Reparaciones",
+    "especialidades": [
+      "electrodomesticos"
+    ],
+    "zona": "Moncloa-Aravaca",
+    "lat": 40.4305,
+    "lon": -3.7252,
+    "radio_km": 30,
+    "tarifa_hora": 38,
+    "desplazamiento": 30,
+    "margen_materiales": 0.15,
+    "valoracion": 4.1,
+    "num_resenas": 163,
+    "dias": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 2,
+    "urgencias_24h": false,
+    "recargo_urgencia": null,
+    "garantia_meses": 6,
+    "email": "tecnohogar-reparaciones@proveedores.example",
+    "telefono": "+34 600 296 530"
+  },
+  {
+    "id": "PRV-024",
+    "nombre": "ElectroServicio Alcalá",
+    "especialidades": [
+      "electrodomesticos"
+    ],
+    "zona": "Alcalá de Henares",
+    "lat": 40.48543,
+    "lon": -3.36272,
+    "radio_km": 20,
+    "tarifa_hora": 45,
+    "desplazamiento": 30,
+    "margen_materiales": 0.2,
+    "valoracion": 4.5,
+    "num_resenas": 273,
+    "dias": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 2,
+    "urgencias_24h": true,
+    "recargo_urgencia": 0.3,
+    "garantia_meses": 24,
+    "email": "electroservicio-alcala@proveedores.example",
+    "telefono": "+34 600 186 390"
+  },
+  {
+    "id": "PRV-025",
+    "nombre": "Carpintería Madera Viva",
+    "especialidades": [
+      "carpinteria"
+    ],
+    "zona": "Majadahonda",
+    "lat": 40.46994,
+    "lon": -3.8723,
+    "radio_km": 10,
+    "tarifa_hora": 45,
+    "desplazamiento": 30,
+    "margen_materiales": 0.1,
+    "valoracion": 4.5,
+    "num_resenas": 208,
+    "dias": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "sábado"
+    ],
+    "franja": "tarde",
+    "antelacion_dias": 2,
+    "urgencias_24h": true,
+    "recargo_urgencia": 0.5,
+    "garantia_meses": 6,
+    "email": "carpinteria-madera-viva@proveedores.example",
+    "telefono": "+34 600 251 771"
+  },
+  {
+    "id": "PRV-026",
+    "nombre": "Persianas y Ventanas Barajas",
+    "especialidades": [
+      "carpinteria"
+    ],
+    "zona": "Barajas",
+    "lat": 40.46999,
+    "lon": -3.57582,
+    "radio_km": 25,
+    "tarifa_hora": 32,
+    "desplazamiento": 30,
+    "margen_materiales": 0.15,
+    "valoracion": 4.8,
+    "num_resenas": 238,
+    "dias": [
+      "lunes",
+      "martes",
+      "jueves",
+      "sábado"
+    ],
+    "franja": "completa",
+    "antelacion_dias": 2,
+    "urgencias_24h": true,
+    "recargo_urgencia": 0.5,
+    "garantia_meses": 12,
+    "email": "persianas-y-ventanas-barajas@proveedores.example",
+    "telefono": "+34 600 556 262"
+  },
+  {
+    "id": "PRV-027",
+    "nombre": "MultiServicios Hogar Total",
+    "especialidades": [
+      "fontaneria",
+      "electricidad",
+      "carpinteria"
+    ],
+    "zona": "Moratalaz",
+    "lat": 40.40193,
+    "lon": -3.64657,
+    "radio_km": 20,
+    "tarifa_hora": 40,
+    "desplazamiento": 25,
+    "margen_materiales": 0.05,
+    "valoracion": 3.8,
+    "num_resenas": 130,
+    "dias": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "franja": "tarde",
+    "antelacion_dias": 2,
+    "urgencias_24h": true,
+    "recargo_urgencia": 0.3,
+    "garantia_meses": 24,
+    "email": "multiservicios-hogar-total@proveedores.example",
+    "telefono": "+34 600 319 165"
+  }
+]

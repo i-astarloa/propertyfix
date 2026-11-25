@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block titulo %}{{ inc.id }}{% endblock %}
+{% block contenido %}
+<div id="detalle" data-id="{{ inc.id }}" data-procesando="{{ 1 if procesando else 0 }}">
+  {% include "_detalle_cuerpo.html" %}
+</div>
+{% endblock %}

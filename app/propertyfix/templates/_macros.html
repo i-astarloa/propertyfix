@@ -1,0 +1,11 @@
+{% macro chip_estado(estado) -%}
+{%- set colores = {'pendiente_aprobacion': 'ambar', 'reservada': 'verde', 'cerrada': 'verde', 'escalada': 'rojo', 'error': 'rojo',
+   'rechazada': '', 'necesita_info': 'ambar', 'clasificando': 'azul', 'buscando_proveedor': 'azul', 'reservando': 'azul', 'recibida': 'azul'} -%}
+<span class="chip {{ colores.get(estado, '') }}">{{ ESTADOS.get(estado, estado) }}</span>
+{%- endmacro %}
+
+{% macro chip_urgencia(u) -%}
+{%- if u -%}
+<span class="chip {{ {'urgente': 'rojo', 'alta': 'ambar', 'media': 'azul', 'baja': ''}.get(u, '') }}">{{ u|capitalize }}</span>
+{%- endif -%}
+{%- endmacro %}

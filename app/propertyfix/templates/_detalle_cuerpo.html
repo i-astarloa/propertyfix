@@ -1,0 +1,219 @@
+{% from "_macros.html" import chip_estado, chip_urgencia %}
+{% set c = inc.clasificacion %}
+{% set p = inc.propuesta %}
+{% set orden = ['clasificando', 'buscando_proveedor', 'pendiente_aprobacion', 'reservada', 'cerrada'] %}
+{% set pos = {'recibida': 0, 'clasificando': 0, 'necesita_info': 1, 'escalada': 1, 'buscando_proveedor': 1, 'pendiente_aprobacion': 2, 'reservando': 3, 'reservada': 4, 'cerrada': 5, 'rechazada': 2, 'error': 0}.get(inc.estado, 0) %}
+<span hidden id="marca-procesando">{{ 1 if procesando else 0 }}</span>
+
+<div class="cabecera">
+  <div>
+    <h1>{{ inc.id }} · {{ c.trabajo_descripcion if c else 'Analizando…' }}</h1>
+    <p class="sub">{{ inc.direccion or 'Sin dirección' }}{% if inc.cp %}, {{ inc.cp }}{% endif %} {{ inc.municipio or '' }} · creada {{ inc.creado|fecha }}{% if inc.origen == 'email' %} · recibida por email{% endif %}</p>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center">{% if c %}{{ chip_urgencia(c.urgencia) }}{% endif %} {{ chip_estado(inc.estado) }}</div>
+</div>
+
+<div class="linea-tiempo">
+  {% for etiqueta in ['Clasificación', 'Proveedores', 'Aprobación', 'Reserva', 'Cierre'] %}
+    {% set i = loop.index0 %}
+    <div class="paso {% if i < pos %}hecho{% elif i == pos %}actual{% endif %}">
+      <div class="bola {% if i == pos and procesando %}girando{% endif %}">{% if i < pos %}✓{% else %}{{ loop.index }}{% endif %}</div>{{ etiqueta }}
+    </div>
+  {% endfor %}
+</div>
+
+<div class="mensaje-agente" style="margin-bottom:18px">
+  <div class="avatar">🤖</div>
+  <div><b>Orquestador</b><br>{{ inc.mensaje_agente or 'En cola…' }}{% if procesando %} <span class="ayuda">(actualizando automáticamente)</span>{% endif %}</div>
+</div>
+
+{% if request.query_params.get('aviso') == 'confirmacion' %}
+<div class="aviso ambar">Este presupuesto supera {{ umbral|eur }}. Marca la casilla de confirmación reforzada para aprobarlo.</div>
+{% endif %}
+
+<div class="rejilla r-detalle">
+  <div class="rejilla">
+
+    {% if inc.estado == 'pendiente_aprobacion' and p %}
+    <div class="tarjeta propuesta">
+      <h3>Propuesta para aprobar</h3>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+        <div>
+          <h2 style="font-size:20px;margin-bottom:2px">{{ p.proveedor.nombre }}</h2>
+          <span class="ayuda">{{ p.proveedor.zona }} · ★ {{ p.proveedor.valoracion }} ({{ p.proveedor.num_resenas }} reseñas) · garantía {{ p.proveedor.garantia_meses }} meses</span>
+        </div>
+        <div style="text-align:right"><div class="precio-grande">{{ p.presupuesto.total|eur }}</div><span class="ayuda">IVA incluido</span></div>
+      </div>
+      <div class="rejilla r2" style="margin-top:16px">
+        <div>
+          <div class="dato"><span>Cita propuesta</span><b>{{ p.cita.inicio|fecha_larga }}</b></div>
+          <div class="dato"><span>Duración</span><span>2 horas</span></div>
+          <div class="dato"><span>Calendario consultado</span><span>{{ p.cita.ocupados_consultados }} compromisos esquivados</span></div>
+        </div>
+        <div>
+          <div class="dato"><span>Ranking</span><span>n.º {{ p.ranking }} de {{ p.candidatos|length }} · {{ p.puntuacion }}/100</span></div>
+          <div class="dato"><span>Decidido por</span><span>{{ p.fuente_eleccion }}</span></div>
+        </div>
+      </div>
+      <p class="cita-texto" style="margin-top:14px">{{ p.justificacion }}</p>
+      <form method="post" action="/incidencias/{{ inc.id }}/aprobar" style="margin-top:16px">
+        {% if p.aprobacion_reforzada %}
+        <div class="aviso ambar"><label style="margin:0;display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="confirmacion" value="si" style="width:auto"> Confirmo un gasto superior a {{ umbral|eur }}.</label></div>
+        {% endif %}
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="boton grande">✓ Aprobar y reservar</button>
+          <button class="boton peligro" formaction="/incidencias/{{ inc.id }}/rechazar">Rechazar</button>
+        </div>
+        <p class="ayuda">Al aprobar: se crea la cita en tu Google Calendar, se genera el presupuesto en Google Drive, se te envía la confirmación por Gmail y se avisa al proveedor.</p>
+      </form>
+    </div>
+    {% endif %}
+
+    {% if inc.estado in ['reservada', 'cerrada'] and inc.reserva %}
+    {% set r = inc.reserva %}
+    <div class="tarjeta" style="border:2px solid var(--marca)">
+      <h3>Reserva confirmada</h3>
+      <h2 style="font-size:20px">{{ p.proveedor.nombre }} · {{ p.cita.inicio|fecha_larga }}</h2>
+      <div class="dato"><span>Importe aprobado</span><b>{{ p.presupuesto.total|eur }}</b></div>
+      <div class="dato"><span>Teléfono del profesional</span><span>{{ p.proveedor.telefono }}</span></div>
+      <div class="dato"><span>Google Calendar</span><span>{% if r.evento.enlace %}<a href="{{ r.evento.enlace }}" target="_blank">Ver evento</a>{% endif %} <span class="chip">{{ r.evento.modo }}</span></span></div>
+      <div class="dato"><span>Presupuesto (Google Drive)</span><span><a href="{{ r.documento.enlace }}" target="_blank">Abrir documento</a> <span class="chip">{{ r.documento.modo }}</span></span></div>
+      <div class="dato"><span>Confirmación por Gmail</span><span>{{ inc.usuario }} <span class="chip">{{ r.email_cliente.modo }}</span></span></div>
+      <div class="dato"><span>Orden al proveedor</span><span>sandbox <span class="chip">{{ r.email_proveedor.modo }}</span></span></div>
+      {% if inc.estado == 'reservada' %}
+      <form method="post" action="/incidencias/{{ inc.id }}/cerrar" style="margin-top:16px">
+        <label>¿Se completó la reparación? Valora al proveedor</label>
+        <div class="estrellas">{% for n in [1,2,3,4,5] %}<label><input type="radio" name="valoracion" value="{{ n }}" {% if n == 5 %}checked{% endif %}> {{ n }}★</label>{% endfor %}</div>
+        <button class="boton sec" style="margin-top:10px">Marcar como resuelta y archivar</button>
+      </form>
+      {% else %}
+      <p class="ayuda">Cerrada con valoración {{ inc.valoracion }}/5 y archivada en el historial.</p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if inc.estado in ['necesita_info', 'escalada'] %}
+    <div class="tarjeta" style="border:2px solid #e8a13a">
+      <h3>{% if inc.estado == 'escalada' %}Revisión humana necesaria{% else %}Los agentes necesitan más información{% endif %}</h3>
+      <p>{{ inc.mensaje_agente }}</p>
+      {% if inc.decision and inc.decision.preguntas %}<ul>{% for q in inc.decision.preguntas %}<li>{{ q }}</li>{% endfor %}</ul>{% endif %}
+      <form method="post" action="/incidencias/{{ inc.id }}/completar">
+        {% if not inc.direccion or not inc.cp %}
+        <div class="fila"><div><label>Dirección</label><input name="direccion" value="{{ inc.direccion or '' }}"></div>
+          <div><label>Código postal</label><input name="cp" value="{{ inc.cp or '' }}"></div>
+          <div><label>Municipio</label><input name="municipio" value="{{ inc.municipio or 'Madrid' }}"></div></div>
+        {% endif %}
+        <label>Aclaración</label>
+        <textarea name="aclaracion" style="min-height:80px" placeholder="Añade los detalles que faltan…"></textarea>
+        <div style="display:flex;gap:10px;margin-top:12px">
+          <button class="boton">Enviar y reanalizar</button>
+          <button class="boton peligro" formaction="/incidencias/{{ inc.id }}/rechazar">Descartar incidencia</button>
+        </div>
+      </form>
+    </div>
+    {% endif %}
+
+    {% if p and p.candidatos %}
+    <div class="tarjeta" style="padding:8px">
+      <h2 style="padding:12px 12px 0">Comparativa de proveedores</h2>
+      <p class="ayuda" style="padding:0 12px">Presupuestos calculados con las tarifas de cada proveedor. Puntuación: precio, valoración, distancia y rapidez{% if c and c.urgencia in ['alta','urgente'] %} (con más peso a la rapidez por urgencia){% endif %}.</p>
+      <table>
+        <tr><th>#</th><th>Proveedor</th><th class="num">Total</th><th class="num">★</th><th class="num">Km</th><th class="num">Espera</th><th class="num">Puntos</th>{% if inc.estado == 'pendiente_aprobacion' %}<th></th>{% endif %}</tr>
+        {% for k in p.candidatos %}
+        <tr class="{% if k.proveedor_id == p.proveedor.id %}destacada{% endif %}">
+          <td>{{ k.ranking }}</td>
+          <td><b>{{ k.nombre }}</b>{% if k.urgencias_24h %} <span class="chip rojo">24h</span>{% endif %}{% if not k.dentro_radio %} <span class="chip">fuera de zona</span>{% endif %}<br><span class="ayuda">{{ k.zona }}</span></td>
+          <td class="num">{{ k.presupuesto.total|eur }}</td>
+          <td class="num">{{ k.valoracion }}</td>
+          <td class="num">{{ k.distancia_km }}</td>
+          <td class="num">{{ k.dias_espera }} d</td>
+          <td class="num"><b>{{ k.puntuacion }}</b></td>
+          {% if inc.estado == 'pendiente_aprobacion' %}<td>{% if k.proveedor_id != p.proveedor.id %}<form method="post" action="/incidencias/{{ inc.id }}/cambiar"><input type="hidden" name="proveedor_id" value="{{ k.proveedor_id }}"><button class="boton sec" style="padding:4px 10px;font-size:12px">Elegir</button></form>{% else %}<span class="chip verde">Elegido</span>{% endif %}</td>{% endif %}
+        </tr>
+        {% endfor %}
+      </table>
+      {% set e = p.presupuesto %}
+      <details style="padding:12px">
+        <summary>Desglose del presupuesto elegido</summary>
+        <div style="max-width:380px;margin-top:10px">
+          <div class="dato"><span>Mano de obra</span><span>{{ e.mano_obra|eur }}</span></div>
+          <div class="dato"><span>Desplazamiento</span><span>{{ e.desplazamiento|eur }}</span></div>
+          <div class="dato"><span>Materiales</span><span>{{ e.materiales|eur }}</span></div>
+          <div class="dato"><span>Recargo urgencia</span><span>{{ e.recargo_urgencia|eur }}</span></div>
+          <div class="dato"><span>Base imponible</span><span>{{ e.base_imponible|eur }}</span></div>
+          <div class="dato"><span>IVA 21 %</span><span>{{ e.iva|eur }}</span></div>
+          <div class="dato"><b>Total</b><b>{{ e.total|eur }}</b></div>
+        </div>
+      </details>
+    </div>
+    {% endif %}
+
+    <div class="tarjeta" style="padding:8px">
+      <h2 style="padding:12px 12px 0">Traza de los agentes</h2>
+      <p class="ayuda" style="padding:0 12px">Cada llamada al modelo y a las herramientas MCP, con su permiso, tokens y duración.</p>
+      <table class="traza">
+        <tr><th>Hora</th><th>Agente</th><th>Acción</th><th>Permiso</th><th class="num">Tokens (ent/sal)</th><th class="num">ms</th><th>Detalle</th></tr>
+        {% for t in traza %}
+        <tr>
+          <td class="ayuda">{{ t.ts[11:19] }}</td>
+          <td class="agente-tag">{{ t.agente }}</td>
+          <td>{% if t.tipo == 'llm' %}<span class="chip azul">LLM</span>{% elif t.tipo == 'mcp' %}<span class="chip verde">MCP</span>{% elif t.tipo == 'barandilla' %}<span class="chip rojo">barandilla</span>{% elif t.tipo == 'decision' %}<span class="chip ambar">decisión</span>{% elif t.tipo == 'error' %}<span class="chip rojo">error</span>{% else %}<span class="chip">{{ t.tipo }}</span>{% endif %}
+            {% if not t.ok %} <span class="chip rojo">✗</span>{% endif %}<br><span class="ayuda">{{ t.herramienta }}</span></td>
+          <td class="ayuda">{{ t.permiso }}</td>
+          <td class="num">{% if t.tipo == 'llm' %}{{ t.tokens_entrada }} / {{ t.tokens_salida }}{% endif %}</td>
+          <td class="num ayuda">{{ t.ms or '' }}</td>
+          <td class="det">{{ t.detalle|truncate(220) }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="7" class="vacio">Sin actividad todavía.</td></tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+  <div class="rejilla">
+    <div class="tarjeta">
+      <h3>Mensaje original</h3>
+      <div class="cita-texto">{{ inc.descripcion }}</div>
+      <div style="margin-top:12px">
+        <div class="dato"><span>Contacto</span><span>{{ inc.contacto_nombre or '—' }}</span></div>
+        <div class="dato"><span>Teléfono</span><span>{{ inc.telefono or '—' }}</span></div>
+        <div class="dato"><span>Horario</span><span>{{ inc.franja }}</span></div>
+        {% if inc.geo_fuente %}<div class="dato"><span>Ubicación</span><span title="{{ inc.geo_fuente }}" style="text-align:right">{{ inc.geo_fuente|truncate(40) }}</span></div>{% endif %}
+      </div>
+    </div>
+
+    {% if c %}
+    <div class="tarjeta">
+      <h3>Clasificación</h3>
+      <div class="dato"><span>Tipo</span><b>{{ c.tipo_nombre }}</b></div>
+      <div class="dato"><span>Trabajo</span><span style="text-align:right">{{ c.trabajo_descripcion }}</span></div>
+      <div class="dato"><span>Urgencia</span>{{ chip_urgencia(c.urgencia) }}</div>
+      <div class="dato"><span>Confianza</span><span>{{ (c.confianza * 100)|round|int }} %</span></div>
+      <div class="dato"><span>Fuente</span><span>{{ c.fuente }}</span></div>
+      <p class="ayuda" style="margin-bottom:0">{{ c.resumen }}</p>
+      {% if c.datos_faltantes %}<p class="ayuda"><b>Datos que faltan:</b> {{ c.datos_faltantes|join(', ') }}</p>{% endif %}
+      {% if c.posible_inyeccion %}<div class="aviso rojo" style="margin:10px 0 0">⚠ Posible inyección de prompt detectada en el mensaje.</div>{% endif %}
+    </div>
+    {% endif %}
+
+    {% if inc.decision %}
+    <div class="tarjeta">
+      <h3>Decisión del orquestador</h3>
+      <div class="dato"><span>Acción</span><b>{{ inc.decision.accion|replace('_', ' ') }}</b></div>
+      <div class="dato"><span>Fuente</span><span>{{ inc.decision.fuente }}</span></div>
+      <p class="ayuda" style="margin-bottom:0">{{ inc.decision.motivo }}</p>
+    </div>
+    {% endif %}
+
+    <div class="tarjeta">
+      <h3>Consumo de esta incidencia</h3>
+      <div class="dato"><span>Tokens de entrada</span><b>{{ inc.tokens_entrada }}</b></div>
+      <div class="dato"><span>Tokens de salida</span><b>{{ inc.tokens_salida }}</b></div>
+      <div class="dato"><span>Llamadas al modelo</span><span>{{ inc.llamadas_llm }}</span></div>
+      <div class="dato"><span>Llamadas MCP</span><span>{{ inc.llamadas_mcp }}</span></div>
+      <div class="dato"><span>Tiempo de modelo</span><span>{{ inc.segundos_llm|round(1) }} s</span></div>
+      <p class="ayuda" style="margin-bottom:0">Medido en vivo con {{ modelo }} (Ollama, local).</p>
+    </div>
+  </div>
+</div>

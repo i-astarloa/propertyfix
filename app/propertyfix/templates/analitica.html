@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block titulo %}Analítica{% endblock %}
+{% block contenido %}
+<h1>Analítica y consumo</h1>
+<p class="sub">Tokens medidos en tu propio uso de la app (modelo {{ modelo }}), costes de reparación y desempeño de proveedores.</p>
+
+<div class="rejilla r4" style="margin-bottom:16px">
+  <div class="tarjeta kpi"><div class="etq">Incidencias procesadas</div><div class="valor">{{ n_procesadas }}</div></div>
+  <div class="tarjeta kpi"><div class="etq">Tokens de entrada / incidencia</div><div class="valor">{{ medias.entrada|round|int }}</div><div class="nota">media medida</div></div>
+  <div class="tarjeta kpi"><div class="etq">Tokens de salida / incidencia</div><div class="valor">{{ medias.salida|round|int }}</div><div class="nota">media medida</div></div>
+  <div class="tarjeta kpi"><div class="etq">Tiempo de modelo / incidencia</div><div class="valor">{{ medias.llm_s|round(1) }} s</div><div class="nota">{{ medias.mcp|round(1) }} llamadas MCP de media</div></div>
+</div>
+
+<div class="rejilla r2" style="margin-bottom:16px">
+  <div class="tarjeta" style="padding:8px">
+    <h2 style="padding:12px 12px 0">Tokens por agente</h2>
+    {% set total = (por_agente.values()|sum(attribute='entrada')) + (por_agente.values()|sum(attribute='salida')) %}
+    <table>
+      <tr><th>Agente</th><th class="num">Llamadas</th><th class="num">Entrada</th><th class="num">Salida</th><th style="width:30%">Peso</th></tr>
+      {% for a, d in por_agente.items() %}
+      <tr><td><b>{{ a }}</b></td><td class="num">{{ d.llamadas }}</td><td class="num">{{ d.entrada }}</td><td class="num">{{ d.salida }}</td>
+        <td><div class="barra"><div style="width:{{ ((d.entrada + d.salida) / total * 100) if total else 0 }}%"></div></div></td></tr>
+      {% else %}<tr><td colspan="5" class="vacio">Sin datos todavía.</td></tr>{% endfor %}
+    </table>
+  </div>
+  <div class="tarjeta" style="padding:8px">
+    <h2 style="padding:12px 12px 0">Herramientas MCP</h2>
+    <table>
+      <tr><th>Herramienta</th><th class="num">Llamadas</th><th class="num">Fallos</th><th class="num">ms medio</th></tr>
+      {% for h, d in por_herramienta.items()|sort %}
+      <tr><td>{{ h }}</td><td class="num">{{ d.llamadas }}</td><td class="num">{% if d.fallos %}<span class="chip rojo">{{ d.fallos }}</span>{% else %}0{% endif %}</td><td class="num">{{ (d.ms / d.llamadas)|round|int }}</td></tr>
+      {% else %}<tr><td colspan="4" class="vacio">Sin datos todavía.</td></tr>{% endfor %}
+    </table>
+  </div>
+</div>
+
+<div class="rejilla r2" style="margin-bottom:16px">
+  <div class="tarjeta" style="padding:8px">
+    <h2 style="padding:12px 12px 0">Gasto por tipo de avería</h2>
+    <table>
+      <tr><th>Tipo</th><th class="num">Reparaciones</th><th class="num">Gasto</th><th class="num">Medio</th></tr>
+      {% for t, d in por_tipo.items() %}
+      <tr><td>{{ t }}</td><td class="num">{{ d.n }}</td><td class="num">{{ d.gasto|eur }}</td><td class="num">{{ (d.gasto / d.n)|eur }}</td></tr>
+      {% else %}<tr><td colspan="4" class="vacio">Aún no hay reparaciones aprobadas.</td></tr>{% endfor %}
+    </table>
+  </div>
+  <div class="tarjeta" style="padding:8px">
+    <h2 style="padding:12px 12px 0">Desempeño de proveedores</h2>
+    <table>
+      <tr><th>Proveedor</th><th class="num">Trabajos</th><th class="num">Gasto</th><th class="num">Valoración</th></tr>
+      {% for n, d in por_prov.items() %}
+      <tr><td>{{ n }}</td><td class="num">{{ d.n }}</td><td class="num">{{ d.gasto|eur }}</td><td class="num">{% if d.valoraciones %}{{ (d.valoraciones|sum / d.valoraciones|length)|round(1) }} ★{% else %}—{% endif %}</td></tr>
+      {% else %}<tr><td colspan="4" class="vacio">Aún no hay reparaciones aprobadas.</td></tr>{% endfor %}
+    </table>
+    <p class="ayuda" style="padding:0 12px">El agente se apartó del ranking por puntuación en {{ desvios }} de {{ n_propuestas }} propuestas.</p>
+  </div>
+</div>
+
+<div class="tarjeta" style="padding:8px">
+  <h2 style="padding:12px 12px 0">Detalle por incidencia</h2>
+  <table>
+    <tr><th>Id</th><th>Estado</th><th class="num">Entrada</th><th class="num">Salida</th><th class="num">Llamadas LLM</th><th class="num">MCP</th><th class="num">Tiempo modelo</th></tr>
+    {% for i in incidencias %}
+    <tr><td><a href="/incidencias/{{ i.id }}">{{ i.id }}</a></td><td>{{ ESTADOS[i.estado] }}</td><td class="num">{{ i.tokens_entrada }}</td><td class="num">{{ i.tokens_salida }}</td><td class="num">{{ i.llamadas_llm }}</td><td class="num">{{ i.llamadas_mcp }}</td><td class="num">{{ i.segundos_llm|round(1) }} s</td></tr>
+    {% else %}<tr><td colspan="7" class="vacio">Sin datos todavía.</td></tr>{% endfor %}
+  </table>
+</div>
+{% endblock %}

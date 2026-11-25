@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block titulo %}Nueva incidencia{% endblock %}
+{% block contenido %}
+<h1>Nueva incidencia</h1>
+<p class="sub">Cuéntanos qué ocurre con tus palabras. Los agentes se encargan del resto y te pedirán aprobación antes de reservar nada.</p>
+
+<form method="post" action="/incidencias" class="rejilla r-detalle">
+  <div class="tarjeta">
+    <h2>¿Qué problema tienes?</h2>
+    <textarea id="descripcion" name="descripcion" required placeholder="Ej.: Desde ayer gotea agua del techo del baño cuando llueve. La mancha es cada vez más grande."></textarea>
+    <div class="ejemplos">
+      <button type="button" data-ej="Se ha roto una tubería debajo del fregadero de la cocina y sale bastante agua. He cerrado la llave de paso.">💧 Tubería rota</button>
+      <button type="button" data-ej="Cuando llueve tengo goteras en el techo del dormitorio principal, que está en la última planta. Ya hay una mancha marrón.">🌧 Goteras</button>
+      <button type="button" data-ej="En la pared del salón que da a la calle han salido humedades y moho negro en las esquinas.">🧱 Humedades</button>
+      <button type="button" data-ej="Quiero pintar el dormitorio de invitados, unos 12 m², paredes y techo, antes de que entre el nuevo inquilino.">🎨 Pintar</button>
+      <button type="button" data-ej="La ducha está rota: el rociador pierde agua por la rosca y la mampara no cierra bien.">🚿 Ducha rota</button>
+      <button type="button" data-ej="Salta el diferencial cada vez que enciendo el horno y nos quedamos sin luz en toda la casa.">⚡ Salta la luz</button>
+    </div>
+
+    <h2 style="margin-top:28px">Inmueble</h2>
+    <label for="direccion">Dirección</label>
+    <input id="direccion" name="direccion" placeholder="Calle de Alcalá 120, 3º B" required>
+    <div class="fila">
+      <div><label for="municipio">Municipio o distrito</label><input id="municipio" name="municipio" placeholder="Madrid" value="Madrid"></div>
+      <div><label for="cp">Código postal</label><input id="cp" name="cp" placeholder="28009" required pattern="[0-9]{5}"></div>
+      <div><label for="franja">Horario preferido</label>
+        <select id="franja" name="franja"><option value="completa">Indiferente</option><option value="mañana">Mañanas (9–14 h)</option><option value="tarde">Tardes (15–20 h)</option></select></div>
+    </div>
+  </div>
+
+  <div class="rejilla">
+    <div class="tarjeta">
+      <h2>Contacto</h2>
+      <label for="contacto_nombre">Nombre</label>
+      <input id="contacto_nombre" name="contacto_nombre" value="{{ usuario.nombre }}">
+      <label for="telefono">Teléfono</label>
+      <input id="telefono" name="telefono" placeholder="600 000 000">
+      <label>Email de confirmación</label>
+      <input value="{{ usuario.email }}" disabled>
+      <p class="ayuda">La confirmación y el presupuesto se enviarán a este correo.</p>
+    </div>
+    <div class="tarjeta">
+      <h2>Qué va a pasar</h2>
+      <div class="dato"><span>1 · Clasificador</span><span>tipo, urgencia y datos que faltan</span></div>
+      <div class="dato"><span>2 · Orquestador</span><span>decide si continuar o preguntarte</span></div>
+      <div class="dato"><span>3 · Proveedores</span><span>compara precio, cercanía y valoración</span></div>
+      <div class="dato"><span>4 · Comunicaciones</span><span>busca hueco en tu calendario</span></div>
+      <div class="dato"><span>5 · Tú</span><span><b>apruebas</b> antes de reservar</span></div>
+      <button class="boton grande" style="width:100%;justify-content:center;margin-top:16px">Enviar a los agentes</button>
+      <p class="ayuda">El análisis tarda alrededor de un minuto con el modelo local.</p>
+    </div>
+  </div>
+</form>
+{% endblock %}

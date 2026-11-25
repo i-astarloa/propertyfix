@@ -20,3 +20,6 @@ app/runtime/
 Thumbs.db
 .vscode/
 .idea/
+
+# Configuración local del entorno de desarrollo
+.claude/
