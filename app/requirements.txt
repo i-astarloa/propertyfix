@@ -12,3 +12,5 @@ google-api-python-client==2.202.0
 google-auth==2.63.1
 google-auth-oauthlib==1.5.0
 pytest==9.2.0
+# Zonas horarias (Windows no las trae de serie): necesario para el calendario real
+tzdata==2026.6

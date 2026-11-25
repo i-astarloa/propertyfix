@@ -47,7 +47,7 @@ python -m propertyfix
 
 ### 4. Entrar y probar
 
-- **Con Google (recomendado):** pulsa **«Iniciar sesión con Google»** y entra con la cuenta del proyecto **proyectofinaldeeplearning@gmail.com** (la contraseña se entrega aparte, no está en GitHub). Requiere el fichero `app/credentials.json`, que también se entrega aparte (ver [Conexión con Google](#conexión-con-google)).
+- **Con Google (recomendado):** copia en la carpeta `app/` el fichero `credentials.json` que se entrega aparte, pulsa **«Iniciar sesión con Google»** y entra con la cuenta del proyecto **proyectofinaldeeplearning@gmail.com** (la contraseña también se entrega aparte; no está en GitHub). Verás el aviso «Google no ha verificado esta aplicación» porque está en modo prueba: pulsa **Continuar**, marca **Seleccionar todo** y **Continuar**. A partir de ahí los agentes trabajan con el Gmail, Calendar, Drive y Sheets reales de la cuenta con la que has entrado.
 - **Sin Google (modo demo):** escribe cualquier email y pulsa **«Entrar en modo demo»**. Gmail, Calendar, Drive y Sheets se simulan y lo que «habrían hecho» se ve en el menú **Google simulado**.
 
 **Recorrido sugerido (3 minutos):**

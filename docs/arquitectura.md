@@ -52,7 +52,7 @@ Quién llama a quién: **solo el orquestador llama a los agentes**. Los agentes 
 | Fallo | Comportamiento |
 |---|---|
 | Ollama apagado o el modelo devuelve JSON inválido | Respaldo por reglas en cada agente (palabras clave, ranking por puntuación, plantillas). Se anota «respaldo» en la traza. |
-| Plataforma de Google caída o token caducado | Un reintento y después el paso se ejecuta en modo simulado. La traza muestra el fallo y el respaldo. |
+| Plataforma de Google caída o token caducado | Un reintento y después el paso se ejecuta en modo simulado. La traza muestra el fallo y el respaldo. **Caso real (25/11/2026, INC-0005):** la primera consulta al calendario real falló porque en Windows faltaba la base de datos de zonas horarias (`tzdata`). El hub activó el respaldo, la incidencia siguió y se reservó; después se corrigió añadiendo `tzdata` a las dependencias. |
 | OpenStreetMap (Nominatim) no responde | Geolocalización por tabla local de códigos postales y municipios. |
 | Llamada MCP que no responde | Tiempo máximo de 45 s y error controlado. La incidencia pasa a «error» con el motivo. |
 | Misma herramienta con los mismos argumentos 3 veces | Detector de bucles: se detiene. |

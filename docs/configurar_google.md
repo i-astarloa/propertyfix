@@ -14,7 +14,7 @@ Todo se hace con la cuenta del proyecto **proyectofinaldeeplearning@gmail.com** 
    - Tipo de usuario: **Externo**.
    - Nombre de la app: `PropertyFix`. Correo de asistencia y de contacto: la cuenta del proyecto.
    - Estado de publicación: **Prueba** (no hace falta verificar la app).
-   - **Usuarios de prueba**: añade `proyectofinaldeeplearning@gmail.com` (y el email de cualquier persona que vaya a iniciar sesión con su propia cuenta).
+   - **Usuarios de prueba**: añade **solo** `proyectofinaldeeplearning@gmail.com`. Es la única cuenta autorizada a iniciar sesión con Google (decisión del equipo): el profesor prueba la app con ella. La web funciona con la cuenta que inicia sesión, así que bastaría con añadir otra cuenta aquí para que trabajase con su propio Gmail, Calendar y Drive.
 4. **Crear el cliente OAuth** (*Credenciales → Crear credenciales → ID de cliente de OAuth*):
    - Tipo: **Aplicación web**. Nombre: `PropertyFix local`.
    - *URI de redireccionamiento autorizados*: `http://localhost:8000/auth/callback`
