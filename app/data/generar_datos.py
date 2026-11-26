@@ -56,7 +56,8 @@ CATALOGO: dict[str, dict] = {
         "nombre": "Fontanería",
         "trabajos": {
             "fuga_tuberia": ("Reparación de fuga en tubería", 2.0, 40),
-            "atasco_desague": ("Desatasco de desagüe o bajante", 1.5, 15),
+            "atasco_desague": ("Desatasco de fregadero, lavabo, desagüe o bajante", 1.5, 15),
+            "atasco_inodoro": ("Desatasco de inodoro o WC", 1.0, 10),
             "cambio_grifo": ("Sustitución de grifo o monomando", 1.0, 60),
             "reparacion_cisterna": ("Reparación de cisterna o mecanismo del WC", 1.0, 35),
             "calentador_termo": ("Reparación de calentador o termo eléctrico", 2.5, 120),
@@ -118,6 +119,7 @@ CATALOGO: dict[str, dict] = {
         "nombre": "Electrodomésticos",
         "trabajos": {
             "lavadora": ("Reparación de lavadora", 1.5, 60),
+            "lavavajillas": ("Reparación de lavavajillas (fugas, no desagua, no lava)", 1.5, 70),
             "frigorifico": ("Reparación de frigorífico", 1.5, 80),
             "horno_vitro": ("Reparación de horno o vitrocerámica", 1.5, 70),
         },

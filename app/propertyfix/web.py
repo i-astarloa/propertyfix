@@ -60,7 +60,20 @@ plantillas.env.globals["CATALOGO"] = dominio.catalogo
 @app.on_event("startup")
 def _inicio() -> None:
     db.iniciar()
+    _recuperar_interrumpidas()
     buzon.arrancar()
+
+
+def _recuperar_interrumpidas() -> None:
+    """Si la app se cerró mientras un agente trabajaba, la incidencia quedaba «clasificando» para siempre.
+    Al arrancar se relanza el análisis. La reserva NO se relanza sola (podría duplicar correos)."""
+    for i in db.incidencias():
+        if i["estado"] in ("recibida", "clasificando", "buscando_proveedor"):
+            db.registrar_traza(i["id"], "orquestador", "info", detalle="La app se reinició durante el análisis: se relanza")
+            orquestador.lanzar(orquestador.fase_analisis, i["id"])
+        elif i["estado"] == "reservando":
+            db.actualizar(i["id"], estado="error", mensaje_agente="La app se cerró durante la reserva. Revisa Gmail y "
+                          "Calendar antes de volver a intentarlo, para no duplicar la cita.")
 
 
 def _usuario(request: Request) -> dict | None:

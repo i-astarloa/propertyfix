@@ -19,7 +19,11 @@ from .agents import orquestador
 from .config import INTERVALO_BUZON_S
 from .mcp_hub import HubMCP
 
-CONSULTA = "newer_than:7d (subject:incidencia OR subject:averia OR subject:avería OR subject:reparacion OR subject:reparación)"
+# Se excluyen los correos que envía la propia app (confirmaciones y órdenes de trabajo): si no,
+# el buzón los leería como incidencias nuevas y se crearía un bucle (pasó en las pruebas).
+CONSULTA = ("newer_than:7d -from:me -subject:\"Reparación reservada\" -subject:\"Orden de trabajo\" "
+            "(subject:incidencia OR subject:averia OR subject:avería OR subject:reparacion OR subject:reparación)")
+PREFIJOS_PROPIOS = ("reparación reservada", "[orden de trabajo")
 MAX_POR_VUELTA = 5
 MAX_FALLOS = 3
 
@@ -35,6 +39,11 @@ async def revisar(usuario: str) -> int:
         for c in r.get("correos", []):
             clave = f"{usuario}:{c['id']}"
             if db.correo_procesado(clave):
+                continue
+            # Segunda barrera contra el bucle: ni correos propios ni respuestas a ellos.
+            asunto = c.get("asunto", "").lower().removeprefix("re: ").removeprefix("fwd: ")
+            if asunto.startswith(PREFIJOS_PROPIOS) or usuario.lower() in c.get("de", "").lower():
+                db.marcar_correo(clave, usuario)
                 continue
             db.marcar_correo(clave, usuario)
             await hub.llamar("buzon", "gmail.marcar_procesado", {"email_id": c["id"]})

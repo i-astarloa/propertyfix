@@ -127,6 +127,14 @@ def traza(incidencia_id: str) -> list[dict]:
         return [dict(r) for r in c.execute("SELECT * FROM traza WHERE incidencia = ? ORDER BY id", (incidencia_id,))]
 
 
+def borrar_traza(incidencia_id: str) -> None:
+    """Solo para evaluaciones (ids EVAL-…): limpia la traza antes de repetir un caso."""
+    if not incidencia_id.startswith("EVAL-"):
+        raise ValueError("Solo se puede borrar la traza de evaluaciones")
+    with conexion() as c:
+        c.execute("DELETE FROM traza WHERE incidencia = ?", (incidencia_id,))
+
+
 def traza_global() -> list[dict]:
     with conexion() as c:
         return [dict(r) for r in c.execute("SELECT * FROM traza ORDER BY id")]

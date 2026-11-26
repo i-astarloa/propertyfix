@@ -8,9 +8,14 @@
         "materiales": 40
       },
       "atasco_desague": {
-        "descripcion": "Desatasco de desagüe o bajante",
+        "descripcion": "Desatasco de fregadero, lavabo, desagüe o bajante",
         "horas": 1.5,
         "materiales": 15
+      },
+      "atasco_inodoro": {
+        "descripcion": "Desatasco de inodoro o WC",
+        "horas": 1.0,
+        "materiales": 10
       },
       "cambio_grifo": {
         "descripcion": "Sustitución de grifo o monomando",
@@ -176,6 +181,11 @@
         "descripcion": "Reparación de lavadora",
         "horas": 1.5,
         "materiales": 60
+      },
+      "lavavajillas": {
+        "descripcion": "Reparación de lavavajillas (fugas, no desagua, no lava)",
+        "horas": 1.5,
+        "materiales": 70
       },
       "frigorifico": {
         "descripcion": "Reparación de frigorífico",

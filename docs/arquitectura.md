@@ -29,7 +29,7 @@ Quién llama a quién: **solo el orquestador llama a los agentes**. Los agentes 
 | Agente | Qué decide | Herramientas MCP | Contexto que recibe | Tokens máx. de salida |
 |---|---|---|---|---|
 | **Orquestador** | continuar / pedir información / escalar a humano | `sheets.registrar` | Solo la clasificación resumida (no el texto original) | 120 |
-| **Clasificador** | tipo, trabajo del catálogo, urgencia, datos que faltan, sospecha de inyección | `directorio.catalogo_trabajos` | Solo el texto del problema + catálogo | 250 |
+| **Clasificador** | categoría (o «no es avería»), trabajo del catálogo, urgencia, datos que faltan, sospecha de inyección. Dos llamadas: categoría y trabajo, más un verificador léxico | `directorio.catalogo_trabajos` | Solo el texto del problema + catálogo | 160 + 40 |
 | **Proveedores** | qué proveedor y alternativa, con justificación | `directorio.geolocalizar`, `directorio.comparar_ofertas` | Clasificación + coordenadas. **No** ve el texto, ni el email ni el teléfono | 200 |
 | **Comunicaciones** | redacta los mensajes; propone la cita | `calendar.*`, `drive.crear_documento`, `gmail.enviar_email`, `sheets.registrar` | Propuesta aprobada, dirección y email del usuario | 220 |
 

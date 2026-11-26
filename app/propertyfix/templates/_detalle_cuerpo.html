@@ -191,6 +191,8 @@
       <div class="dato"><span>Urgencia</span>{{ chip_urgencia(c.urgencia) }}</div>
       <div class="dato"><span>Confianza</span><span>{{ (c.confianza * 100)|round|int }} %</span></div>
       <div class="dato"><span>Fuente</span><span>{{ c.fuente }}</span></div>
+      {% if c.propuesta_modelo %}<div class="dato"><span>Propuesta del modelo</span><span>{{ c.propuesta_modelo }}</span></div>{% endif %}
+      {% if c.evidencia_lexica %}<div class="dato"><span>Palabras clave</span><span style="text-align:right">{% for k, v in c.evidencia_lexica.items() %}{{ k }} ({{ v|round|int }}){% if not loop.last %}, {% endif %}{% endfor %}</span></div>{% endif %}
       <p class="ayuda" style="margin-bottom:0">{{ c.resumen }}</p>
       {% if c.datos_faltantes %}<p class="ayuda"><b>Datos que faltan:</b> {{ c.datos_faltantes|join(', ') }}</p>{% endif %}
       {% if c.posible_inyeccion %}<div class="aviso rojo" style="margin:10px 0 0">⚠ Posible inyección de prompt detectada en el mensaje.</div>{% endif %}

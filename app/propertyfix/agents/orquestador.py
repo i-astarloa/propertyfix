@@ -89,6 +89,14 @@ def _decidir(iid: str, clasif: dict, inc: dict) -> dict:
     if clasif["posible_inyeccion"]:
         return {"accion": "escalar_humano", "motivo": "El mensaje contiene posibles instrucciones maliciosas "
                 f"({len(clasif['patrones_inyeccion'])} patrones detectados). Lo revisa una persona.", "fuente": "regla"}
+    if clasif["tipo"] == "no_es_averia":
+        return {"accion": "escalar_humano", "fuente": "regla",
+                "motivo": "El mensaje no parece describir una avería ni un trabajo de mantenimiento de la vivienda. "
+                          "Lo revisa una persona antes de buscar proveedores."}
+    if clasif["tipo"] is None or clasif["confianza"] <= 0.35:
+        return {"accion": "pedir_informacion", "fuente": "regla",
+                "motivo": "No se identifica con seguridad qué elemento de la vivienda está averiado.",
+                "preguntas": ["¿Qué elemento está averiado (por ejemplo: lavavajillas, grifo, enchufe, persiana)?"]}
     if not (inc.get("direccion") and inc.get("cp")):
         return {"accion": "pedir_informacion", "motivo": "Falta la dirección o el código postal del inmueble.",
                 "fuente": "regla", "preguntas": ["Dirección completa y código postal del inmueble"]}
