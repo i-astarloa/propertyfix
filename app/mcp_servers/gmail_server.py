@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import base64
 import mimetypes
+import os
 import uuid
 from datetime import datetime
 from email.message import EmailMessage
@@ -37,6 +38,8 @@ def enviar_email(para: str, asunto: str, cuerpo_html: str, adjunto_ruta: str = "
     msg = EmailMessage()
     msg["To"] = para
     msg["Subject"] = asunto
+    # Marca legible por máquina de contenido generado con IA (AI Act, art. 50.2)
+    msg["X-PropertyFix-AI-Generated"] = "true; model=" + os.getenv("OLLAMA_MODEL", "qwen2.5:3b") + "; human-approved=true"
     msg.set_content("Este correo requiere un cliente compatible con HTML.")
     msg.add_alternative(cuerpo_html, subtype="html")
     if adjunto_ruta and Path(adjunto_ruta).exists():

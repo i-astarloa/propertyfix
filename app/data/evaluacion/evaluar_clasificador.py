@@ -14,6 +14,7 @@ Escribe resultados en data/evaluacion/resultados_clasificador.json y docs/evalua
 from __future__ import annotations
 
 import asyncio
+import os
 import copy
 import json
 import sys
@@ -34,8 +35,10 @@ DIR = Path(__file__).parent
 CONJUNTOS = {
     # Desarrollo: casos vistos al diseñar el léxico y los prompts (su cifra es optimista).
     "desarrollo": json.loads((DIR / "casos_clasificacion.json").read_text(encoding="utf-8")),
-    # Ciego: escritos después de congelar léxico y prompts, con otro vocabulario. Es la cifra que vale.
+    # Ciego 1: escrito tras congelar v2.0. Sus fallos se miraron para hacer v2.1, así que para v2.1 ya NO es ciego.
     "ciego": json.loads((DIR / "casos_ciegos.json").read_text(encoding="utf-8")),
+    # Ciego 2: escrito tras congelar v2.1 y antes de ejecutarlo. Es la cifra que se defiende.
+    "ciego_2": json.loads((DIR / "casos_ciegos_2.json").read_text(encoding="utf-8")),
 }
 NUEVOS = {"lavavajillas", "atasco_inodoro"}  # trabajos añadidos al catálogo el 26/11
 
@@ -108,7 +111,8 @@ def main() -> None:
     ruta = DIR / "resultados_clasificador.json"
     resultados = json.loads(ruta.read_text(encoding="utf-8")) if ruta.exists() else {}
     resultados = {k: v for k, v in resultados.items() if ":" in k}  # descarta formatos antiguos
-    for conjunto in CONJUNTOS:
+    conjuntos = [c for c in os.environ.get("CONJUNTOS", ",".join(CONJUNTOS)).split(",") if c]
+    for conjunto in conjuntos:
         for v in variantes:
             print(f"\n== {conjunto} · {v} ==", flush=True)
             r = evaluar(v, conjunto)
@@ -120,16 +124,19 @@ def main() -> None:
 
 def escribir_informe(res: dict) -> None:
     nombres = {"reglas": "Solo palabras clave (sin modelo)", "v1_antiguo": "v1 · un paso, catálogo antiguo (lo desplegado)",
-               "v1_nuevo": "v1 · un paso, catálogo ampliado", "v2": "**v2 · dos pasos + verificador (actual)**"}
+               "v1_nuevo": "v1 · un paso, catálogo ampliado", "v2_0": "v2.0 · dos pasos + verificador",
+               "v2": "**v2.1 · + segunda opinión antes de descartar (actual)**"}
     lineas = ["# Evaluación del agente clasificador", "",
               "Generado por `app/data/evaluacion/evaluar_clasificador.py`. Modelo `qwen2.5:3b` en Ollama, temperature 0, "
               "seed 42. Cifras **medidas** y reproducibles ejecutando el script.", "",
               "- **Conjunto de desarrollo** (`casos_clasificacion.json`): casos que se vieron al diseñar el léxico y los "
               "prompts. Su acierto es **optimista** (sesgo de haber visto el examen).",
-              "- **Conjunto ciego** (`casos_ciegos.json`): escrito después de congelar léxico y prompts, con otro "
-              "vocabulario. **Es la cifra que se defiende.**", ""]
+              "- **Conjunto ciego** (`casos_ciegos.json`): escrito después de congelar v2.0. Sus fallos se usaron para "
+              "diseñar v2.1, así que para v2.1 **ya no es ciego**.",
+              "- **Conjunto ciego 2** (`casos_ciegos_2.json`): escrito después de congelar v2.1 y antes de ejecutarlo. "
+              "**Es la cifra que se defiende.**", ""]
     for conjunto, casos in CONJUNTOS.items():
-        claves = [v for v in ["reglas", "v1_antiguo", "v1_nuevo", "v2"] if f"{conjunto}:{v}" in res]
+        claves = [v for v in ["reglas", "v1_antiguo", "v1_nuevo", "v2_0", "v2"] if f"{conjunto}:{v}" in res]
         if not claves:
             continue
         lineas += [f"## Conjunto {conjunto} ({len(casos)} casos)", "",
@@ -141,7 +148,7 @@ def escribir_informe(res: dict) -> None:
                           f"| {r['tokens_entrada_medios']} | {r['tokens_salida_medios']} | {r['segundos_medios']} |")
         if f"{conjunto}:v2" in res:
             fallos = [f for f in res[f"{conjunto}:v2"]["detalle"] if not f["trabajo_ok"]]
-            lineas += ["", "Fallos de v2:", ""] + ([f"- Caso {f['id']}: esperado `{f['esperado']}`, obtenido `{f['obtenido']}`"
+            lineas += ["", "Fallos de la versión actual (v2.1):", ""] + ([f"- Caso {f['id']}: esperado `{f['esperado']}`, obtenido `{f['obtenido']}`"
                                                     for f in fallos] or ["- Ninguno."])
         lineas.append("")
     (APP.parent / "docs" / "evaluacion_clasificador.md").write_text("\n".join(lineas) + "\n", encoding="utf-8")

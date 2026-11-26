@@ -1,0 +1,576 @@
+{
+  "mezcla": {
+    "arpu_eur_mes": 129.0,
+    "inmuebles_medios": 65.0,
+    "incidencias_cliente_mes": 17.88
+  },
+  "consumo": {
+    "sesion": "una incidencia procesada de punta a punta (análisis + reserva)",
+    "tokens_entrada_sesion": 1914.8,
+    "tokens_salida_sesion": 302.6,
+    "sesiones_cliente_mes": 17.88,
+    "tokens_entrada_cliente_mes": 34237,
+    "tokens_salida_cliente_mes": 5410,
+    "fraccion_cacheable": 0.512,
+    "capacidad_gpu_incidencias_mes": 432000,
+    "clientes_por_gpu": 24161,
+    "coste_marginal_gpu_cliente_mes": 0.0089,
+    "coste_api_haiku_5_5_cliente_mes": 0.0056,
+    "coste_api_opus_5_5_cliente_mes": 0.2255
+  },
+  "resumen": {
+    "arpu_eur_mes": 129.0,
+    "coste_variable_cliente_mes": 5.18,
+    "margen_contribucion_cliente_mes": 123.81,
+    "margen_bruto_pct": 0.96,
+    "costes_fijos_mes_año1": 7233,
+    "costes_fijos_mes_año2": 10033,
+    "costes_fijos_mes_año3": 13533,
+    "infraestructura_mes": 333,
+    "clientes_equilibrio_año1": 58.4,
+    "clientes_equilibrio_año3": 109.3,
+    "inversion_antes_primer_ingreso": 38169,
+    "necesidad_maxima_caja": 95123,
+    "mes_equilibrio_operativo": 18,
+    "mes_recuperacion_caja": 32,
+    "clientes_mes_12": 29.0,
+    "clientes_mes_24": 130.4,
+    "clientes_mes_36": 296.1,
+    "ingresos_año1": 16771,
+    "ingresos_año2": 133031,
+    "ingresos_año3": 345901,
+    "flujo_año1": -79936,
+    "flujo_año2": 7289,
+    "flujo_año3": 169601,
+    "caja_mes_36": 96955,
+    "arr_mes_36": 458316,
+    "valor_empresa_mes_36": 1833264,
+    "valor_participacion_inversor_mes_36": 366653,
+    "multiplo_inversor": 3.3,
+    "roi_inversor_pct": 233,
+    "coste_construccion_eur": 27.84
+  },
+  "sensibilidad_gpu_mas_50": {
+    "mes_equilibrio_operativo": 18,
+    "mes_recuperacion_caja": 32,
+    "necesidad_maxima_caja": 96942,
+    "caja_mes_36": 93103
+  },
+  "proyeccion": [
+    {
+      "mes": 1,
+      "clientes": 0.0,
+      "ingresos": 0,
+      "costes_variables": 0,
+      "costes_fijos": 7233,
+      "unicos": 9237,
+      "flujo": -16470,
+      "caja_acumulada": -16470
+    },
+    {
+      "mes": 2,
+      "clientes": 0.0,
+      "ingresos": 0,
+      "costes_variables": 0,
+      "costes_fijos": 7233,
+      "unicos": 0,
+      "flujo": -7233,
+      "caja_acumulada": -23703
+    },
+    {
+      "mes": 3,
+      "clientes": 0.0,
+      "ingresos": 0,
+      "costes_variables": 0,
+      "costes_fijos": 7233,
+      "unicos": 0,
+      "flujo": -7233,
+      "caja_acumulada": -30936
+    },
+    {
+      "mes": 4,
+      "clientes": 0.0,
+      "ingresos": 0,
+      "costes_variables": 0,
+      "costes_fijos": 7233,
+      "unicos": 0,
+      "flujo": -7233,
+      "caja_acumulada": -38169
+    },
+    {
+      "mes": 5,
+      "clientes": 3.0,
+      "ingresos": 387,
+      "costes_variables": 16,
+      "costes_fijos": 7233,
+      "unicos": 0,
+      "flujo": -6862,
+      "caja_acumulada": -45030
+    },
+    {
+      "mes": 6,
+      "clientes": 6.9,
+      "ingresos": 895,
+      "costes_variables": 36,
+      "costes_fijos": 7233,
+      "unicos": 0,
+      "flujo": -6374,
+      "caja_acumulada": -51404
+    },
+    {
+      "mes": 7,
+      "clientes": 10.8,
+      "ingresos": 1393,
+      "costes_variables": 56,
+      "costes_fijos": 7233,
+      "unicos": 0,
+      "flujo": -5896,
+      "caja_acumulada": -57300
+    },
+    {
+      "mes": 8,
+      "clientes": 14.6,
+      "ingresos": 1881,
+      "costes_variables": 76,
+      "costes_fijos": 7233,
+      "unicos": 0,
+      "flujo": -5427,
+      "caja_acumulada": -62727
+    },
+    {
+      "mes": 9,
+      "clientes": 18.3,
+      "ingresos": 2360,
+      "costes_variables": 95,
+      "costes_fijos": 7233,
+      "unicos": 0,
+      "flujo": -4968,
+      "caja_acumulada": -67695
+    },
+    {
+      "mes": 10,
+      "clientes": 21.9,
+      "ingresos": 2829,
+      "costes_variables": 114,
+      "costes_fijos": 7233,
+      "unicos": 0,
+      "flujo": -4518,
+      "caja_acumulada": -72213
+    },
+    {
+      "mes": 11,
+      "clientes": 25.5,
+      "ingresos": 3288,
+      "costes_variables": 132,
+      "costes_fijos": 7233,
+      "unicos": 0,
+      "flujo": -4077,
+      "caja_acumulada": -76290
+    },
+    {
+      "mes": 12,
+      "clientes": 29.0,
+      "ingresos": 3738,
+      "costes_variables": 150,
+      "costes_fijos": 7233,
+      "unicos": 0,
+      "flujo": -3645,
+      "caja_acumulada": -79935
+    },
+    {
+      "mes": 13,
+      "clientes": 38.4,
+      "ingresos": 4954,
+      "costes_variables": 199,
+      "costes_fijos": 10033,
+      "unicos": 0,
+      "flujo": -5279,
+      "caja_acumulada": -85213
+    },
+    {
+      "mes": 14,
+      "clientes": 47.6,
+      "ingresos": 6144,
+      "costes_variables": 247,
+      "costes_fijos": 10033,
+      "unicos": 0,
+      "flujo": -4135,
+      "caja_acumulada": -89349
+    },
+    {
+      "mes": 15,
+      "clientes": 56.7,
+      "ingresos": 7312,
+      "costes_variables": 294,
+      "costes_fijos": 10033,
+      "unicos": 0,
+      "flujo": -3015,
+      "caja_acumulada": -92364
+    },
+    {
+      "mes": 16,
+      "clientes": 65.5,
+      "ingresos": 8455,
+      "costes_variables": 340,
+      "costes_fijos": 10033,
+      "unicos": 0,
+      "flujo": -1917,
+      "caja_acumulada": -94282
+    },
+    {
+      "mes": 17,
+      "clientes": 74.2,
+      "ingresos": 9576,
+      "costes_variables": 385,
+      "costes_fijos": 10033,
+      "unicos": 0,
+      "flujo": -842,
+      "caja_acumulada": -95123
+    },
+    {
+      "mes": 18,
+      "clientes": 82.7,
+      "ingresos": 10675,
+      "costes_variables": 429,
+      "costes_fijos": 10033,
+      "unicos": 0,
+      "flujo": 213,
+      "caja_acumulada": -94911
+    },
+    {
+      "mes": 19,
+      "clientes": 91.1,
+      "ingresos": 11751,
+      "costes_variables": 472,
+      "costes_fijos": 10033,
+      "unicos": 0,
+      "flujo": 1246,
+      "caja_acumulada": -93665
+    },
+    {
+      "mes": 20,
+      "clientes": 99.3,
+      "ingresos": 12806,
+      "costes_variables": 515,
+      "costes_fijos": 10033,
+      "unicos": 0,
+      "flujo": 2258,
+      "caja_acumulada": -91406
+    },
+    {
+      "mes": 21,
+      "clientes": 107.3,
+      "ingresos": 13840,
+      "costes_variables": 556,
+      "costes_fijos": 10033,
+      "unicos": 0,
+      "flujo": 3251,
+      "caja_acumulada": -88156
+    },
+    {
+      "mes": 22,
+      "clientes": 115.1,
+      "ingresos": 14853,
+      "costes_variables": 597,
+      "costes_fijos": 10033,
+      "unicos": 0,
+      "flujo": 4223,
+      "caja_acumulada": -83932
+    },
+    {
+      "mes": 23,
+      "clientes": 122.8,
+      "ingresos": 15846,
+      "costes_variables": 637,
+      "costes_fijos": 10033,
+      "unicos": 0,
+      "flujo": 5176,
+      "caja_acumulada": -78756
+    },
+    {
+      "mes": 24,
+      "clientes": 130.4,
+      "ingresos": 16819,
+      "costes_variables": 676,
+      "costes_fijos": 10033,
+      "unicos": 0,
+      "flujo": 6110,
+      "caja_acumulada": -72646
+    },
+    {
+      "mes": 25,
+      "clientes": 145.8,
+      "ingresos": 18805,
+      "costes_variables": 756,
+      "costes_fijos": 13533,
+      "unicos": 0,
+      "flujo": 4516,
+      "caja_acumulada": -68130
+    },
+    {
+      "mes": 26,
+      "clientes": 160.9,
+      "ingresos": 20751,
+      "costes_variables": 834,
+      "costes_fijos": 13533,
+      "unicos": 0,
+      "flujo": 6384,
+      "caja_acumulada": -61746
+    },
+    {
+      "mes": 27,
+      "clientes": 175.6,
+      "ingresos": 22658,
+      "costes_variables": 911,
+      "costes_fijos": 13533,
+      "unicos": 0,
+      "flujo": 8214,
+      "caja_acumulada": -53532
+    },
+    {
+      "mes": 28,
+      "clientes": 190.1,
+      "ingresos": 24527,
+      "costes_variables": 986,
+      "costes_fijos": 13533,
+      "unicos": 0,
+      "flujo": 10008,
+      "caja_acumulada": -43524
+    },
+    {
+      "mes": 29,
+      "clientes": 204.3,
+      "ingresos": 26358,
+      "costes_variables": 1059,
+      "costes_fijos": 13533,
+      "unicos": 0,
+      "flujo": 11766,
+      "caja_acumulada": -31758
+    },
+    {
+      "mes": 30,
+      "clientes": 218.2,
+      "ingresos": 28153,
+      "costes_variables": 1132,
+      "costes_fijos": 13533,
+      "unicos": 0,
+      "flujo": 13488,
+      "caja_acumulada": -18270
+    },
+    {
+      "mes": 31,
+      "clientes": 231.9,
+      "ingresos": 29912,
+      "costes_variables": 1202,
+      "costes_fijos": 13533,
+      "unicos": 0,
+      "flujo": 15177,
+      "caja_acumulada": -3093
+    },
+    {
+      "mes": 32,
+      "clientes": 245.2,
+      "ingresos": 31636,
+      "costes_variables": 1272,
+      "costes_fijos": 13533,
+      "unicos": 0,
+      "flujo": 16831,
+      "caja_acumulada": 13738
+    },
+    {
+      "mes": 33,
+      "clientes": 258.3,
+      "ingresos": 33325,
+      "costes_variables": 1339,
+      "costes_fijos": 13533,
+      "unicos": 0,
+      "flujo": 18452,
+      "caja_acumulada": 32190
+    },
+    {
+      "mes": 34,
+      "clientes": 271.2,
+      "ingresos": 34980,
+      "costes_variables": 1406,
+      "costes_fijos": 13533,
+      "unicos": 0,
+      "flujo": 20041,
+      "caja_acumulada": 52232
+    },
+    {
+      "mes": 35,
+      "clientes": 283.7,
+      "ingresos": 36603,
+      "costes_variables": 1471,
+      "costes_fijos": 13533,
+      "unicos": 0,
+      "flujo": 21599,
+      "caja_acumulada": 73830
+    },
+    {
+      "mes": 36,
+      "clientes": 296.1,
+      "ingresos": 38193,
+      "costes_variables": 1535,
+      "costes_fijos": 13533,
+      "unicos": 0,
+      "flujo": 23125,
+      "caja_acumulada": 96955
+    }
+  ],
+  "supuestos": {
+    "incidencias_por_inmueble_año": {
+      "valor": 3.3,
+      "fuente": "Hemlane 2024: 3,30 solicitudes de mantenimiento por vivienda y año (EE. UU.)"
+    },
+    "planes": {
+      "valor": {
+        "Starter": [
+          49,
+          25,
+          18,
+          0.5
+        ],
+        "Professional": [
+          149,
+          100,
+          70,
+          0.35
+        ],
+        "Business": [
+          349,
+          300,
+          210,
+          0.15
+        ]
+      },
+      "fuente": "precio €/mes, inmuebles máximos, inmuebles usados de media (~70 %), cuota de clientes"
+    },
+    "gpu_servidor_eur_mes": {
+      "valor": 214.0,
+      "fuente": "Hetzner GEX45: RTX PRO 4000 Blackwell SFF, 24 GB VRAM, 214 €/mes (hetzner.com)"
+    },
+    "gpu_alta_eur": {
+      "valor": 209.0,
+      "fuente": "cuota de alta única del GEX45"
+    },
+    "gpu_vram_gb": {
+      "valor": 24,
+      "fuente": "VRAM del GEX45"
+    },
+    "modelo_vram_gb": {
+      "valor": 2.5,
+      "fuente": "qwen2.5:3b cuantizado Q4 ocupa 1,9 GB en disco + caché KV (medido en Ollama: 1,9 GB)"
+    },
+    "gpu_incidencias_por_minuto": {
+      "valor": 10,
+      "fuente": "capacidad conservadora en GPU (vLLM/Ollama con lotes): ~6 s por incidencia y concurrencia baja; ESTIMACIÓN a validar en el piloto"
+    },
+    "infra_web_bd_eur_mes": {
+      "valor": 25.0,
+      "fuente": "VPS para la web y la base de datos"
+    },
+    "infra_copias_monitor_eur_mes": {
+      "valor": 30.0,
+      "fuente": "copias de seguridad y monitorización"
+    },
+    "geocodificacion_eur_mes": {
+      "valor": 49.0,
+      "fuente": "geocodificador comercial (la API pública de Nominatim no admite uso intensivo)"
+    },
+    "dominio_correo_eur_mes": {
+      "valor": 15.0,
+      "fuente": "dominio y correo corporativo"
+    },
+    "pasarela_pago_pct": {
+      "valor": 0.015,
+      "fuente": "comisión típica de tarjeta europea"
+    },
+    "pasarela_pago_fijo_eur": {
+      "valor": 0.25,
+      "fuente": "fijo por cobro"
+    },
+    "soporte_eur_cliente_mes": {
+      "valor": 3.0,
+      "fuente": "tiempo de soporte prorrateado"
+    },
+    "fundadores": {
+      "valor": 2,
+      "fuente": "dos fundadores a tiempo completo desde el mes 1"
+    },
+    "coste_fundador_eur_mes": {
+      "valor": 2800.0,
+      "fuente": "salario modesto de fundador con Seguridad Social"
+    },
+    "contratacion_ventas_mes": {
+      "valor": 13,
+      "fuente": "comercial/éxito de cliente desde el mes 13"
+    },
+    "coste_ventas_eur_mes": {
+      "valor": 2800.0,
+      "fuente": ""
+    },
+    "contratacion_dev_mes": {
+      "valor": 25,
+      "fuente": "desarrollador desde el mes 25"
+    },
+    "coste_dev_eur_mes": {
+      "valor": 3500.0,
+      "fuente": ""
+    },
+    "legal_gestoria_eur_mes": {
+      "valor": 300.0,
+      "fuente": "gestoría, RGPD, seguros"
+    },
+    "marketing_eur_mes": {
+      "valor": 1000.0,
+      "fuente": "marketing digital + presencia en congresos de administradores de fincas"
+    },
+    "meses_pre_ingresos": {
+      "valor": 4,
+      "fuente": "4 meses para pasar del MVP a producto vendible (multiempresa, seguridad, verificación de Google)"
+    },
+    "verificacion_google_eur": {
+      "valor": 3000.0,
+      "fuente": "evaluación de seguridad CASA exigida por Google para permisos restringidos de Gmail"
+    },
+    "alta_legal_eur": {
+      "valor": 2000.0,
+      "fuente": "constitución, contratos SaaS, encargo de tratamiento RGPD"
+    },
+    "marketing_lanzamiento_eur": {
+      "valor": 4000.0,
+      "fuente": "piloto con administradores de fincas"
+    },
+    "altas_mes": {
+      "valor": {
+        "1": 0,
+        "5": 3,
+        "6": 4,
+        "13": 10,
+        "25": 18
+      },
+      "fuente": "altas netas por mes a partir de ese mes (5 = lanzamiento con pilotos)"
+    },
+    "churn_mensual": {
+      "valor": 0.02,
+      "fuente": "2 % de bajas al mes, típico de SaaS para pymes"
+    },
+    "inversion_solicitada_eur": {
+      "valor": 110000.0,
+      "fuente": "ronda pre-semilla: cubre la necesidad máxima de caja del modelo con un margen de ~15 %"
+    },
+    "participacion_inversor": {
+      "valor": 0.2,
+      "fuente": "20 % del capital"
+    },
+    "multiplo_arr": {
+      "valor": 4.0,
+      "fuente": "valoración a 3 años = 4 × ingresos recurrentes anuales (múltiplo prudente de SaaS vertical)"
+    },
+    "usd_eur": {
+      "valor": 0.92,
+      "fuente": "tipo de cambio usado para valorar los tokens de construcción"
+    }
+  }
+}

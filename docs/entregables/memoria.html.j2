@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>PropertyFix — Memoria</title>
+{% set r = fin.resumen %}{% set m = fin.mezcla %}{% set c = fin.consumo %}
+{% set e1 = ev['ciego_2:v1_antiguo'] %}{% set e2 = ev['ciego_2:v2'] %}{% set er = ev['ciego_2:reglas'] %}
+{% set opus = build.modelos['claude-opus-5-5'] %}
+<style>
+@page { size: A4; margin: 17mm 17mm 18mm 17mm; }
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; font-size: 9.6pt; line-height: 1.42; color: #1b2830; margin: 0; }
+h1 { font-size: 17pt; color: #0f6e56; margin: 0 0 6px; letter-spacing: -.01em; }
+h2 { font-size: 13pt; color: #0f6e56; margin: 16px 0 6px; padding-bottom: 3px; border-bottom: 2px solid #0f6e56; page-break-after: avoid; }
+h3 { font-size: 10.5pt; margin: 11px 0 4px; color: #12353a; page-break-after: avoid; }
+p { margin: 0 0 6px; text-align: justify; }
+ul { margin: 2px 0 6px; padding-left: 17px; } li { margin-bottom: 2px; }
+table { width: 100%; border-collapse: collapse; margin: 5px 0 9px; font-size: 8.4pt; page-break-inside: avoid; }
+th { background: #e8f3ef; color: #12353a; text-align: left; padding: 3px 5px; border: 1px solid #c9ddd6; }
+td { padding: 3px 5px; border: 1px solid #dde6e3; vertical-align: top; }
+td.n, th.n { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.est { display: inline-block; background: #fff3dc; color: #8a5300; border: 1px solid #f0d6a6; border-radius: 3px; padding: 0 4px; font-size: 7.4pt; font-weight: 700; }
+.med { display: inline-block; background: #e3f4ec; color: #0b5c45; border: 1px solid #b9e0cf; border-radius: 3px; padding: 0 4px; font-size: 7.4pt; font-weight: 700; }
+.caja { border: 1px solid #c9ddd6; background: #f5faf8; border-radius: 5px; padding: 7px 10px; margin: 6px 0 9px; page-break-inside: avoid; }
+.caja.amb { background: #fffaf0; border-color: #f0d6a6; }
+.fuente { font-size: 7.6pt; color: #5a6a73; }
+.dos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dafo { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid #c9ddd6; font-size: 8.4pt; page-break-inside: avoid; margin: 5px 0 9px; }
+.dafo > div { padding: 5px 8px; border: 1px solid #dde6e3; } .dafo b { color: #0f6e56; }
+.salto { page-break-before: always; }
+.portada { height: 255mm; display: flex; flex-direction: column; justify-content: space-between; }
+.portada .marca { font-size: 34pt; font-weight: 800; color: #0f6e56; letter-spacing: -.02em; }
+.portada .sub { font-size: 14pt; color: #33474f; max-width: 140mm; }
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; margin: 6px 0 9px; }
+.kpi { border: 1px solid #c9ddd6; border-radius: 5px; padding: 6px 8px; background: #fff; }
+.kpi b { display: block; font-size: 13pt; color: #0f6e56; } .kpi span { font-size: 7.6pt; color: #5a6a73; }
+code { font-family: Consolas, monospace; font-size: 8pt; background: #f0f4f3; padding: 0 3px; border-radius: 2px; }
+svg text { font-family: "Segoe UI", Arial, sans-serif; }
+</style>
+</head>
+<body>
+
+<!-- ============================== PORTADA ============================== -->
+<section class="portada">
+  <div>
+    <div style="font-size:9pt;color:#5a6a73;letter-spacing:.08em;text-transform:uppercase">Práctica final · Deep Learning para Business Analytics · ICADE (Comillas) · Curso 2026–2027</div>
+    <div class="marca" style="margin-top:50mm">PropertyFix</div>
+    <div class="sub">Gestión de incidencias de viviendas en alquiler con agentes de IA: del email del inquilino a la cita con el técnico, con el gestor aprobando cada gasto.</div>
+    <p style="margin-top:10mm;font-size:11pt"><b>Memoria y plan de negocio</b></p>
+  </div>
+  <div style="font-size:10pt">
+    <p><b>Equipo:</b> [Nombre Apellido 1] · [Nombre Apellido 2] · [Nombre Apellido 3]</p>
+    <p><b>Profesor:</b> Eduardo C. Garrido-Merchán</p>
+    <p><b>Código:</b> github.com/i-astarloa/propertyfix · <b>Fecha:</b> {{ fecha }}</p>
+    <p class="fuente">Convención en todo el documento: <span class="med">MEDIDO</span> = cifra obtenida ejecutando nuestro sistema (reproducible con el script indicado); <span class="est">ESTIMACIÓN</span> = supuesto de negocio, con su fuente o razón al lado.</p>
+  </div>
+</section>
+
+<!-- ============================== TRAZABILIDAD + RESUMEN ============================== -->
+<section class="salto">
+<h2 style="margin-top:0">Declaración de uso de IA (trazabilidad)</h2>
+<table>
+<tr><th style="width:24%">Herramienta</th><th>Para qué se ha usado</th></tr>
+<tr><td>Claude Code (Anthropic, modelo Claude Opus 5.5)</td><td>Lectura de las instrucciones y de las diapositivas de los días 13–17; diseño de la arquitectura; generación del código de la app, los servidores MCP, los tests y los scripts de evaluación y del modelo financiero; búsqueda de datos de mercado; redacción de esta memoria y de las diapositivas. Cada propuesta se revisó y probó en la app; las decisiones de producto (plataformas, cuenta de Google, alcance) las tomó el equipo.</td></tr>
+<tr><td>Otro asistente de IA conversacional</td><td>Primer borrador de la idea de negocio (concepto, clientes, planes de precios iniciales).</td></tr>
+<tr><td>Qwen 2.5 3B (Ollama)</td><td>Es el modelo <i>dentro</i> del producto (no una herramienta de redacción).</td></tr>
+</table>
+<p class="fuente">Los prompts relevantes se conservan en <code>prompts/</code> y el registro completo de decisiones técnicas en <code>docs/decisiones.md</code>.</p>
+
+<h2>Resumen ejecutivo</h2>
+<p>Un administrador de fincas o gestor de alquileres recibe averías a diario por email y teléfono. Cada una exige leer, entender, buscar un técnico, pedir precio, cuadrar una cita y avisar a todos: trabajo repetitivo que hoy se hace a mano. <b>PropertyFix</b> lo hace con cuatro agentes de IA que clasifican la avería, comparan proveedores por precio, distancia, valoración y rapidez, buscan hueco en el Google Calendar del gestor y, <b>solo cuando él aprueba</b>, crean la cita, suben el presupuesto a Google Drive, envían las confirmaciones por Gmail y lo registran en Google Sheets.</p>
+<div class="kpis">
+  <div class="kpi"><b>{{ e2.acierto_trabajo|pct }}</b><span>acierto del clasificador en casos ciegos (antes: {{ e1.acierto_trabajo|pct }}) <span class="med">MEDIDO</span></span></div>
+  <div class="kpi"><b>{{ cons.tokens_entrada_medios|num }} / {{ cons.tokens_salida_medios|num }}</b><span>tokens de entrada / salida por incidencia <span class="med">MEDIDO</span></span></div>
+  <div class="kpi"><b>{{ m.arpu_eur_mes|eur }}</b><span>ingreso medio por cliente y mes <span class="est">ESTIMACIÓN</span></span></div>
+  <div class="kpi"><b>mes {{ r.mes_equilibrio_operativo }}</b><span>equilibrio operativo; {{ r.clientes_equilibrio_año1|num(0) }} clientes cubren los fijos del año 1 <span class="est">ESTIMACIÓN</span></span></div>
+</div>
+<p>El modelo de lenguaje es abierto (Qwen 2.5 3B) y corre en nuestro propio servidor: el coste del modelo es un servidor GPU fijo de {{ fin.supuestos.gpu_servidor_eur_mes.valor|eur }}/mes que da para unos {{ c.clientes_por_gpu|num }} clientes, y los datos de los inquilinos no salen hacia ningún proveedor de IA. Pedimos <b>{{ fin.supuestos.inversion_solicitada_eur.valor|eur }}</b> por el {{ fin.supuestos.participacion_inversor.valor|pct }} para llevar el MVP a producto y alcanzar unos {{ r.clientes_mes_36|num }} clientes en 36 meses.</p>
+
+<!-- ============================== 1. PROBLEMA ============================== -->
+<h2>1. El problema y de quién es</h2>
+<p><b>De quién es.</b> Del que gestiona muchas viviendas de alquiler y paga por resolver averías rápido: <b>administradores de fincas</b> (más de 15.400 colegiados en España), <b>gestoras de alquiler</b> (<i>property managers</i>), <b>propietarios con varias viviendas</b> (el 52,8 % de las viviendas alquiladas por particulares pertenece a multiarrendadores) y operadores de <i>build to rent</i>. El inquilino y el técnico intervienen, pero no pagan: el modelo es B2B.</p>
+<p><b>El dolor.</b> Una vivienda genera de media <b>3,3 solicitudes de mantenimiento al año</b>. Con 100 viviendas son unas 27 incidencias al mes, y cada una son entre 6 y 10 pasos manuales: leer un mensaje ambiguo, decidir si es urgente, buscar técnico de la especialidad y la zona, pedir presupuesto, compararlo, acordar fecha con el técnico y con el inquilino, enviar confirmaciones y hacer seguimiento. Estimamos 40–50 minutos de gestor por incidencia <span class="est">ESTIMACIÓN</span> (proceso descrito en el plan de negocio; a validar en el piloto), es decir, unas 20 horas al mes por cada 100 viviendas.</p>
+<p><b>Qué hace el agente que no haría un formulario.</b> Un formulario recoge datos; PropertyFix <b>decide y actúa</b>: entiende texto libre o un email, decide categoría, trabajo y urgencia, decide si puede seguir, si debe preguntar algo o si debe escalarlo a una persona (por ejemplo, un intento de manipulación o un mensaje que no es una avería), elige proveedor y justifica cuándo se aparta del ranking, cruza la agenda del técnico con el calendario real del gestor y ejecuta acciones en cuatro plataformas.</p>
+<p class="fuente">Fuentes: CGCAFE vía Idealista (colegiados); Ministerio de Derechos Sociales con datos de la AEAT, abril 2026 (multiarrendadores); Hemlane, <i>Rental Property Maintenance Data</i> 2024 (3,30 solicitudes por vivienda y año).</p>
+
+<!-- ============================== 2. MERCADO ============================== -->
+<h2>2. Mercado, competencia y posicionamiento</h2>
+<h3>2.1 Tamaño de mercado</h3>
+{% set precio_inm = m.arpu_eur_mes / m.inmuebles_medios %}
+<table>
+<tr><th>Nivel</th><th>Definición</th><th class="n">Viviendas</th><th class="n">€/año</th><th>Base</th></tr>
+<tr><td><b>TAM</b></td><td>Todas las viviendas en alquiler en España</td><td class="n">3.920.000</td><td class="n">{{ (3920000 * precio_inm * 12)|eur }}</td><td>INE, Encuesta Continua de Población, 1/1/2025 <span class="med">DATO</span> × {{ precio_inm|eur(2) }}/vivienda/mes <span class="est">ESTIMACIÓN</span></td></tr>
+<tr><td><b>SAM</b></td><td>Viviendas de multiarrendadores particulares (52,8 % de 2,48 M declaradas)</td><td class="n">1.309.000</td><td class="n">{{ (1309000 * precio_inm * 12)|eur }}</td><td>AEAT 2023 vía OCU y Ministerio de Derechos Sociales <span class="med">DATO</span>; no incluye sociedades (lo hace conservador)</td></tr>
+<tr><td><b>SOM (36 meses)</b></td><td>Clientes del plan financiero × viviendas medias</td><td class="n">{{ (r.clientes_mes_36 * m.inmuebles_medios)|num }}</td><td class="n">{{ r.arr_mes_36|eur }}</td><td>Proyección del §6 <span class="est">ESTIMACIÓN</span> ({{ pct((r.clientes_mes_36 * m.inmuebles_medios) / 1309000, 1) }} del SAM)</td></tr>
+</table>
+
+<h3>2.2 Competencia y posicionamiento</h3>
+<table>
+<tr><th>Competidor</th><th>Qué hace</th><th>Precio</th><th>Diferencia con PropertyFix</th></tr>
+<tr><td><b>Fixflo</b> (Reino Unido)</td><td>Portal de incidencias para gestoras y comunidades</td><td>desde 0,30 £/vivienda/mes; comunidades 0,20 £/vivienda + 50 £/mes</td><td>Registra y enruta; el gestor sigue eligiendo técnico, presupuestando y agendando a mano.</td></tr>
+<tr><td><b>Homming</b> (España)</td><td>Software de gestión de alquileres; incidencias con fotos; usa IA para monitorizar incidencias; más de 40.000 activos</td><td>a medida según volumen; gratis 1 vivienda</td><td>Plataforma generalista de alquiler; la incidencia es un módulo más, sin coordinación autónoma de proveedores ni agenda.</td></tr>
+<tr><td><b>VecinApp, Gesfincas, Cegid Finca3</b></td><td>Software de administración de fincas (contabilidad, juntas, avisos e incidencias)</td><td>no publicado</td><td>Sistema de registro; no ejecutan el proceso.</td></tr>
+<tr><td><b>Asistentes generalistas</b> (ChatGPT, Gemini, Claude con Gmail/Calendar)</td><td>Pueden redactar emails y crear eventos si se les pide</td><td>15–25 €/usuario/mes</td><td>No conocen la cartera, los proveedores ni las tarifas; no tienen flujo de aprobación, traza auditable ni historial por inmueble.</td></tr>
+</table>
+<p><b>Posicionamiento:</b> no competimos en «registrar incidencias», donde el precio por vivienda ya es muy bajo, sino en <b>ejecutarlas</b>: somos el operario digital que hace el trabajo de coordinación. El precio se justifica por las horas que ahorra, no por las funciones.</p>
+<p class="fuente">Fuentes: fixflo.com/pricing; Vozpópuli (Homming, 40.000 activos en 2024); SoftwareDoit; Appvizer.</p>
+
+<h3>2.3 Cinco fuerzas de Porter</h3>
+<table>
+<tr><th style="width:22%">Fuerza</th><th style="width:9%">Intensidad</th><th>Análisis</th></tr>
+<tr><td>Rivalidad entre competidores</td><td>Media</td><td>Hay muchos programas de administración, pero pocos ejecutan el proceso de incidencias de punta a punta en español y con IA.</td></tr>
+<tr><td>Amenaza de nuevos entrantes</td><td><b>Alta</b></td><td>Los modelos abiertos y MCP abaratan construir un MVP parecido (este se hizo por {{ build.total_eur|eur(0) }} en tokens). La barrera está en la red de proveedores, el historial y la integración en el día a día del gestor, no en el código.</td></tr>
+<tr><td>Productos sustitutivos</td><td><b>Alta</b></td><td>Hacerlo a mano (Excel y WhatsApp), aseguradoras con red de reparadores propia y asistentes generalistas con acceso a Gmail.</td></tr>
+<tr><td>Poder de los clientes</td><td>Media</td><td>Los administradores grandes negocian; los pequeños no tienen alternativa automatizada. El cambio de proveedor es fácil al principio y se encarece con el historial acumulado.</td></tr>
+<tr><td>Poder de los proveedores</td><td>Baja</td><td>El modelo es abierto (Apache 2.0) e intercambiable; las GPU se alquilan a varios proveedores (Hetzner, OVH, Scaleway); Google Workspace es casi imprescindible, pero sus APIs no tienen coste.</td></tr>
+</table>
+
+<h3>2.4 DAFO</h3>
+<div class="dafo">
+  <div><b>Debilidades</b><ul><li>Modelo de 3B: {{ e2.acierto_trabajo|pct }} de acierto en casos ciegos; necesita verificador y revisión humana.</li><li>Sin red real de proveedores todavía (directorio ficticio).</li><li>Latencia de ~{{ cons.segundos_totales_mediana|num }} s por incidencia en CPU.</li><li>Equipo sin experiencia comercial en el sector.</li></ul></div>
+  <div><b>Amenazas</b><ul><li>Un generalista gratuito que haga lo mismo con Gmail y Calendar.</li><li>Homming o los programas de fincas añaden agentes a su producto.</li><li>Google exige una evaluación de seguridad (CASA) para leer Gmail.</li><li>Cumplimiento del AI Act (art. 50) y del RGPD.</li></ul></div>
+  <div><b>Fortalezas</b><ul><li>Ejecuta el proceso completo con aprobación humana: ningún competidor analizado lo hace.</li><li>Coste del modelo casi nulo por cliente y fijo; datos en servidor propio europeo.</li><li>Arquitectura MCP: cambiar Gmail por Outlook o Sheets por un ERP no toca los agentes.</li><li>Acierto y consumo medidos y reproducibles.</li></ul></div>
+  <div><b>Oportunidades</b><ul><li>3,92 M de viviendas en alquiler; presión regulatoria y profesionalización del alquiler.</li><li>Los gestores pequeños aún no usan software de incidencias.</li><li>Datos acumulados: coste por inmueble, mantenimiento preventivo, garantías.</li><li>Cada mejora de los modelos abiertos mejora el producto sin coste.</li></ul></div>
+</div>
+
+<h3>2.5 Cadena de valor y matriz BCG</h3>
+<p><b>Cadena de valor (Porter).</b> <i>Logística de entrada:</i> captura de la incidencia (web, email con la tarea en bucle). <i>Operaciones:</i> los agentes clasifican, comparan y agendan; es donde se crea casi todo el valor y donde está la IA. <i>Logística de salida:</i> cita en Calendar, presupuesto en Drive, emails y registro en Sheets. <i>Marketing y ventas:</i> congresos y colegios de administradores de fincas, pilotos gratuitos. <i>Servicio:</i> seguimiento, cierre y valoración del proveedor. <i>Apoyo:</i> infraestructura propia (GPU y MCP), directorio y tarifas de proveedores, cumplimiento. El margen sale de quitar horas de gestor en <i>operaciones</i>.</p>
+<table>
+<tr><th>Línea de producto</th><th>Cuadrante BCG</th><th>Razón y decisión</th></tr>
+<tr><td>Gestión de incidencias con agentes (núcleo actual)</td><td><b>Interrogante → Estrella</b></td><td>Mercado en crecimiento, cuota todavía nula: aquí va la inversión.</td></tr>
+<tr><td>Analítica de costes por inmueble y proveedor</td><td>Interrogante</td><td>Ya existe en la app; se convierte en vaca lechera cuando haya historial (plan Business).</td></tr>
+<tr><td>Asesor legal LAU con RAG (quién paga cada reparación)</td><td>Interrogante</td><td>Diferenciador; siguiente hito técnico (§8).</td></tr>
+<tr><td>Registro simple de incidencias</td><td>Perro</td><td>Mercado maduro con precios de céntimos (Fixflo): no competimos ahí, se ofrece como parte del producto.</td></tr>
+</table>
+
+<h3>2.6 ¿Y si un modelo generalista lo hace gratis dentro de un año?</h3>
+<p>Es probable que un asistente generalista con acceso a Gmail y Calendar pueda «buscar un fontanero y agendarlo». Nuestra respuesta tiene tres partes:</p>
+<ul>
+<li><b>Lo que el generalista no tiene:</b> la cartera de inmuebles, el directorio de proveedores con tarifas y zonas, el historial de cada vivienda, el flujo de aprobación con varios usuarios, la traza auditable y el cumplimiento del AI Act y del RGPD integrados. El valor está en el proceso y los datos, no en el modelo.</li>
+<li><b>Somos agnósticos al modelo:</b> si el generalista mejora y se abarata, lo usamos por dentro. Cambiar de modelo es una variable de configuración (<code>OLLAMA_MODEL</code>) y el examen de evaluación dice en minutos si el cambio mejora.</li>
+<li><b>El foso crece con el uso:</b> cada incidencia cerrada mejora las tarifas reales, la valoración de proveedores y los tiempos por tipo de avería. Un competidor que llegue tarde no tiene esos datos.</li>
+</ul>
+
+<!-- ============================== 3. ARQUITECTURA ============================== -->
+<h2 class="salto" style="margin-top:0">3. Arquitectura</h2>
+<h3>3.1 Diseño multiagente: orquestador con trabajadores</h3>
+<svg viewBox="0 0 700 300" width="100%" style="margin:2px 0 6px">
+  <defs><marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5a6a73"/></marker></defs>
+  <rect x="200" y="4" width="300" height="34" rx="6" fill="#f0f4f3" stroke="#9bb3ab"/>
+  <text x="350" y="20" text-anchor="middle" font-size="11" font-weight="700">Gestor (web) · Inquilino (email, tarea en bucle)</text>
+  <text x="350" y="32" text-anchor="middle" font-size="9" fill="#5a6a73">texto libre en lenguaje natural</text>
+  <line x1="350" y1="38" x2="350" y2="60" stroke="#5a6a73" marker-end="url(#f)"/>
+  <rect x="190" y="60" width="320" height="56" rx="8" fill="#0f6e56"/>
+  <text x="350" y="80" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff">ORQUESTADOR</text>
+  <text x="350" y="95" text-anchor="middle" font-size="9.2" fill="#d8efe6">máquina de estados + decisión del LLM verificada por reglas</text>
+  <text x="350" y="108" text-anchor="middle" font-size="9.2" fill="#d8efe6">continuar · pedir información · escalar a humano · presupuesto de tokens</text>
+  <line x1="260" y1="116" x2="115" y2="146" stroke="#5a6a73" marker-end="url(#f)"/>
+  <line x1="350" y1="116" x2="350" y2="146" stroke="#5a6a73" marker-end="url(#f)"/>
+  <line x1="440" y1="116" x2="585" y2="146" stroke="#5a6a73" marker-end="url(#f)"/>
+  <text x="168" y="130" font-size="8" fill="#5a6a73">texto</text>
+  <text x="356" y="136" font-size="8" fill="#5a6a73">clasificación + coordenadas</text>
+  <text x="515" y="130" font-size="8" fill="#5a6a73">propuesta aprobada</text>
+  <rect x="20" y="146" width="190" height="56" rx="7" fill="#e8f3ef" stroke="#0f6e56"/>
+  <text x="115" y="164" text-anchor="middle" font-size="11" font-weight="700">CLASIFICADOR</text>
+  <text x="115" y="178" text-anchor="middle" font-size="8.6">categoría → trabajo · urgencia</text>
+  <text x="115" y="191" text-anchor="middle" font-size="8.6">verificador léxico · «no es avería»</text>
+  <rect x="255" y="146" width="190" height="56" rx="7" fill="#e8f3ef" stroke="#0f6e56"/>
+  <text x="350" y="164" text-anchor="middle" font-size="11" font-weight="700">PROVEEDORES</text>
+  <text x="350" y="178" text-anchor="middle" font-size="8.6">geolocaliza · compara precio, km,</text>
+  <text x="350" y="191" text-anchor="middle" font-size="8.6">valoración y rapidez · elige y justifica</text>
+  <rect x="490" y="146" width="190" height="56" rx="7" fill="#e8f3ef" stroke="#0f6e56"/>
+  <text x="585" y="164" text-anchor="middle" font-size="11" font-weight="700">COMUNICACIONES</text>
+  <text x="585" y="178" text-anchor="middle" font-size="8.6">hueco en el calendario · documento</text>
+  <text x="585" y="191" text-anchor="middle" font-size="8.6">emails · registro de estado</text>
+  <rect x="20" y="222" width="660" height="28" rx="6" fill="#fff7e8" stroke="#e1b86a"/>
+  <text x="350" y="240" text-anchor="middle" font-size="9.6" font-weight="700">HubMCP: permisos por agente · aprobación humana obligatoria · detector de bucles · tiempo máximo · reintento · respaldo · traza</text>
+  <line x1="115" y1="202" x2="115" y2="222" stroke="#5a6a73"/><line x1="350" y1="202" x2="350" y2="222" stroke="#5a6a73"/><line x1="585" y1="202" x2="585" y2="222" stroke="#5a6a73"/>
+  <g font-size="9" text-anchor="middle">
+    <rect x="20" y="262" width="120" height="30" rx="5" fill="#fff" stroke="#9bb3ab"/><text x="80" y="281">Directorio + OSM</text>
+    <rect x="152" y="262" width="120" height="30" rx="5" fill="#fff" stroke="#9bb3ab"/><text x="212" y="281">Gmail</text>
+    <rect x="284" y="262" width="120" height="30" rx="5" fill="#fff" stroke="#9bb3ab"/><text x="344" y="281">Google Calendar</text>
+    <rect x="416" y="262" width="120" height="30" rx="5" fill="#fff" stroke="#9bb3ab"/><text x="476" y="281">Google Drive</text>
+    <rect x="548" y="262" width="132" height="30" rx="5" fill="#fff" stroke="#9bb3ab"/><text x="614" y="281">Google Sheets</text>
+  </g>
+  <line x1="350" y1="250" x2="350" y2="262" stroke="#5a6a73"/>
+</svg>
+<p><b>Quién llama a quién:</b> solo el orquestador llama a los agentes; los agentes no se hablan entre sí y le devuelven JSON validado contra un esquema. <b>Contexto compartido: ninguno.</b> Cada agente recibe solo los campos que necesita y el estado vive en la base de datos. Así hay menos tokens por llamada (importante con un contexto de 4.096 tokens) y menos datos personales expuestos: el agente que elige proveedor nunca ve el nombre, el email ni el teléfono del cliente.</p>
+<p><b>Por qué este patrón y no otro.</b> Descartamos el <i>agente autónomo único</i> con todas las herramientas: con 3B el bucle libre de herramientas es poco fiable (inventa argumentos, repite llamadas) y tendría permiso de enviar correos en todo momento. Descartamos el <i>orquestador 100 % LLM</i> porque la aprobación humana no debe depender de que el modelo decida pedirla: con una máquina de estados, el paso «reservar» solo existe después de que el gestor pulse «Aprobar». Del patrón <i>programador y verificadores</i> tomamos el verificador por reglas, sin un segundo LLM que duplicaría coste y latencia.</p>
+
+<h3>3.2 Modelo, esfuerzo y arnés</h3>
+<table>
+<tr><th style="width:18%">Pieza</th><th>Elección</th><th>Por qué</th></tr>
+<tr><td>Modelo</td><td><b>Qwen 2.5 3B Instruct</b> (<code>qwen2.5:3b</code>, Alibaba, Apache 2.0), cuantizado Q4, servido con <b>Ollama</b>. El mismo modelo para los cuatro agentes.</td><td>Gratuito y local: los datos no salen del servidor. Con 3B cabe en CPU (desarrollo) y sobra en una GPU de 24 GB (producción), donde caben también 7B o 14B.</td></tr>
+<tr><td>Esfuerzo</td><td><code>temperature=0</code>, <code>seed=42</code>. Salida máxima por tarea: categoría 160 tokens, trabajo 40, decisión del orquestador 120, elección de proveedor 200, redacción 220. Salida JSON con esquema y enumeraciones cerradas.</td><td>Clasificar y decidir son tareas cortas y deterministas; la redacción admite algo más. Reproducible y acotado: el modelo solo puede elegir opciones que existen.</td></tr>
+<tr><td>Arnés</td><td>Código Python propio (FastAPI + bucle de agentes) con el cliente oficial del SDK de MCP (v1.30) y servidores MCP propios por stdio.</td><td>Control total de permisos, aprobación, traza y medición de tokens; sin dependencia de un proveedor de agentes.</td></tr>
+</table>
+
+<h3>3.3 MCP a cinco plataformas, con lectura y escritura</h3>
+<table>
+<tr><th>Servidor MCP</th><th>Herramientas</th><th>Permiso</th><th>Qué pasa si falla</th></tr>
+<tr><td>Gmail</td><td><code>enviar_email</code>, <code>buscar_emails</code>, <code>marcar_procesado</code></td><td>escritura externa (aprobación) · lectura</td><td>reintento → modo simulado; el envío solo admite destinatarios de una lista blanca</td></tr>
+<tr><td>Google Calendar</td><td><code>consultar_ocupacion</code>, <code>crear_evento</code></td><td>lectura · escritura (aprobación)</td><td>reintento → modo simulado (caso real en la traza de abajo)</td></tr>
+<tr><td>Google Drive</td><td><code>crear_documento</code> (Docs + PDF)</td><td>escritura (aprobación), alcance <code>drive.file</code></td><td>reintento → documento HTML local</td></tr>
+<tr><td>Google Sheets</td><td><code>registrar</code>, <code>leer_registro</code></td><td>escritura interna · lectura</td><td>no crítico: se anota y la incidencia sigue</td></tr>
+<tr><td>Directorio (+ OpenStreetMap)</td><td><code>geolocalizar</code>, <code>comparar_ofertas</code>, <code>catalogo_trabajos</code></td><td>lectura (API externa gratuita)</td><td>si Nominatim no responde: tabla local de códigos postales</td></tr>
+</table>
+
+<h3>3.4 Traza de una sesión real ({{ traza_id }}, Google real, 25/11/2026)</h3>
+<table>
+<tr><th>Agente</th><th>Acción</th><th>Herramienta</th><th>Permiso</th><th class="n">Tokens ent./sal.</th><th class="n">ms</th><th>Resultado</th></tr>
+{% for t in traza if t.tipo in ['llm', 'mcp', 'info', 'decision'] %}
+<tr><td>{{ t.agente }}</td><td>{{ t.tipo|upper if t.tipo in ['llm','mcp'] else t.tipo }}</td><td>{{ t.herramienta }}</td><td>{{ t.permiso }}</td>
+<td class="n">{% if t.tipo == 'llm' %}{{ t.tokens_entrada }} / {{ t.tokens_salida }}{% endif %}</td><td class="n">{{ t.ms or '' }}</td>
+<td>{% if not t.ok %}<b style="color:#b3261e">FALLO</b> {% endif %}{{ (t.detalle.split('→')[0] if t.tipo == 'mcp' else t.detalle)|truncate(78) }}</td></tr>
+{% endfor %}
+</table>
+<p class="fuente">Extraída de <code>app/runtime/propertyfix.db</code>. Sesión hecha con la versión inicial del clasificador (una llamada; la actual hace dos, ver §3.6). Cada llamada al modelo lleva los tokens que devuelve Ollama (<code>prompt_eval_count</code> y <code>eval_count</code>). El fallo es real: en Windows faltaba la base de datos de zonas horarias; el hub activó el respaldo, la reserva se completó y después se corrigió (<code>tzdata</code>).</p>
+
+<h3>3.5 Barandillas contra la inyección de prompt y los errores del modelo</h3>
+<ul>
+<li><b>Aislamiento:</b> todo texto externo va entre etiquetas <code>&lt;datos_usuario&gt;</code>, con la instrucción de tratarlo como datos; además se detectan patrones de inyección y, si aparecen, la incidencia se escala a una persona.</li>
+<li><b>Salida acotada:</b> esquemas JSON con enumeraciones; las cifras (precios, fechas) las pone el código, nunca el modelo.</li>
+<li><b>Permisos por agente</b> (el clasificador no puede enviar correos) y <b>aprobación humana obligatoria</b> para Calendar, Drive y Gmail, con doble confirmación por encima de 1.000 €.</li>
+<li><b>Lista blanca de destinatarios</b> en el propio servidor de Gmail: aunque el modelo fuera manipulado, no puede escribir a terceros.</li>
+<li><b>Presupuesto de 20.000 tokens</b> por incidencia, <b>detector de bucles</b> (misma llamada tres veces) y <b>tiempo máximo</b> por llamada. 18 tests automáticos comprueban estas barreras.</li>
+</ul>
+
+<h3>3.6 Evaluación medida del agente clasificador</h3>
+<p>En las pruebas reales el modelo confundió un lavavajillas con «pintar» y un retrete con una lavadora. Lo medimos con casos anotados a mano y rediseñamos el agente: dos pasos (categoría y después trabajo), un verificador léxico, la opción «no es una avería» y una segunda opinión antes de descartar. Para no engañarnos, la cifra que defendemos es la de un <b>tercer examen ciego</b>, escrito después de congelar la versión final.</p>
+<table>
+<tr><th>Variante (mismo modelo qwen2.5:3b)</th><th class="n">Acierto categoría</th><th class="n">Acierto trabajo</th><th class="n">«No es avería»</th><th class="n">Tokens ent./caso</th><th class="n">s/caso</th></tr>
+<tr><td>Solo palabras clave, sin modelo</td><td class="n">{{ er.acierto_tipo|pct }}</td><td class="n">{{ er.acierto_trabajo|pct }}</td><td class="n">{{ er.fuera_de_ambito_detectados }}</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>v1: un paso entre todos los trabajos (versión inicial)</td><td class="n">{{ e1.acierto_tipo|pct }}</td><td class="n">{{ e1.acierto_trabajo|pct }}</td><td class="n">{{ e1.fuera_de_ambito_detectados }}</td><td class="n">{{ e1.tokens_entrada_medios|num }}</td><td class="n">{{ e1.segundos_medios|num(1) }}</td></tr>
+<tr><td><b>v2.1: dos pasos + verificador + segunda opinión (actual)</b></td><td class="n"><b>{{ e2.acierto_tipo|pct }}</b></td><td class="n"><b>{{ e2.acierto_trabajo|pct }}</b></td><td class="n">{{ e2.fuera_de_ambito_detectados }}</td><td class="n">{{ e2.tokens_entrada_medios|num }}</td><td class="n">{{ e2.segundos_medios|num(1) }}</td></tr>
+</table>
+<p class="fuente">Examen ciego 2: {{ e2.casos }} casos (<code>app/data/evaluacion/casos_ciegos_2.json</code>). <span class="med">MEDIDO</span> con <code>evaluar_clasificador.py</code>. Resultados de los tres exámenes en <code>docs/evaluacion_clasificador.md</code>. Las palabras clave solas sacan 93 % en el examen con el que se diseñaron y caen en los ciegos: sirven como red de seguridad, no como clasificador.</p>
+
+<!-- ============================== 4. CONSUMO ============================== -->
+<h2>4. Consumo por usuario</h2>
+<p>Una <b>sesión</b> es una incidencia procesada de punta a punta: clasificación, decisión, comparación, propuesta, aprobación y reserva. Medimos {{ cons.incidencias }} sesiones completas con <code>medir_consumo.py</code>.</p>
+<table>
+<tr><th>Concepto</th><th class="n">Valor</th><th>Origen</th></tr>
+<tr><td>Tokens de entrada por sesión</td><td class="n">{{ cons.tokens_entrada_medios|num }}</td><td><span class="med">MEDIDO</span> (desviación típica {{ cons.tokens_entrada_desv|num }})</td></tr>
+<tr><td>Tokens de salida por sesión</td><td class="n">{{ cons.tokens_salida_medios|num }}</td><td><span class="med">MEDIDO</span></td></tr>
+<tr><td>Llamadas al modelo / llamadas MCP por sesión</td><td class="n">{{ cons.llamadas_llm_medias|num(1) }} / {{ cons.llamadas_mcp_medias|num(1) }}</td><td><span class="med">MEDIDO</span></td></tr>
+<tr><td>Fracción de la entrada cacheable (instrucciones fijas de los agentes)</td><td class="n">{{ cons.fraccion_cacheable_entrada|pct }}</td><td><span class="med">MEDIDO</span>: tokens de los prompts de sistema ÷ entrada total</td></tr>
+<tr><td>Tiempo por sesión en el portátil (solo CPU)</td><td class="n">{{ cons.segundos_totales_mediana|num }} s (mediana)</td><td><span class="med">MEDIDO</span> en i7-1355U sin GPU. Una de las {{ cons.incidencias }} tardó 1.355 s porque el modelo seguía ocupado con otro proceso: agotó el tiempo y actuaron los respaldos</td></tr>
+<tr><td>Sesiones por cliente y mes</td><td class="n">{{ c.sesiones_cliente_mes|num(1) }}</td><td><span class="est">ESTIMACIÓN</span>: {{ m.inmuebles_medios|num }} viviendas medias × 3,3 incidencias/año ÷ 12</td></tr>
+<tr><td><b>Tokens por cliente y mes</b> (entrada / salida)</td><td class="n"><b>{{ c.tokens_entrada_cliente_mes|num }} / {{ c.tokens_salida_cliente_mes|num }}</b></td><td>medido × estimado</td></tr>
+</table>
+<p><b>Del token al euro.</b> Con un modelo abierto no se paga por token, sino por el servidor. Un GPU Hetzner GEX45 (24 GB de VRAM, 214 €/mes, 730 h) procesa de forma conservadora unas {{ fin.supuestos.gpu_incidencias_por_minuto.valor }} incidencias por minuto <span class="est">ESTIMACIÓN</span>, es decir, {{ c.capacidad_gpu_incidencias_mes|num }} al mes, suficiente para unos <b>{{ c.clientes_por_gpu|num }} clientes</b>. El coste marginal de modelo por cliente es <b>{{ c.coste_marginal_gpu_cliente_mes|eur(3) }}/mes</b>; el coste medio depende de cuántos clientes compartan el servidor (con {{ r.clientes_mes_12|num }} clientes en el mes 12, {{ (fin.supuestos.gpu_servidor_eur_mes.valor / r.clientes_mes_12)|eur(2) }}/cliente). La caché de prefijos no cambia la factura (el servidor es fijo), pero ahorra cálculo: el {{ cons.fraccion_cacheable_entrada|pct }} de la entrada son instrucciones idénticas en cada sesión.</p>
+<div class="caja amb"><b>Decisión discutible, explicada.</b> El mismo consumo con un modelo cerrado por API costaría {{ c.coste_api_haiku_5_5_cliente_mes|eur(3) }}/cliente/mes con Claude Haiku 5.5 o {{ c.coste_api_opus_5_5_cliente_mes|eur(2) }} con Claude Opus 5.5 (precios de lista). Por coste puro, una API barata gana mientras haya pocos clientes. Elegimos modelo abierto en servidor propio por tres razones: los datos de inquilinos (RGPD) no salen hacia un tercero; no dependemos de la tarifa ni de la continuidad de un proveedor de modelos (§7); y el servidor se paga con dos clientes. La arquitectura permite usar una API como respaldo si la GPU cae.</div>
+
+<!-- ============================== 5. PRECIO ============================== -->
+<h2>5. Precio y modelo de ingresos</h2>
+<table>
+<tr><th>Plan</th><th class="n">€/mes (sin IVA)</th><th class="n">Viviendas máx.</th><th class="n">€/vivienda</th><th class="n">Mezcla de clientes</th></tr>
+{% for nombre, p in fin.supuestos.planes.valor.items() %}
+<tr><td>{{ nombre }}</td><td class="n">{{ p[0]|eur }}</td><td class="n">{{ p[1] }}</td><td class="n">{{ (p[0] / p[1])|eur(2) }}</td><td class="n">{{ p[3]|pct }}</td></tr>
+{% endfor %}
+</table>
+<p>Suscripción mensual por tramo de viviendas <span class="est">ESTIMACIÓN</span> (precios del plan de negocio, no validados con clientes). Más de 300 viviendas: presupuesto a medida. Ingreso medio por cliente (ARPU) con la mezcla supuesta: <b>{{ m.arpu_eur_mes|eur(2) }}/mes</b>. No cobramos comisión por las reparaciones: el ingreso es el software.</p>
+<p><b>Margen que deja.</b> Coste variable por cliente: pasarela de pago (1,5 % + 0,25 €) y soporte (3 €) = {{ r.coste_variable_cliente_mes|eur(2) }}/mes; el modelo es un coste fijo. <b>Margen de contribución: {{ r.margen_contribucion_cliente_mes|eur(2) }} por cliente y mes ({{ r.margen_bruto_pct|pct }})</b>.</p>
+<p><b>¿Lo paga el cliente?</b> Para 70 viviendas (plan Professional) hay unas 19 incidencias al mes. Si PropertyFix ahorra 30 minutos de cada 45 <span class="est">ESTIMACIÓN</span>, son 9,6 horas al mes; a 25 €/h, unos 240 € de tiempo frente a 149 € de cuota. Es más caro por vivienda que Fixflo porque hace el trabajo, no solo lo registra.</p>
+
+<!-- ============================== 6. FINANCIERO ============================== -->
+<h2>6. Modelo financiero</h2>
+<p>Todas las cifras salen de <code>docs/modelo_financiero/modelo_financiero.py</code>, que combina lo medido (tokens, coste de construcción) con supuestos etiquetados. Horizonte: 36 meses; lanzamiento con pilotos en el mes {{ fin.supuestos.meses_pre_ingresos.valor + 1 }}.</p>
+<h3>6.1 Coste del modelo y del servidor</h3>
+<table>
+<tr><th>Concepto</th><th class="n">€/mes</th><th>Detalle</th></tr>
+<tr><td>Servidor GPU (modelo abierto)</td><td class="n">{{ fin.supuestos.gpu_servidor_eur_mes.valor|eur }}</td><td>Hetzner GEX45: RTX PRO 4000 Blackwell, <b>24 GB VRAM</b> (el modelo usa unos {{ fin.supuestos.modelo_vram_gb.valor|num(1) }} GB), 24 h × 30 días; alta única {{ fin.supuestos.gpu_alta_eur.valor|eur }}</td></tr>
+<tr><td>Web, base de datos, copias y monitorización</td><td class="n">{{ (fin.supuestos.infra_web_bd_eur_mes.valor + fin.supuestos.infra_copias_monitor_eur_mes.valor)|eur }}</td><td>VPS y servicios gestionados <span class="est">ESTIMACIÓN</span></td></tr>
+<tr><td>Geocodificación comercial, dominio y correo</td><td class="n">{{ (fin.supuestos.geocodificacion_eur_mes.valor + fin.supuestos.dominio_correo_eur_mes.valor)|eur }}</td><td>La API pública de OpenStreetMap no admite uso comercial intensivo</td></tr>
+<tr><td><b>Infraestructura total</b></td><td class="n"><b>{{ r.infraestructura_mes|eur }}</b></td><td>Google Workspace APIs: sin coste para el volumen previsto</td></tr>
+</table>
+<h3>6.2 Costes fijos, inversión inicial y punto de equilibrio</h3>
+<table>
+<tr><th>Concepto</th><th class="n">Importe</th><th>Detalle</th></tr>
+<tr><td>Costes fijos mensuales año 1 / año 2 / año 3</td><td class="n">{{ r.costes_fijos_mes_año1|eur }} / {{ r.costes_fijos_mes_año2|eur }} / {{ r.costes_fijos_mes_año3|eur }}</td><td>2 fundadores; comercial desde el mes 13; desarrollador desde el mes 25; infraestructura, gestoría y marketing <span class="est">ESTIMACIÓN</span></td></tr>
+<tr><td><b>Coste de construir el MVP</b></td><td class="n"><b>{{ build.total_eur|eur(2) }}</b></td><td><span class="med">MEDIDO</span>: {{ opus.mensajes }} respuestas de Claude Opus 5.5 · entrada sin caché {{ opus.entrada|num }} · salida {{ opus.salida|num }} · escritura de caché {{ opus.cache_1h|num }} · lectura de caché {{ opus.cache_lectura|num }} tokens; a precio de API ({{ build.total_usd|num(2) }} $)</td></tr>
+<tr><td><b>Inversión antes del primer euro de ingreso</b></td><td class="n"><b>{{ r.inversion_antes_primer_ingreso|eur }}</b></td><td>Meses 1–{{ fin.supuestos.meses_pre_ingresos.valor }}: costes fijos + construcción + alta GPU + verificación de seguridad de Google (3.000 €) + alta legal (2.000 €) + marketing de lanzamiento (4.000 €)</td></tr>
+<tr><td>Necesidad máxima de caja</td><td class="n">{{ r.necesidad_maxima_caja|eur }}</td><td>punto más bajo de caja acumulada: lo cubre la ronda de {{ fin.supuestos.inversion_solicitada_eur.valor|eur }}</td></tr>
+<tr><td><b>Punto de equilibrio en usuarios</b></td><td class="n"><b>{{ r.clientes_equilibrio_año1|num(0) }} clientes</b></td><td>fijos del año 1 ÷ margen de contribución ({{ r.clientes_equilibrio_año3|num(0) }} con la estructura del año 3)</td></tr>
+<tr><td><b>Punto de equilibrio en meses</b></td><td class="n"><b>mes {{ r.mes_equilibrio_operativo }}</b></td><td>primer mes con flujo de caja operativo positivo</td></tr>
+<tr><td><b>Recuperación de lo invertido</b></td><td class="n"><b>{{ ('mes ' ~ r.mes_recuperacion_caja) if r.mes_recuperacion_caja else 'después del mes 36' }}</b></td><td>caja acumulada ≥ 0</td></tr>
+</table>
+<h3>6.3 Proyección a tres años</h3>
+<table>
+<tr><th>Año</th><th class="n">Clientes al cierre</th><th class="n">Ingresos</th><th class="n">Flujo de caja</th></tr>
+<tr><td>1</td><td class="n">{{ r.clientes_mes_12|num }}</td><td class="n">{{ r.ingresos_año1|eur }}</td><td class="n">{{ r.flujo_año1|eur }}</td></tr>
+<tr><td>2</td><td class="n">{{ r.clientes_mes_24|num }}</td><td class="n">{{ r.ingresos_año2|eur }}</td><td class="n">{{ r.flujo_año2|eur }}</td></tr>
+<tr><td>3</td><td class="n">{{ r.clientes_mes_36|num }}</td><td class="n">{{ r.ingresos_año3|eur }}</td><td class="n">{{ r.flujo_año3|eur }}</td></tr>
+</table>
+<p class="fuente">Altas netas <span class="est">ESTIMACIÓN</span>: 3–4/mes en el año 1, 10/mes en el año 2, 18/mes en el año 3; bajas del 2 % mensual.</p>
+<h3>6.4 Qué le queda al inversor a los tres años</h3>
+<p>El inversor pone <b>{{ fin.supuestos.inversion_solicitada_eur.valor|eur }}</b> por el {{ fin.supuestos.participacion_inversor.valor|pct }}. En el mes 36 los ingresos recurrentes anuales (ARR) son {{ r.arr_mes_36|eur }}. Con un múltiplo prudente de {{ fin.supuestos.multiplo_arr.valor|num }}× ARR <span class="est">ESTIMACIÓN</span> la empresa valdría {{ r.valor_empresa_mes_36|eur }}, y su participación <b>{{ r.valor_participacion_inversor_mes_36|eur }}: {{ r.multiplo_inversor|num(1) }} veces lo invertido (ROI {{ r.roi_inversor_pct|num }} %)</b>. La caja acumulada en el mes 36 es {{ r.caja_mes_36|eur }}.</p>
+
+<!-- ============================== 7. RIESGOS ============================== -->
+<h2>7. Riesgos</h2>
+<h3>7.1 Clasificación según el Reglamento europeo de IA (AI Act, Reglamento (UE) 2024/1689)</h3>
+<ul>
+<li><b>No es una práctica prohibida</b> (art. 5).</li>
+<li><b>No es de alto riesgo</b> (art. 6 y anexo III): no evalúa solvencia ni acceso a servicios esenciales o prestaciones públicas (anexo III.5), no clasifica llamadas de emergencia ni es componente de seguridad de infraestructura crítica (anexo III.2), no decide sobre empleo. Prioriza reparaciones domésticas con un humano que aprueba cada acción.</li>
+<li><b>Sí tiene obligaciones de transparencia (art. 50)</b>, aplicables desde el 2/8/2026, con multas de hasta 15 M€ o el 3 % de la facturación. Ya está implementado: los emails generados llevan un aviso visible («redactado con ayuda de un sistema de IA y aprobado por el gestor») y una cabecera legible por máquina (<code>X-PropertyFix-AI-Generated</code>), y la web identifica a los agentes como IA.</li>
+<li><b>Alfabetización en IA (art. 4):</b> formación del equipo y de los gestores clientes. Las obligaciones de modelos de propósito general (arts. 53–55) recaen en el proveedor del modelo (Alibaba).</li>
+<li><b>RGPD:</b> somos encargados del tratamiento de los datos de inquilinos. El modelo corre en servidor propio en la UE; Google solo trata lo que el propio gestor autoriza con OAuth en su cuenta.</li>
+</ul>
+<h3>7.2 Si el proveedor sube la tarifa un 50 % o retira el modelo</h3>
+<table>
+<tr><th style="width:26%">Escenario</th><th>Impacto <span class="med">MEDIDO en el modelo financiero</span></th><th>Qué hacemos</th></tr>
+<tr><td>El alquiler de la GPU sube un 50 %</td><td>+{{ (fin.supuestos.gpu_servidor_eur_mes.valor * 0.5)|eur }}/mes. Equilibrio: mes {{ fin.sensibilidad_gpu_mas_50.mes_equilibrio_operativo }} (antes {{ r.mes_equilibrio_operativo }}); caja en el mes 36: {{ fin.sensibilidad_gpu_mas_50.caja_mes_36|eur }} (antes {{ r.caja_mes_36|eur }})</td><td>Cambiar de proveedor de GPU (OVH, Scaleway) o comprar la GPU (~1.500 €, se amortiza en 7 meses). El modelo y el código no cambian.</td></tr>
+<tr><td>Se retira el modelo</td><td>Ninguno inmediato: los pesos Apache 2.0 están descargados y no se pueden retirar.</td><td>Alternativas probadas con el mismo arnés: Llama 3.2 3B, Qwen 2.5 7B, Mistral. El examen de evaluación decide el cambio en una tarde.</td></tr>
+<tr><td>Una API de respaldo sube un 50 %</td><td>Irrelevante: {{ c.coste_api_haiku_5_5_cliente_mes|eur(3) }}/cliente/mes → {{ (c.coste_api_haiku_5_5_cliente_mes * 1.5)|eur(3) }}</td><td>Solo se usa si la GPU cae.</td></tr>
+</table>
+<h3>7.3 Otros riesgos</h3>
+<ul>
+<li><b>Acierto del modelo pequeño</b> ({{ e2.acierto_trabajo|pct }} en casos ciegos): mitigado con verificador, revisión humana obligatoria y salto a 7B en la misma GPU; hito medible en el §8.</li>
+<li><b>Google:</b> los permisos de lectura de Gmail exigen una evaluación de seguridad para salir del modo prueba (presupuestada en la inversión inicial); alternativa: buzón de reenvío propio.</li>
+<li><b>Adopción:</b> los administradores son conservadores. Mitigación: pilotos gratuitos y el canal de los colegios profesionales.</li>
+</ul>
+
+<!-- ============================== 8. ROADMAP ============================== -->
+<h2>8. Roadmap con hitos medibles</h2>
+<table>
+<tr><th>Cuándo</th><th>Hito</th><th>Cómo se mide</th></tr>
+<tr><td>Meses 1–4</td><td>Producto multiempresa; verificación de Google; clasificador con 7B en GPU</td><td>Acierto de trabajo ≥ 85 % en un examen ciego nuevo; latencia ≤ 15 s por incidencia</td></tr>
+<tr><td>Mes 5</td><td>3 pilotos con administradores de fincas en Madrid; red real de 30 proveedores</td><td>≥ 60 % de las incidencias de los pilotos reservadas sin editar la propuesta</td></tr>
+<tr><td>Mes 12</td><td>{{ r.clientes_mes_12|num }} clientes de pago</td><td>Tiempo de gestor por incidencia medido en los pilotos (objetivo: −60 %)</td></tr>
+<tr><td>Mes 18</td><td>Asesor LAU con RAG: quién paga cada reparación, con cita y abstención</td><td>Acierto@3 ≥ 0,8 sobre preguntas anotadas</td></tr>
+<tr><td>Mes 24</td><td>{{ r.clientes_mes_24|num }} clientes; integración con Outlook y un ERP de fincas</td><td>Bajas ≤ 2 % al mes</td></tr>
+<tr><td>Mes 36</td><td>{{ r.clientes_mes_36|num }} clientes; mantenimiento preventivo</td><td>ARR {{ r.arr_mes_36|eur }}</td></tr>
+</table>
+
+<h2>Anexo: cómo reproducir cada cifra</h2>
+<table>
+<tr><th>Cifra</th><th>Comando (desde <code>app/</code>, con el entorno activado)</th></tr>
+<tr><td>Acierto del clasificador (3 exámenes)</td><td><code>python data/evaluacion/evaluar_clasificador.py</code></td></tr>
+<tr><td>Tokens y tiempo por incidencia</td><td><code>python data/evaluacion/medir_consumo.py 8</code></td></tr>
+<tr><td>Coste de construcción</td><td><code>python ../docs/coste_construccion/leer_usage_claude_code.py &lt;sesión.jsonl&gt;</code></td></tr>
+<tr><td>Modelo financiero</td><td><code>python ../docs/modelo_financiero/modelo_financiero.py</code></td></tr>
+<tr><td>Esta memoria y las diapositivas</td><td><code>python ../docs/entregables/generar.py</code></td></tr>
+</table>
+<p class="fuente">Fuentes de mercado: INE (Encuesta Continua de Población 2025, ECV 2025) vía CaixaBank Research e Idealista; Ministerio de Derechos Sociales con datos de la AEAT (abril 2026); OCU (viviendas declaradas en IRPF 2023); CGCAFE vía Idealista; Hemlane (2024); Property Meld PM25 (2025); fixflo.com/pricing; Vozpópuli y SoftwareDoit (Homming); hetzner.com (GEX45); artificialintelligenceact.eu y Morgan Lewis (art. 50, aplicación desde el 2/8/2026); precios de la API de Anthropic (noviembre 2026).</p>
+</section>
+</body>
+</html>

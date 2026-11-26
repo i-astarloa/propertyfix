@@ -1,0 +1,28 @@
+{
+  "modelos": {
+    "claude-opus-5-5": {
+      "mensajes": 238,
+      "entrada": 514,
+      "salida": 305270,
+      "cache_lectura": 81141804,
+      "cache_5m": 0,
+      "cache_1h": 990686,
+      "coste_usd": 30.26
+    },
+    "<synthetic>": {
+      "mensajes": 1,
+      "entrada": 0,
+      "salida": 0,
+      "cache_lectura": 0,
+      "cache_5m": 0,
+      "cache_1h": 0,
+      "coste_usd": null
+    }
+  },
+  "total_usd": 30.26,
+  "total_eur": 27.84,
+  "tipo_cambio_usd_eur": 0.92,
+  "sesiones": [
+    "7c5a6a67-6c69-4fe5-86c7-d6ba8efc7aa9.jsonl"
+  ]
+}

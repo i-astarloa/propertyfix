@@ -1,0 +1,3179 @@
+{
+  "desarrollo:reglas": {
+    "variante": "reglas",
+    "casos": 42,
+    "acierto_tipo": 0.976,
+    "acierto_trabajo": 0.929,
+    "fuera_de_ambito_detectados": "3/3",
+    "tokens_entrada_medios": 0,
+    "tokens_salida_medios": 0,
+    "segundos_medios": 0.0,
+    "detalle": [
+      {
+        "id": 1,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "electrodomesticos/lavavajillas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 2,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "electrodomesticos/lavavajillas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 3,
+        "esperado": "fontaneria/atasco_inodoro",
+        "obtenido": "fontaneria/atasco_inodoro",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 4,
+        "esperado": "fontaneria/atasco_desague",
+        "obtenido": "fontaneria/atasco_desague",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 5,
+        "esperado": "fontaneria/fuga_tuberia",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 6,
+        "esperado": "fontaneria/cambio_grifo",
+        "obtenido": "fontaneria/cambio_grifo",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 7,
+        "esperado": "fontaneria/reparacion_cisterna",
+        "obtenido": "fontaneria/reparacion_cisterna",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 8,
+        "esperado": "fontaneria/calentador_termo",
+        "obtenido": "fontaneria/calentador_termo",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 9,
+        "esperado": "fontaneria/fuga_tuberia",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 10,
+        "esperado": "humedades/gotera_tejado",
+        "obtenido": "humedades/gotera_tejado",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 11,
+        "esperado": "humedades/humedad_capilaridad",
+        "obtenido": "humedades/humedad_capilaridad",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 12,
+        "esperado": "humedades/humedad_condensacion",
+        "obtenido": "humedades/humedad_condensacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 13,
+        "esperado": "humedades/filtracion_terraza",
+        "obtenido": "humedades/filtracion_terraza",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 14,
+        "esperado": "electricidad/averia_enchufes",
+        "obtenido": "electricidad/averia_enchufes",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 15,
+        "esperado": "electricidad/salta_diferencial",
+        "obtenido": "electrodomesticos/horno_vitro",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 16,
+        "esperado": "electricidad/cuadro_electrico",
+        "obtenido": "electricidad/cuadro_electrico",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 17,
+        "esperado": "electricidad/cambio_iluminacion",
+        "obtenido": "electricidad/cambio_iluminacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 18,
+        "esperado": "pintura/pintar_habitacion",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 19,
+        "esperado": "pintura/pintar_vivienda",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 20,
+        "esperado": "pintura/pintar_techo_humedad",
+        "obtenido": "pintura/pintar_techo_humedad",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 21,
+        "esperado": "climatizacion/reparacion_aire",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 22,
+        "esperado": "climatizacion/instalacion_split",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 23,
+        "esperado": "climatizacion/caldera_calefaccion",
+        "obtenido": "climatizacion/caldera_calefaccion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 24,
+        "esperado": "climatizacion/recarga_gas",
+        "obtenido": "climatizacion/recarga_gas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 25,
+        "esperado": "cerrajeria/apertura_puerta",
+        "obtenido": "cerrajeria/apertura_puerta",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 26,
+        "esperado": "cerrajeria/cambio_cerradura",
+        "obtenido": "cerrajeria/cambio_cerradura",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 27,
+        "esperado": "cerrajeria/bombin_seguridad",
+        "obtenido": "cerrajeria/bombin_seguridad",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 28,
+        "esperado": "bano_albanileria/reparacion_ducha",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 29,
+        "esperado": "bano_albanileria/cambio_plato_ducha",
+        "obtenido": "bano_albanileria/cambio_plato_ducha",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 30,
+        "esperado": "bano_albanileria/azulejos",
+        "obtenido": "bano_albanileria/azulejos",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 31,
+        "esperado": "bano_albanileria/sellado_juntas",
+        "obtenido": "bano_albanileria/sellado_juntas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 32,
+        "esperado": "electrodomesticos/lavadora",
+        "obtenido": "electrodomesticos/lavadora",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 33,
+        "esperado": "electrodomesticos/frigorifico",
+        "obtenido": "electrodomesticos/frigorifico",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 34,
+        "esperado": "electrodomesticos/horno_vitro",
+        "obtenido": "electrodomesticos/horno_vitro",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 35,
+        "esperado": "carpinteria/puerta_interior",
+        "obtenido": "carpinteria/puerta_interior",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 36,
+        "esperado": "carpinteria/ventana_persiana",
+        "obtenido": "carpinteria/ventana_persiana",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 37,
+        "esperado": "carpinteria/armario",
+        "obtenido": "carpinteria/armario",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 38,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 39,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 40,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 41,
+        "esperado": "electrodomesticos/horno_vitro",
+        "obtenido": "electrodomesticos/horno_vitro",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 42,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "electrodomesticos/lavavajillas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      }
+    ],
+    "modelo": "qwen2.5:3b"
+  },
+  "ciego:reglas": {
+    "variante": "reglas",
+    "casos": 30,
+    "acierto_tipo": 0.633,
+    "acierto_trabajo": 0.533,
+    "fuera_de_ambito_detectados": "2/2",
+    "tokens_entrada_medios": 0,
+    "tokens_salida_medios": 0,
+    "segundos_medios": 0.0,
+    "detalle": [
+      {
+        "id": 101,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 102,
+        "esperado": "fontaneria/atasco_inodoro",
+        "obtenido": "fontaneria/atasco_inodoro",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 103,
+        "esperado": "fontaneria/fuga_tuberia",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 104,
+        "esperado": "fontaneria/atasco_desague",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 105,
+        "esperado": "fontaneria/cambio_grifo",
+        "obtenido": "fontaneria/cambio_grifo",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 106,
+        "esperado": "fontaneria/calentador_termo",
+        "obtenido": "fontaneria/calentador_termo",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 107,
+        "esperado": "humedades/gotera_tejado",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 108,
+        "esperado": "humedades/humedad_condensacion",
+        "obtenido": "carpinteria/armario",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 109,
+        "esperado": "humedades/filtracion_terraza",
+        "obtenido": "carpinteria/puerta_interior",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 110,
+        "esperado": "electricidad/averia_enchufes",
+        "obtenido": "electricidad/averia_enchufes",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 111,
+        "esperado": "electricidad/salta_diferencial",
+        "obtenido": "pintura/pintar_vivienda",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 112,
+        "esperado": "electricidad/cambio_iluminacion",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 113,
+        "esperado": "pintura/pintar_habitacion",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 114,
+        "esperado": "pintura/pintar_vivienda",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 115,
+        "esperado": "climatizacion/reparacion_aire",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 116,
+        "esperado": "climatizacion/caldera_calefaccion",
+        "obtenido": "climatizacion/caldera_calefaccion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 117,
+        "esperado": "cerrajeria/apertura_puerta",
+        "obtenido": "cerrajeria/cambio_cerradura",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 118,
+        "esperado": "cerrajeria/cambio_cerradura",
+        "obtenido": "cerrajeria/cambio_cerradura",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 119,
+        "esperado": "bano_albanileria/reparacion_ducha",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 120,
+        "esperado": "bano_albanileria/azulejos",
+        "obtenido": "bano_albanileria/azulejos",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 121,
+        "esperado": "electrodomesticos/lavadora",
+        "obtenido": "electrodomesticos/lavadora",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 122,
+        "esperado": "electrodomesticos/frigorifico",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 123,
+        "esperado": "electrodomesticos/horno_vitro",
+        "obtenido": "electrodomesticos/horno_vitro",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 124,
+        "esperado": "carpinteria/ventana_persiana",
+        "obtenido": "carpinteria/ventana_persiana",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 125,
+        "esperado": "carpinteria/puerta_interior",
+        "obtenido": "carpinteria/puerta_interior",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 126,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 127,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 128,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "electrodomesticos/lavavajillas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 129,
+        "esperado": "fontaneria/atasco_desague",
+        "obtenido": "electrodomesticos/lavadora",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 130,
+        "esperado": "fontaneria/reparacion_cisterna",
+        "obtenido": "fontaneria/atasco_inodoro",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      }
+    ],
+    "modelo": "qwen2.5:3b"
+  },
+  "desarrollo:v1_antiguo": {
+    "variante": "v1_antiguo",
+    "casos": 42,
+    "acierto_tipo": 0.548,
+    "acierto_trabajo": 0.452,
+    "fuera_de_ambito_detectados": "0/3",
+    "tokens_entrada_medios": 1262,
+    "tokens_salida_medios": 95,
+    "segundos_medios": 19.9,
+    "detalle": [
+      {
+        "id": 1,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1267,
+        "tokens_salida": 89,
+        "segundos": 40.6
+      },
+      {
+        "id": 2,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1266,
+        "tokens_salida": 97,
+        "segundos": 19.5
+      },
+      {
+        "id": 3,
+        "esperado": "fontaneria/atasco_inodoro",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1262,
+        "tokens_salida": 80,
+        "segundos": 15.2
+      },
+      {
+        "id": 4,
+        "esperado": "fontaneria/atasco_desague",
+        "obtenido": "fontaneria/atasco_desague",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1261,
+        "tokens_salida": 91,
+        "segundos": 16.7
+      },
+      {
+        "id": 5,
+        "esperado": "fontaneria/fuga_tuberia",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1266,
+        "tokens_salida": 106,
+        "segundos": 18.5
+      },
+      {
+        "id": 6,
+        "esperado": "fontaneria/cambio_grifo",
+        "obtenido": "fontaneria/cambio_grifo",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1259,
+        "tokens_salida": 85,
+        "segundos": 14.9
+      },
+      {
+        "id": 7,
+        "esperado": "fontaneria/reparacion_cisterna",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1258,
+        "tokens_salida": 89,
+        "segundos": 17.2
+      },
+      {
+        "id": 8,
+        "esperado": "fontaneria/calentador_termo",
+        "obtenido": "fontaneria/calentador_termo",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1264,
+        "tokens_salida": 89,
+        "segundos": 17.4
+      },
+      {
+        "id": 9,
+        "esperado": "fontaneria/fuga_tuberia",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1264,
+        "tokens_salida": 86,
+        "segundos": 17.5
+      },
+      {
+        "id": 10,
+        "esperado": "humedades/gotera_tejado",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1267,
+        "tokens_salida": 102,
+        "segundos": 18.2
+      },
+      {
+        "id": 11,
+        "esperado": "humedades/humedad_capilaridad",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1265,
+        "tokens_salida": 90,
+        "segundos": 18.4
+      },
+      {
+        "id": 12,
+        "esperado": "humedades/humedad_condensacion",
+        "obtenido": "humedades/humedad_condensacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1266,
+        "tokens_salida": 85,
+        "segundos": 16.7
+      },
+      {
+        "id": 13,
+        "esperado": "humedades/filtracion_terraza",
+        "obtenido": "humedades/filtracion_terraza",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1264,
+        "tokens_salida": 250,
+        "segundos": 36.4
+      },
+      {
+        "id": 14,
+        "esperado": "electricidad/averia_enchufes",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1259,
+        "tokens_salida": 88,
+        "segundos": 17.0
+      },
+      {
+        "id": 15,
+        "esperado": "electricidad/salta_diferencial",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1266,
+        "tokens_salida": 95,
+        "segundos": 19.1
+      },
+      {
+        "id": 16,
+        "esperado": "electricidad/cuadro_electrico",
+        "obtenido": "electricidad/cuadro_electrico",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1267,
+        "tokens_salida": 97,
+        "segundos": 18.8
+      },
+      {
+        "id": 17,
+        "esperado": "electricidad/cambio_iluminacion",
+        "obtenido": "electricidad/cambio_iluminacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1263,
+        "tokens_salida": 90,
+        "segundos": 33.4
+      },
+      {
+        "id": 18,
+        "esperado": "pintura/pintar_habitacion",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1265,
+        "tokens_salida": 98,
+        "segundos": 22.0
+      },
+      {
+        "id": 19,
+        "esperado": "pintura/pintar_vivienda",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 1264,
+        "tokens_salida": 81,
+        "segundos": 15.4
+      },
+      {
+        "id": 20,
+        "esperado": "pintura/pintar_techo_humedad",
+        "obtenido": "pintura/pintar_techo_humedad",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1275,
+        "tokens_salida": 93,
+        "segundos": 17.9
+      },
+      {
+        "id": 21,
+        "esperado": "climatizacion/reparacion_aire",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1256,
+        "tokens_salida": 87,
+        "segundos": 16.3
+      },
+      {
+        "id": 22,
+        "esperado": "climatizacion/instalacion_split",
+        "obtenido": "climatizacion/instalacion_split",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1261,
+        "tokens_salida": 84,
+        "segundos": 14.8
+      },
+      {
+        "id": 23,
+        "esperado": "climatizacion/caldera_calefaccion",
+        "obtenido": "climatizacion/caldera_calefaccion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1262,
+        "tokens_salida": 89,
+        "segundos": 16.4
+      },
+      {
+        "id": 24,
+        "esperado": "climatizacion/recarga_gas",
+        "obtenido": "climatizacion/recarga_gas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1257,
+        "tokens_salida": 92,
+        "segundos": 16.8
+      },
+      {
+        "id": 25,
+        "esperado": "cerrajeria/apertura_puerta",
+        "obtenido": "cerrajeria/cambio_cerradura",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 1257,
+        "tokens_salida": 92,
+        "segundos": 17.3
+      },
+      {
+        "id": 26,
+        "esperado": "cerrajeria/cambio_cerradura",
+        "obtenido": "cerrajeria/apertura_puerta",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 1264,
+        "tokens_salida": 96,
+        "segundos": 18.2
+      },
+      {
+        "id": 27,
+        "esperado": "cerrajeria/bombin_seguridad",
+        "obtenido": "cerrajeria/bombin_seguridad",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1260,
+        "tokens_salida": 84,
+        "segundos": 16.0
+      },
+      {
+        "id": 28,
+        "esperado": "bano_albanileria/reparacion_ducha",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1264,
+        "tokens_salida": 90,
+        "segundos": 22.5
+      },
+      {
+        "id": 29,
+        "esperado": "bano_albanileria/cambio_plato_ducha",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 1264,
+        "tokens_salida": 98,
+        "segundos": 22.7
+      },
+      {
+        "id": 30,
+        "esperado": "bano_albanileria/azulejos",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1256,
+        "tokens_salida": 78,
+        "segundos": 18.0
+      },
+      {
+        "id": 31,
+        "esperado": "bano_albanileria/sellado_juntas",
+        "obtenido": "pintura/pintar_techo_humedad",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1259,
+        "tokens_salida": 89,
+        "segundos": 41.7
+      },
+      {
+        "id": 32,
+        "esperado": "electrodomesticos/lavadora",
+        "obtenido": "electrodomesticos/lavadora",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1257,
+        "tokens_salida": 93,
+        "segundos": 17.3
+      },
+      {
+        "id": 33,
+        "esperado": "electrodomesticos/frigorifico",
+        "obtenido": "electrodomesticos/frigorifico",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1257,
+        "tokens_salida": 89,
+        "segundos": 17.2
+      },
+      {
+        "id": 34,
+        "esperado": "electrodomesticos/horno_vitro",
+        "obtenido": "fontaneria/calentador_termo",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1256,
+        "tokens_salida": 119,
+        "segundos": 31.8
+      },
+      {
+        "id": 35,
+        "esperado": "carpinteria/puerta_interior",
+        "obtenido": "cerrajeria/apertura_puerta",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1257,
+        "tokens_salida": 88,
+        "segundos": 17.0
+      },
+      {
+        "id": 36,
+        "esperado": "carpinteria/ventana_persiana",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1266,
+        "tokens_salida": 84,
+        "segundos": 16.2
+      },
+      {
+        "id": 37,
+        "esperado": "carpinteria/armario",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1261,
+        "tokens_salida": 87,
+        "segundos": 17.9
+      },
+      {
+        "id": 38,
+        "esperado": "no_es_averia/None",
+        "obtenido": "cerrajeria/apertura_puerta",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1262,
+        "tokens_salida": 79,
+        "segundos": 15.2
+      },
+      {
+        "id": 39,
+        "esperado": "no_es_averia/None",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1255,
+        "tokens_salida": 110,
+        "segundos": 16.7
+      },
+      {
+        "id": 40,
+        "esperado": "no_es_averia/None",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1262,
+        "tokens_salida": 92,
+        "segundos": 16.7
+      },
+      {
+        "id": 41,
+        "esperado": "electrodomesticos/horno_vitro",
+        "obtenido": "fontaneria/calentador_termo",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1259,
+        "tokens_salida": 94,
+        "segundos": 17.5
+      },
+      {
+        "id": 42,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1264,
+        "tokens_salida": 95,
+        "segundos": 19.8
+      }
+    ],
+    "modelo": "qwen2.5:3b"
+  },
+  "desarrollo:v2_0": {
+    "variante": "v2",
+    "casos": 42,
+    "acierto_tipo": 0.976,
+    "acierto_trabajo": 0.905,
+    "fuera_de_ambito_detectados": "3/3",
+    "tokens_entrada_medios": 918,
+    "tokens_salida_medios": 76,
+    "segundos_medios": 17.3,
+    "detalle": [
+      {
+        "id": 1,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "electrodomesticos/lavavajillas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 963,
+        "tokens_salida": 78,
+        "segundos": 20.0
+      },
+      {
+        "id": 2,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "electrodomesticos/lavavajillas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 961,
+        "tokens_salida": 68,
+        "segundos": 17.5
+      },
+      {
+        "id": 3,
+        "esperado": "fontaneria/atasco_inodoro",
+        "obtenido": "fontaneria/atasco_inodoro",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1002,
+        "tokens_salida": 65,
+        "segundos": 21.8
+      },
+      {
+        "id": 4,
+        "esperado": "fontaneria/atasco_desague",
+        "obtenido": "fontaneria/atasco_desague",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 960,
+        "tokens_salida": 92,
+        "segundos": 23.6
+      },
+      {
+        "id": 5,
+        "esperado": "fontaneria/fuga_tuberia",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1008,
+        "tokens_salida": 89,
+        "segundos": 23.2
+      },
+      {
+        "id": 6,
+        "esperado": "fontaneria/cambio_grifo",
+        "obtenido": "fontaneria/cambio_grifo",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 922,
+        "tokens_salida": 73,
+        "segundos": 18.5
+      },
+      {
+        "id": 7,
+        "esperado": "fontaneria/reparacion_cisterna",
+        "obtenido": "fontaneria/reparacion_cisterna",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 952,
+        "tokens_salida": 75,
+        "segundos": 20.2
+      },
+      {
+        "id": 8,
+        "esperado": "fontaneria/calentador_termo",
+        "obtenido": "fontaneria/calentador_termo",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 964,
+        "tokens_salida": 68,
+        "segundos": 16.5
+      },
+      {
+        "id": 9,
+        "esperado": "fontaneria/fuga_tuberia",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1004,
+        "tokens_salida": 77,
+        "segundos": 21.8
+      },
+      {
+        "id": 10,
+        "esperado": "humedades/gotera_tejado",
+        "obtenido": "humedades/gotera_tejado",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 970,
+        "tokens_salida": 69,
+        "segundos": 19.5
+      },
+      {
+        "id": 11,
+        "esperado": "humedades/humedad_capilaridad",
+        "obtenido": "humedades/humedad_capilaridad",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 966,
+        "tokens_salida": 78,
+        "segundos": 17.4
+      },
+      {
+        "id": 12,
+        "esperado": "humedades/humedad_condensacion",
+        "obtenido": "humedades/humedad_condensacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 968,
+        "tokens_salida": 76,
+        "segundos": 16.9
+      },
+      {
+        "id": 13,
+        "esperado": "humedades/filtracion_terraza",
+        "obtenido": "humedades/gotera_tejado",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 964,
+        "tokens_salida": 78,
+        "segundos": 17.4
+      },
+      {
+        "id": 14,
+        "esperado": "electricidad/averia_enchufes",
+        "obtenido": "electricidad/averia_enchufes",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 952,
+        "tokens_salida": 78,
+        "segundos": 20.3
+      },
+      {
+        "id": 15,
+        "esperado": "electricidad/salta_diferencial",
+        "obtenido": "electricidad/salta_diferencial",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 970,
+        "tokens_salida": 86,
+        "segundos": 18.0
+      },
+      {
+        "id": 16,
+        "esperado": "electricidad/cuadro_electrico",
+        "obtenido": "electricidad/cuadro_electrico",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 970,
+        "tokens_salida": 78,
+        "segundos": 16.7
+      },
+      {
+        "id": 17,
+        "esperado": "electricidad/cambio_iluminacion",
+        "obtenido": "electricidad/cambio_iluminacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 763,
+        "tokens_salida": 63,
+        "segundos": 11.4
+      },
+      {
+        "id": 18,
+        "esperado": "pintura/pintar_habitacion",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 957,
+        "tokens_salida": 85,
+        "segundos": 20.1
+      },
+      {
+        "id": 19,
+        "esperado": "pintura/pintar_vivienda",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 763,
+        "tokens_salida": 53,
+        "segundos": 10.4
+      },
+      {
+        "id": 20,
+        "esperado": "pintura/pintar_techo_humedad",
+        "obtenido": "pintura/pintar_techo_humedad",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 977,
+        "tokens_salida": 95,
+        "segundos": 19.5
+      },
+      {
+        "id": 21,
+        "esperado": "climatizacion/reparacion_aire",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 937,
+        "tokens_salida": 77,
+        "segundos": 18.7
+      },
+      {
+        "id": 22,
+        "esperado": "climatizacion/instalacion_split",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 761,
+        "tokens_salida": 66,
+        "segundos": 11.8
+      },
+      {
+        "id": 23,
+        "esperado": "climatizacion/caldera_calefaccion",
+        "obtenido": "climatizacion/caldera_calefaccion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 945,
+        "tokens_salida": 71,
+        "segundos": 16.5
+      },
+      {
+        "id": 24,
+        "esperado": "climatizacion/recarga_gas",
+        "obtenido": "climatizacion/recarga_gas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 757,
+        "tokens_salida": 63,
+        "segundos": 11.8
+      },
+      {
+        "id": 25,
+        "esperado": "cerrajeria/apertura_puerta",
+        "obtenido": "cerrajeria/apertura_puerta",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 918,
+        "tokens_salida": 77,
+        "segundos": 18.1
+      },
+      {
+        "id": 26,
+        "esperado": "cerrajeria/cambio_cerradura",
+        "obtenido": "cerrajeria/cambio_cerradura",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 934,
+        "tokens_salida": 77,
+        "segundos": 17.7
+      },
+      {
+        "id": 27,
+        "esperado": "cerrajeria/bombin_seguridad",
+        "obtenido": "cerrajeria/bombin_seguridad",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 926,
+        "tokens_salida": 68,
+        "segundos": 15.4
+      },
+      {
+        "id": 28,
+        "esperado": "bano_albanileria/reparacion_ducha",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 963,
+        "tokens_salida": 96,
+        "segundos": 21.3
+      },
+      {
+        "id": 29,
+        "esperado": "bano_albanileria/cambio_plato_ducha",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 961,
+        "tokens_salida": 79,
+        "segundos": 18.5
+      },
+      {
+        "id": 30,
+        "esperado": "bano_albanileria/azulejos",
+        "obtenido": "bano_albanileria/azulejos",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 916,
+        "tokens_salida": 78,
+        "segundos": 18.1
+      },
+      {
+        "id": 31,
+        "esperado": "bano_albanileria/sellado_juntas",
+        "obtenido": "bano_albanileria/sellado_juntas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 953,
+        "tokens_salida": 80,
+        "segundos": 18.9
+      },
+      {
+        "id": 32,
+        "esperado": "electrodomesticos/lavadora",
+        "obtenido": "electrodomesticos/lavadora",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 943,
+        "tokens_salida": 67,
+        "segundos": 17.3
+      },
+      {
+        "id": 33,
+        "esperado": "electrodomesticos/frigorifico",
+        "obtenido": "electrodomesticos/frigorifico",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 757,
+        "tokens_salida": 65,
+        "segundos": 11.0
+      },
+      {
+        "id": 34,
+        "esperado": "electrodomesticos/horno_vitro",
+        "obtenido": "electrodomesticos/horno_vitro",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 941,
+        "tokens_salida": 75,
+        "segundos": 15.2
+      },
+      {
+        "id": 35,
+        "esperado": "carpinteria/puerta_interior",
+        "obtenido": "carpinteria/puerta_interior",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 920,
+        "tokens_salida": 76,
+        "segundos": 17.3
+      },
+      {
+        "id": 36,
+        "esperado": "carpinteria/ventana_persiana",
+        "obtenido": "carpinteria/ventana_persiana",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 938,
+        "tokens_salida": 76,
+        "segundos": 16.0
+      },
+      {
+        "id": 37,
+        "esperado": "carpinteria/armario",
+        "obtenido": "carpinteria/armario",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 932,
+        "tokens_salida": 79,
+        "segundos": 16.5
+      },
+      {
+        "id": 38,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 761,
+        "tokens_salida": 68,
+        "segundos": 11.5
+      },
+      {
+        "id": 39,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 754,
+        "tokens_salida": 78,
+        "segundos": 12.2
+      },
+      {
+        "id": 40,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 761,
+        "tokens_salida": 81,
+        "segundos": 13.4
+      },
+      {
+        "id": 41,
+        "esperado": "electrodomesticos/horno_vitro",
+        "obtenido": "electrodomesticos/horno_vitro",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 949,
+        "tokens_salida": 82,
+        "segundos": 21.1
+      },
+      {
+        "id": 42,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "electrodomesticos/lavavajillas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 957,
+        "tokens_salida": 85,
+        "segundos": 17.9
+      }
+    ],
+    "modelo": "qwen2.5:3b"
+  },
+  "ciego:v1_antiguo": {
+    "variante": "v1_antiguo",
+    "casos": 30,
+    "acierto_tipo": 0.467,
+    "acierto_trabajo": 0.367,
+    "fuera_de_ambito_detectados": "0/2",
+    "tokens_entrada_medios": 1263,
+    "tokens_salida_medios": 99,
+    "segundos_medios": 17.6,
+    "detalle": [
+      {
+        "id": 101,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1264,
+        "tokens_salida": 95,
+        "segundos": 15.8
+      },
+      {
+        "id": 102,
+        "esperado": "fontaneria/atasco_inodoro",
+        "obtenido": "fontaneria/reparacion_cisterna",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 1265,
+        "tokens_salida": 95,
+        "segundos": 17.2
+      },
+      {
+        "id": 103,
+        "esperado": "fontaneria/fuga_tuberia",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1264,
+        "tokens_salida": 96,
+        "segundos": 17.8
+      },
+      {
+        "id": 104,
+        "esperado": "fontaneria/atasco_desague",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1261,
+        "tokens_salida": 92,
+        "segundos": 15.6
+      },
+      {
+        "id": 105,
+        "esperado": "fontaneria/cambio_grifo",
+        "obtenido": "fontaneria/cambio_grifo",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1259,
+        "tokens_salida": 81,
+        "segundos": 15.6
+      },
+      {
+        "id": 106,
+        "esperado": "fontaneria/calentador_termo",
+        "obtenido": "fontaneria/calentador_termo",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1261,
+        "tokens_salida": 92,
+        "segundos": 16.2
+      },
+      {
+        "id": 107,
+        "esperado": "humedades/gotera_tejado",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1270,
+        "tokens_salida": 106,
+        "segundos": 20.2
+      },
+      {
+        "id": 108,
+        "esperado": "humedades/humedad_condensacion",
+        "obtenido": "humedades/humedad_condensacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1268,
+        "tokens_salida": 93,
+        "segundos": 18.3
+      },
+      {
+        "id": 109,
+        "esperado": "humedades/filtracion_terraza",
+        "obtenido": "cerrajeria/apertura_puerta",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1264,
+        "tokens_salida": 109,
+        "segundos": 18.8
+      },
+      {
+        "id": 110,
+        "esperado": "electricidad/averia_enchufes",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1258,
+        "tokens_salida": 87,
+        "segundos": 15.2
+      },
+      {
+        "id": 111,
+        "esperado": "electricidad/salta_diferencial",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1264,
+        "tokens_salida": 90,
+        "segundos": 16.9
+      },
+      {
+        "id": 112,
+        "esperado": "electricidad/cambio_iluminacion",
+        "obtenido": "pintura/pintar_techo_humedad",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1264,
+        "tokens_salida": 126,
+        "segundos": 20.8
+      },
+      {
+        "id": 113,
+        "esperado": "pintura/pintar_habitacion",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1271,
+        "tokens_salida": 82,
+        "segundos": 16.5
+      },
+      {
+        "id": 114,
+        "esperado": "pintura/pintar_vivienda",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 1267,
+        "tokens_salida": 83,
+        "segundos": 16.9
+      },
+      {
+        "id": 115,
+        "esperado": "climatizacion/reparacion_aire",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1262,
+        "tokens_salida": 92,
+        "segundos": 16.4
+      },
+      {
+        "id": 116,
+        "esperado": "climatizacion/caldera_calefaccion",
+        "obtenido": "climatizacion/caldera_calefaccion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1263,
+        "tokens_salida": 98,
+        "segundos": 19.1
+      },
+      {
+        "id": 117,
+        "esperado": "cerrajeria/apertura_puerta",
+        "obtenido": "cerrajeria/cambio_cerradura",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 1266,
+        "tokens_salida": 117,
+        "segundos": 21.0
+      },
+      {
+        "id": 118,
+        "esperado": "cerrajeria/cambio_cerradura",
+        "obtenido": "cerrajeria/cambio_cerradura",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1263,
+        "tokens_salida": 90,
+        "segundos": 14.7
+      },
+      {
+        "id": 119,
+        "esperado": "bano_albanileria/reparacion_ducha",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1267,
+        "tokens_salida": 95,
+        "segundos": 17.9
+      },
+      {
+        "id": 120,
+        "esperado": "bano_albanileria/azulejos",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1259,
+        "tokens_salida": 107,
+        "segundos": 19.7
+      },
+      {
+        "id": 121,
+        "esperado": "electrodomesticos/lavadora",
+        "obtenido": "electrodomesticos/lavadora",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1256,
+        "tokens_salida": 86,
+        "segundos": 15.5
+      },
+      {
+        "id": 122,
+        "esperado": "electrodomesticos/frigorifico",
+        "obtenido": "climatizacion/caldera_calefaccion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1259,
+        "tokens_salida": 133,
+        "segundos": 21.4
+      },
+      {
+        "id": 123,
+        "esperado": "electrodomesticos/horno_vitro",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1256,
+        "tokens_salida": 83,
+        "segundos": 15.2
+      },
+      {
+        "id": 124,
+        "esperado": "carpinteria/ventana_persiana",
+        "obtenido": "carpinteria/ventana_persiana",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1256,
+        "tokens_salida": 84,
+        "segundos": 15.3
+      },
+      {
+        "id": 125,
+        "esperado": "carpinteria/puerta_interior",
+        "obtenido": "cerrajeria/apertura_puerta",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1262,
+        "tokens_salida": 93,
+        "segundos": 16.9
+      },
+      {
+        "id": 126,
+        "esperado": "no_es_averia/None",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1265,
+        "tokens_salida": 99,
+        "segundos": 17.8
+      },
+      {
+        "id": 127,
+        "esperado": "no_es_averia/None",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1255,
+        "tokens_salida": 80,
+        "segundos": 14.2
+      },
+      {
+        "id": 128,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1264,
+        "tokens_salida": 117,
+        "segundos": 19.2
+      },
+      {
+        "id": 129,
+        "esperado": "fontaneria/atasco_desague",
+        "obtenido": "humedades/filtracion_terraza",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1265,
+        "tokens_salida": 169,
+        "segundos": 26.4
+      },
+      {
+        "id": 130,
+        "esperado": "fontaneria/reparacion_cisterna",
+        "obtenido": "fontaneria/reparacion_cisterna",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1260,
+        "tokens_salida": 91,
+        "segundos": 16.3
+      }
+    ],
+    "modelo": "qwen2.5:3b"
+  },
+  "ciego:v2_0": {
+    "variante": "v2",
+    "casos": 30,
+    "acierto_tipo": 0.667,
+    "acierto_trabajo": 0.6,
+    "fuera_de_ambito_detectados": "2/2",
+    "tokens_entrada_medios": 912,
+    "tokens_salida_medios": 76,
+    "segundos_medios": 17.1,
+    "detalle": [
+      {
+        "id": 101,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "electrodomesticos/lavavajillas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 957,
+        "tokens_salida": 72,
+        "segundos": 16.2
+      },
+      {
+        "id": 102,
+        "esperado": "fontaneria/atasco_inodoro",
+        "obtenido": "fontaneria/atasco_inodoro",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1006,
+        "tokens_salida": 85,
+        "segundos": 21.7
+      },
+      {
+        "id": 103,
+        "esperado": "fontaneria/fuga_tuberia",
+        "obtenido": "humedades/gotera_tejado",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 964,
+        "tokens_salida": 81,
+        "segundos": 20.0
+      },
+      {
+        "id": 104,
+        "esperado": "fontaneria/atasco_desague",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 957,
+        "tokens_salida": 74,
+        "segundos": 19.0
+      },
+      {
+        "id": 105,
+        "esperado": "fontaneria/cambio_grifo",
+        "obtenido": "fontaneria/cambio_grifo",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 998,
+        "tokens_salida": 70,
+        "segundos": 18.3
+      },
+      {
+        "id": 106,
+        "esperado": "fontaneria/calentador_termo",
+        "obtenido": "fontaneria/calentador_termo",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 951,
+        "tokens_salida": 80,
+        "segundos": 19.3
+      },
+      {
+        "id": 107,
+        "esperado": "humedades/gotera_tejado",
+        "obtenido": "humedades/gotera_tejado",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 976,
+        "tokens_salida": 73,
+        "segundos": 19.2
+      },
+      {
+        "id": 108,
+        "esperado": "humedades/humedad_condensacion",
+        "obtenido": "carpinteria/armario",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 972,
+        "tokens_salida": 78,
+        "segundos": 17.2
+      },
+      {
+        "id": 109,
+        "esperado": "humedades/filtracion_terraza",
+        "obtenido": "humedades/gotera_tejado",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 966,
+        "tokens_salida": 75,
+        "segundos": 16.4
+      },
+      {
+        "id": 110,
+        "esperado": "electricidad/averia_enchufes",
+        "obtenido": "electricidad/averia_enchufes",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 920,
+        "tokens_salida": 71,
+        "segundos": 17.3
+      },
+      {
+        "id": 111,
+        "esperado": "electricidad/salta_diferencial",
+        "obtenido": "electricidad/salta_diferencial",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 964,
+        "tokens_salida": 73,
+        "segundos": 19.0
+      },
+      {
+        "id": 112,
+        "esperado": "electricidad/cambio_iluminacion",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 763,
+        "tokens_salida": 71,
+        "segundos": 12.2
+      },
+      {
+        "id": 113,
+        "esperado": "pintura/pintar_habitacion",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 969,
+        "tokens_salida": 83,
+        "segundos": 20.1
+      },
+      {
+        "id": 114,
+        "esperado": "pintura/pintar_vivienda",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 766,
+        "tokens_salida": 74,
+        "segundos": 12.5
+      },
+      {
+        "id": 115,
+        "esperado": "climatizacion/reparacion_aire",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 762,
+        "tokens_salida": 86,
+        "segundos": 13.6
+      },
+      {
+        "id": 116,
+        "esperado": "climatizacion/caldera_calefaccion",
+        "obtenido": "climatizacion/caldera_calefaccion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 761,
+        "tokens_salida": 69,
+        "segundos": 12.0
+      },
+      {
+        "id": 117,
+        "esperado": "cerrajeria/apertura_puerta",
+        "obtenido": "cerrajeria/cambio_cerradura",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 936,
+        "tokens_salida": 89,
+        "segundos": 20.1
+      },
+      {
+        "id": 118,
+        "esperado": "cerrajeria/cambio_cerradura",
+        "obtenido": "cerrajeria/cambio_cerradura",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 930,
+        "tokens_salida": 68,
+        "segundos": 15.7
+      },
+      {
+        "id": 119,
+        "esperado": "bano_albanileria/reparacion_ducha",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 969,
+        "tokens_salida": 84,
+        "segundos": 20.7
+      },
+      {
+        "id": 120,
+        "esperado": "bano_albanileria/azulejos",
+        "obtenido": "bano_albanileria/azulejos",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 955,
+        "tokens_salida": 80,
+        "segundos": 17.3
+      },
+      {
+        "id": 121,
+        "esperado": "electrodomesticos/lavadora",
+        "obtenido": "electrodomesticos/lavadora",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 947,
+        "tokens_salida": 64,
+        "segundos": 17.7
+      },
+      {
+        "id": 122,
+        "esperado": "electrodomesticos/frigorifico",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 758,
+        "tokens_salida": 73,
+        "segundos": 12.5
+      },
+      {
+        "id": 123,
+        "esperado": "electrodomesticos/horno_vitro",
+        "obtenido": "electrodomesticos/horno_vitro",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 941,
+        "tokens_salida": 75,
+        "segundos": 16.3
+      },
+      {
+        "id": 124,
+        "esperado": "carpinteria/ventana_persiana",
+        "obtenido": "cerrajeria/cambio_cerradura",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 918,
+        "tokens_salida": 79,
+        "segundos": 18.2
+      },
+      {
+        "id": 125,
+        "esperado": "carpinteria/puerta_interior",
+        "obtenido": "cerrajeria/apertura_puerta",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 930,
+        "tokens_salida": 81,
+        "segundos": 17.5
+      },
+      {
+        "id": 126,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 764,
+        "tokens_salida": 84,
+        "segundos": 13.6
+      },
+      {
+        "id": 127,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 754,
+        "tokens_salida": 77,
+        "segundos": 12.6
+      },
+      {
+        "id": 128,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "electrodomesticos/lavavajillas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 957,
+        "tokens_salida": 85,
+        "segundos": 20.0
+      },
+      {
+        "id": 129,
+        "esperado": "fontaneria/atasco_desague",
+        "obtenido": "humedades/filtracion_terraza",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 966,
+        "tokens_salida": 68,
+        "segundos": 18.7
+      },
+      {
+        "id": 130,
+        "esperado": "fontaneria/reparacion_cisterna",
+        "obtenido": "fontaneria/reparacion_cisterna",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 996,
+        "tokens_salida": 71,
+        "segundos": 19.3
+      }
+    ],
+    "modelo": "qwen2.5:3b"
+  },
+  "ciego_2:reglas": {
+    "variante": "reglas",
+    "casos": 30,
+    "acierto_tipo": 0.8,
+    "acierto_trabajo": 0.7,
+    "fuera_de_ambito_detectados": "3/3",
+    "tokens_entrada_medios": 0,
+    "tokens_salida_medios": 0,
+    "segundos_medios": 0.0,
+    "detalle": [
+      {
+        "id": 201,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "electrodomesticos/lavavajillas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 202,
+        "esperado": "fontaneria/fuga_tuberia",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 203,
+        "esperado": "fontaneria/atasco_inodoro",
+        "obtenido": "fontaneria/atasco_inodoro",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 204,
+        "esperado": "fontaneria/atasco_desague",
+        "obtenido": "fontaneria/atasco_desague",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 205,
+        "esperado": "fontaneria/calentador_termo",
+        "obtenido": "fontaneria/cambio_grifo",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 206,
+        "esperado": "fontaneria/reparacion_cisterna",
+        "obtenido": "fontaneria/atasco_inodoro",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 207,
+        "esperado": "humedades/humedad_condensacion",
+        "obtenido": "humedades/humedad_condensacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 208,
+        "esperado": "humedades/gotera_tejado",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 209,
+        "esperado": "humedades/humedad_capilaridad",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 210,
+        "esperado": "electricidad/averia_enchufes",
+        "obtenido": "electricidad/averia_enchufes",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 211,
+        "esperado": "electricidad/salta_diferencial",
+        "obtenido": "humedades/gotera_tejado",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 212,
+        "esperado": "electricidad/cambio_iluminacion",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 213,
+        "esperado": "pintura/pintar_habitacion",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 214,
+        "esperado": "pintura/pintar_vivienda",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 215,
+        "esperado": "climatizacion/reparacion_aire",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 216,
+        "esperado": "climatizacion/caldera_calefaccion",
+        "obtenido": "climatizacion/caldera_calefaccion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 217,
+        "esperado": "cerrajeria/apertura_puerta",
+        "obtenido": "cerrajeria/cambio_cerradura",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 218,
+        "esperado": "cerrajeria/cambio_cerradura",
+        "obtenido": "cerrajeria/cambio_cerradura",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 219,
+        "esperado": "bano_albanileria/reparacion_ducha",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 220,
+        "esperado": "bano_albanileria/sellado_juntas",
+        "obtenido": "bano_albanileria/sellado_juntas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 221,
+        "esperado": "electrodomesticos/lavadora",
+        "obtenido": "electrodomesticos/lavadora",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 222,
+        "esperado": "electrodomesticos/frigorifico",
+        "obtenido": "electrodomesticos/frigorifico",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 223,
+        "esperado": "electrodomesticos/horno_vitro",
+        "obtenido": "electricidad/salta_diferencial",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 224,
+        "esperado": "carpinteria/ventana_persiana",
+        "obtenido": "carpinteria/ventana_persiana",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 225,
+        "esperado": "carpinteria/armario",
+        "obtenido": "carpinteria/armario",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 226,
+        "esperado": "carpinteria/puerta_interior",
+        "obtenido": "carpinteria/puerta_interior",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 227,
+        "esperado": "bano_albanileria/azulejos",
+        "obtenido": "bano_albanileria/azulejos",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 228,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 229,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      },
+      {
+        "id": 230,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 0,
+        "tokens_salida": 0,
+        "segundos": 0.0
+      }
+    ],
+    "modelo": "qwen2.5:3b"
+  },
+  "ciego_2:v1_antiguo": {
+    "variante": "v1_antiguo",
+    "casos": 30,
+    "acierto_tipo": 0.5,
+    "acierto_trabajo": 0.333,
+    "fuera_de_ambito_detectados": "0/3",
+    "tokens_entrada_medios": 1262,
+    "tokens_salida_medios": 94,
+    "segundos_medios": 12.9,
+    "detalle": [
+      {
+        "id": 201,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "electrodomesticos/lavadora",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 1266,
+        "tokens_salida": 77,
+        "segundos": 14.0
+      },
+      {
+        "id": 202,
+        "esperado": "fontaneria/fuga_tuberia",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1272,
+        "tokens_salida": 102,
+        "segundos": 12.6
+      },
+      {
+        "id": 203,
+        "esperado": "fontaneria/atasco_inodoro",
+        "obtenido": "fontaneria/reparacion_cisterna",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 1260,
+        "tokens_salida": 85,
+        "segundos": 11.0
+      },
+      {
+        "id": 204,
+        "esperado": "fontaneria/atasco_desague",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 1255,
+        "tokens_salida": 86,
+        "segundos": 11.1
+      },
+      {
+        "id": 205,
+        "esperado": "fontaneria/calentador_termo",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1255,
+        "tokens_salida": 84,
+        "segundos": 11.1
+      },
+      {
+        "id": 206,
+        "esperado": "fontaneria/reparacion_cisterna",
+        "obtenido": "fontaneria/reparacion_cisterna",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1261,
+        "tokens_salida": 91,
+        "segundos": 13.8
+      },
+      {
+        "id": 207,
+        "esperado": "humedades/humedad_condensacion",
+        "obtenido": "humedades/humedad_condensacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1266,
+        "tokens_salida": 89,
+        "segundos": 12.3
+      },
+      {
+        "id": 208,
+        "esperado": "humedades/gotera_tejado",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1269,
+        "tokens_salida": 103,
+        "segundos": 14.2
+      },
+      {
+        "id": 209,
+        "esperado": "humedades/humedad_capilaridad",
+        "obtenido": "humedades/humedad_condensacion",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 1267,
+        "tokens_salida": 90,
+        "segundos": 12.3
+      },
+      {
+        "id": 210,
+        "esperado": "electricidad/averia_enchufes",
+        "obtenido": "cerrajeria/apertura_puerta",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1261,
+        "tokens_salida": 89,
+        "segundos": 12.0
+      },
+      {
+        "id": 211,
+        "esperado": "electricidad/salta_diferencial",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1264,
+        "tokens_salida": 78,
+        "segundos": 10.9
+      },
+      {
+        "id": 212,
+        "esperado": "electricidad/cambio_iluminacion",
+        "obtenido": "electricidad/cambio_iluminacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1257,
+        "tokens_salida": 91,
+        "segundos": 12.5
+      },
+      {
+        "id": 213,
+        "esperado": "pintura/pintar_habitacion",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1267,
+        "tokens_salida": 99,
+        "segundos": 14.8
+      },
+      {
+        "id": 214,
+        "esperado": "pintura/pintar_vivienda",
+        "obtenido": "pintura/pintar_vivienda",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1264,
+        "tokens_salida": 91,
+        "segundos": 12.8
+      },
+      {
+        "id": 215,
+        "esperado": "climatizacion/reparacion_aire",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1264,
+        "tokens_salida": 93,
+        "segundos": 12.8
+      },
+      {
+        "id": 216,
+        "esperado": "climatizacion/caldera_calefaccion",
+        "obtenido": "climatizacion/caldera_calefaccion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1266,
+        "tokens_salida": 94,
+        "segundos": 12.2
+      },
+      {
+        "id": 217,
+        "esperado": "cerrajeria/apertura_puerta",
+        "obtenido": "cerrajeria/cambio_cerradura",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 1267,
+        "tokens_salida": 84,
+        "segundos": 11.5
+      },
+      {
+        "id": 218,
+        "esperado": "cerrajeria/cambio_cerradura",
+        "obtenido": "cerrajeria/cambio_cerradura",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1265,
+        "tokens_salida": 82,
+        "segundos": 11.1
+      },
+      {
+        "id": 219,
+        "esperado": "bano_albanileria/reparacion_ducha",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1259,
+        "tokens_salida": 89,
+        "segundos": 12.1
+      },
+      {
+        "id": 220,
+        "esperado": "bano_albanileria/sellado_juntas",
+        "obtenido": "humedades/filtracion_terraza",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1263,
+        "tokens_salida": 93,
+        "segundos": 12.7
+      },
+      {
+        "id": 221,
+        "esperado": "electrodomesticos/lavadora",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1261,
+        "tokens_salida": 116,
+        "segundos": 14.5
+      },
+      {
+        "id": 222,
+        "esperado": "electrodomesticos/frigorifico",
+        "obtenido": "climatizacion/caldera_calefaccion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1260,
+        "tokens_salida": 113,
+        "segundos": 13.8
+      },
+      {
+        "id": 223,
+        "esperado": "electrodomesticos/horno_vitro",
+        "obtenido": "climatizacion/caldera_calefaccion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1260,
+        "tokens_salida": 135,
+        "segundos": 16.7
+      },
+      {
+        "id": 224,
+        "esperado": "carpinteria/ventana_persiana",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1260,
+        "tokens_salida": 91,
+        "segundos": 13.8
+      },
+      {
+        "id": 225,
+        "esperado": "carpinteria/armario",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1255,
+        "tokens_salida": 90,
+        "segundos": 12.5
+      },
+      {
+        "id": 226,
+        "esperado": "carpinteria/puerta_interior",
+        "obtenido": "cerrajeria/apertura_puerta",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1262,
+        "tokens_salida": 107,
+        "segundos": 14.9
+      },
+      {
+        "id": 227,
+        "esperado": "bano_albanileria/azulejos",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1263,
+        "tokens_salida": 82,
+        "segundos": 12.1
+      },
+      {
+        "id": 228,
+        "esperado": "no_es_averia/None",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1257,
+        "tokens_salida": 89,
+        "segundos": 12.0
+      },
+      {
+        "id": 229,
+        "esperado": "no_es_averia/None",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1262,
+        "tokens_salida": 104,
+        "segundos": 14.1
+      },
+      {
+        "id": 230,
+        "esperado": "no_es_averia/None",
+        "obtenido": "cerrajeria/apertura_puerta",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 1262,
+        "tokens_salida": 101,
+        "segundos": 14.1
+      }
+    ],
+    "modelo": "qwen2.5:3b"
+  },
+  "ciego_2:v2": {
+    "variante": "v2",
+    "casos": 30,
+    "acierto_tipo": 0.933,
+    "acierto_trabajo": 0.833,
+    "fuera_de_ambito_detectados": "3/3",
+    "tokens_entrada_medios": 1047,
+    "tokens_salida_medios": 86,
+    "segundos_medios": 18.4,
+    "detalle": [
+      {
+        "id": 201,
+        "esperado": "electrodomesticos/lavavajillas",
+        "obtenido": "electrodomesticos/lavavajillas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 993,
+        "tokens_salida": 68,
+        "segundos": 17.1
+      },
+      {
+        "id": 202,
+        "esperado": "fontaneria/fuga_tuberia",
+        "obtenido": "fontaneria/fuga_tuberia",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1052,
+        "tokens_salida": 97,
+        "segundos": 18.5
+      },
+      {
+        "id": 203,
+        "esperado": "fontaneria/atasco_inodoro",
+        "obtenido": "fontaneria/atasco_inodoro",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1028,
+        "tokens_salida": 74,
+        "segundos": 12.5
+      },
+      {
+        "id": 204,
+        "esperado": "fontaneria/atasco_desague",
+        "obtenido": "humedades/gotera_tejado",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 978,
+        "tokens_salida": 75,
+        "segundos": 21.2
+      },
+      {
+        "id": 205,
+        "esperado": "fontaneria/calentador_termo",
+        "obtenido": "fontaneria/cambio_grifo",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 969,
+        "tokens_salida": 73,
+        "segundos": 14.0
+      },
+      {
+        "id": 206,
+        "esperado": "fontaneria/reparacion_cisterna",
+        "obtenido": "fontaneria/atasco_inodoro",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 1030,
+        "tokens_salida": 70,
+        "segundos": 14.4
+      },
+      {
+        "id": 207,
+        "esperado": "humedades/humedad_condensacion",
+        "obtenido": "humedades/humedad_condensacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1000,
+        "tokens_salida": 77,
+        "segundos": 14.8
+      },
+      {
+        "id": 208,
+        "esperado": "humedades/gotera_tejado",
+        "obtenido": "humedades/gotera_tejado",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1006,
+        "tokens_salida": 75,
+        "segundos": 12.8
+      },
+      {
+        "id": 209,
+        "esperado": "humedades/humedad_capilaridad",
+        "obtenido": "humedades/humedad_condensacion",
+        "tipo_ok": true,
+        "trabajo_ok": false,
+        "tokens_entrada": 1002,
+        "tokens_salida": 74,
+        "segundos": 12.0
+      },
+      {
+        "id": 210,
+        "esperado": "electricidad/averia_enchufes",
+        "obtenido": "electricidad/averia_enchufes",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 988,
+        "tokens_salida": 71,
+        "segundos": 13.1
+      },
+      {
+        "id": 211,
+        "esperado": "electricidad/salta_diferencial",
+        "obtenido": "electricidad/salta_diferencial",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 996,
+        "tokens_salida": 75,
+        "segundos": 12.0
+      },
+      {
+        "id": 212,
+        "esperado": "electricidad/cambio_iluminacion",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": false,
+        "trabajo_ok": false,
+        "tokens_entrada": 973,
+        "tokens_salida": 69,
+        "segundos": 13.0
+      },
+      {
+        "id": 213,
+        "esperado": "pintura/pintar_habitacion",
+        "obtenido": "pintura/pintar_habitacion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 993,
+        "tokens_salida": 100,
+        "segundos": 14.3
+      },
+      {
+        "id": 214,
+        "esperado": "pintura/pintar_vivienda",
+        "obtenido": "pintura/pintar_vivienda",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1916,
+        "tokens_salida": 167,
+        "segundos": 39.5
+      },
+      {
+        "id": 215,
+        "esperado": "climatizacion/reparacion_aire",
+        "obtenido": "climatizacion/reparacion_aire",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1916,
+        "tokens_salida": 200,
+        "segundos": 43.7
+      },
+      {
+        "id": 216,
+        "esperado": "climatizacion/caldera_calefaccion",
+        "obtenido": "climatizacion/caldera_calefaccion",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 1000,
+        "tokens_salida": 75,
+        "segundos": 20.6
+      },
+      {
+        "id": 217,
+        "esperado": "cerrajeria/apertura_puerta",
+        "obtenido": "cerrajeria/apertura_puerta",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 970,
+        "tokens_salida": 90,
+        "segundos": 22.1
+      },
+      {
+        "id": 218,
+        "esperado": "cerrajeria/cambio_cerradura",
+        "obtenido": "cerrajeria/cambio_cerradura",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 966,
+        "tokens_salida": 87,
+        "segundos": 17.8
+      },
+      {
+        "id": 219,
+        "esperado": "bano_albanileria/reparacion_ducha",
+        "obtenido": "bano_albanileria/reparacion_ducha",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 985,
+        "tokens_salida": 74,
+        "segundos": 19.1
+      },
+      {
+        "id": 220,
+        "esperado": "bano_albanileria/sellado_juntas",
+        "obtenido": "bano_albanileria/sellado_juntas",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 991,
+        "tokens_salida": 77,
+        "segundos": 16.7
+      },
+      {
+        "id": 221,
+        "esperado": "electrodomesticos/lavadora",
+        "obtenido": "electrodomesticos/lavadora",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 983,
+        "tokens_salida": 75,
+        "segundos": 18.9
+      },
+      {
+        "id": 222,
+        "esperado": "electrodomesticos/frigorifico",
+        "obtenido": "electrodomesticos/frigorifico",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 981,
+        "tokens_salida": 80,
+        "segundos": 16.9
+      },
+      {
+        "id": 223,
+        "esperado": "electrodomesticos/horno_vitro",
+        "obtenido": "electrodomesticos/horno_vitro",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 981,
+        "tokens_salida": 77,
+        "segundos": 16.8
+      },
+      {
+        "id": 224,
+        "esperado": "carpinteria/ventana_persiana",
+        "obtenido": "carpinteria/ventana_persiana",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 958,
+        "tokens_salida": 70,
+        "segundos": 18.0
+      },
+      {
+        "id": 225,
+        "esperado": "carpinteria/armario",
+        "obtenido": "carpinteria/armario",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 952,
+        "tokens_salida": 76,
+        "segundos": 16.2
+      },
+      {
+        "id": 226,
+        "esperado": "carpinteria/puerta_interior",
+        "obtenido": "carpinteria/puerta_interior",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 962,
+        "tokens_salida": 82,
+        "segundos": 17.0
+      },
+      {
+        "id": 227,
+        "esperado": "bano_albanileria/azulejos",
+        "obtenido": "bano_albanileria/azulejos",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 991,
+        "tokens_salida": 75,
+        "segundos": 20.5
+      },
+      {
+        "id": 228,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 940,
+        "tokens_salida": 76,
+        "segundos": 16.3
+      },
+      {
+        "id": 229,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 950,
+        "tokens_salida": 101,
+        "segundos": 23.0
+      },
+      {
+        "id": 230,
+        "esperado": "no_es_averia/None",
+        "obtenido": "no_es_averia/None",
+        "tipo_ok": true,
+        "trabajo_ok": true,
+        "tokens_entrada": 950,
+        "tokens_salida": 97,
+        "segundos": 19.4
+      }
+    ],
+    "modelo": "qwen2.5:3b"
+  }
+}

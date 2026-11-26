@@ -1,0 +1,113 @@
+{
+  "modelo": "qwen2.5:3b",
+  "incidencias": 8,
+  "completadas_hasta_reserva": 7,
+  "tokens_entrada_medios": 1914.8,
+  "tokens_salida_medios": 302.6,
+  "tokens_entrada_desv": 354.5,
+  "llamadas_llm_medias": 4.6,
+  "llamadas_mcp_medias": 9.1,
+  "segundos_modelo_medios": 170.0,
+  "segundos_totales_medios": 253.8,
+  "tokens_prefijo_fijo_por_agente": {
+    "clasificador_categoria": 434,
+    "clasificador_trabajo": 79,
+    "orquestador": 140,
+    "proveedores": 181,
+    "comunicaciones": 147
+  },
+  "fraccion_cacheable_entrada": 0.512,
+  "hardware": "portátil de desarrollo: Intel Core i7-1355U, 16 GB RAM, sin GPU dedicada (solo CPU)",
+  "detalle": [
+    {
+      "incidencia": "INC-0016",
+      "caso": 201,
+      "estado_final": "reservada",
+      "tokens_entrada": 1922,
+      "tokens_salida": 373,
+      "llamadas_llm": 5,
+      "llamadas_mcp": 10,
+      "segundos_modelo": 69.0,
+      "segundos_totales": 89.7
+    },
+    {
+      "incidencia": "INC-0017",
+      "caso": 202,
+      "estado_final": "reservada",
+      "tokens_entrada": 2197,
+      "tokens_salida": 342,
+      "llamadas_llm": 5,
+      "llamadas_mcp": 10,
+      "segundos_modelo": 87.5,
+      "segundos_totales": 110.8
+    },
+    {
+      "incidencia": "INC-0018",
+      "caso": 203,
+      "estado_final": "reservada",
+      "tokens_entrada": 1918,
+      "tokens_salida": 269,
+      "llamadas_llm": 5,
+      "llamadas_mcp": 11,
+      "segundos_modelo": 835.1,
+      "segundos_totales": 1355.3
+    },
+    {
+      "incidencia": "INC-0019",
+      "caso": 204,
+      "estado_final": "reservada",
+      "tokens_entrada": 2082,
+      "tokens_salida": 359,
+      "llamadas_llm": 5,
+      "llamadas_mcp": 10,
+      "segundos_modelo": 92.1,
+      "segundos_totales": 116.1
+    },
+    {
+      "incidencia": "INC-0020",
+      "caso": 205,
+      "estado_final": "reservada",
+      "tokens_entrada": 2057,
+      "tokens_salida": 307,
+      "llamadas_llm": 5,
+      "llamadas_mcp": 10,
+      "segundos_modelo": 86.3,
+      "segundos_totales": 110.8
+    },
+    {
+      "incidencia": "INC-0021",
+      "caso": 206,
+      "estado_final": "reservada",
+      "tokens_entrada": 2116,
+      "tokens_salida": 338,
+      "llamadas_llm": 5,
+      "llamadas_mcp": 10,
+      "segundos_modelo": 82.6,
+      "segundos_totales": 109.7
+    },
+    {
+      "incidencia": "INC-0022",
+      "caso": 207,
+      "estado_final": "reservada",
+      "tokens_entrada": 2020,
+      "tokens_salida": 358,
+      "llamadas_llm": 5,
+      "llamadas_mcp": 10,
+      "segundos_modelo": 89.3,
+      "segundos_totales": 113.4
+    },
+    {
+      "incidencia": "INC-0023",
+      "caso": 208,
+      "estado_final": "necesita_info",
+      "tokens_entrada": 1006,
+      "tokens_salida": 75,
+      "llamadas_llm": 2,
+      "llamadas_mcp": 2,
+      "segundos_modelo": 18.4,
+      "segundos_totales": 24.9
+    }
+  ],
+  "segundos_totales_mediana": 110.8,
+  "nota": "INC-0018 tardó 1.355 s porque Ollama seguía atendiendo peticiones encoladas de una evaluación detenida: la llamada del orquestador agotó el tiempo y actuaron los respaldos (decisión por reglas, reintento de geolocalización). Se reporta la mediana de tiempo."
+}

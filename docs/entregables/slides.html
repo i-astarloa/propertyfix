@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>PropertyFix — Pitch</title>
+
+
+<style>
+@page { size: 338.67mm 190.5mm; margin: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: #17262d; }
+.s { width: 338.67mm; height: 190.5mm; padding: 15mm 18mm 12mm; position: relative; page-break-after: always; overflow: hidden; background: #fbfcfc; }
+.s.osc { background: radial-gradient(1200px 700px at 15% 10%, #176352, #0b2827); color: #e6f2ee; }
+.s h1 { font-size: 31pt; margin: 0 0 4mm; letter-spacing: -.015em; line-height: 1.1; }
+.s h2 { font-size: 13pt; margin: 0 0 7mm; color: #4d6068; font-weight: 500; }
+.s.osc h2 { color: #a9cfc4; }
+.eti { font-size: 9.5pt; letter-spacing: .12em; text-transform: uppercase; color: #12876a; font-weight: 700; margin-bottom: 3mm; }
+.s.osc .eti { color: #7fd3b7; }
+.pie { position: absolute; bottom: 7mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between; font-size: 8pt; color: #8a9aa1; }
+.s.osc .pie { color: #7fa79c; }
+.grid { display: grid; gap: 7mm; } .g2 { grid-template-columns: 1fr 1fr; } .g3 { grid-template-columns: repeat(3, 1fr); } .g4 { grid-template-columns: repeat(4, 1fr); }
+.t { background: #fff; border: 1px solid #dbe5e2; border-radius: 4mm; padding: 6mm 7mm; }
+.t h3 { margin: 0 0 2.5mm; font-size: 13pt; color: #0f6e56; }
+.t p, .t li { font-size: 11pt; line-height: 1.4; margin: 0 0 2mm; color: #33464e; }
+.t ul { margin: 0; padding-left: 5mm; }
+.big { font-size: 34pt; font-weight: 800; color: #0f6e56; letter-spacing: -.02em; line-height: 1; }
+.s.osc .big { color: #fff; }
+.lbl { font-size: 10.5pt; color: #4d6068; margin-top: 2mm; line-height: 1.35; }
+.s.osc .lbl { color: #b9d8cf; }
+.med { display: inline-block; background: #e3f4ec; color: #0b5c45; border-radius: 2mm; padding: 0 2mm; font-size: 7.5pt; font-weight: 700; vertical-align: middle; }
+.est { display: inline-block; background: #fff3dc; color: #8a5300; border-radius: 2mm; padding: 0 2mm; font-size: 7.5pt; font-weight: 700; vertical-align: middle; }
+table { border-collapse: collapse; width: 100%; font-size: 11pt; }
+th { text-align: left; color: #4d6068; font-weight: 600; font-size: 9.5pt; text-transform: uppercase; letter-spacing: .04em; padding: 2.5mm 3mm; border-bottom: 2px solid #cfe0da; }
+td { padding: 2.5mm 3mm; border-bottom: 1px solid #e3ebe8; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+tr.dest td { background: #eef8f4; font-weight: 700; }
+.paso { display: flex; gap: 4mm; align-items: flex-start; margin-bottom: 4.5mm; }
+.paso b.num { flex: none; width: 9mm; height: 9mm; border-radius: 50%; background: #0f6e56; color: #fff; display: grid; place-items: center; font-size: 11pt; }
+.paso p { margin: 0; font-size: 12pt; line-height: 1.35; }
+.paso.humano b.num { background: #e8a13a; }
+svg text { font-family: "Segoe UI", Arial, sans-serif; }
+.cita { font-size: 16pt; line-height: 1.4; border-left: 4px solid #0f6e56; padding-left: 6mm; color: #22353c; margin: 4mm 0; }
+</style>
+</head>
+<body>
+
+<!-- 1. PORTADA -->
+<section class="s osc">
+  <div class="eti">Pitch · Deep Learning para Business Analytics · ICADE</div>
+  <div style="margin-top:28mm"><div style="font-size:54pt;font-weight:800;color:#fff;letter-spacing:-.02em">PropertyFix</div>
+  <h2 style="font-size:20pt;margin-top:3mm;max-width:220mm;color:#d6ece5">El operario digital que resuelve las averías de tus viviendas en alquiler.<br>Tú solo apruebas.</h2></div>
+  <div style="position:absolute;bottom:22mm;left:18mm;font-size:12pt;color:#b9d8cf">[Nombre Apellido 1] · [Nombre Apellido 2] · [Nombre Apellido 3]</div>
+  <div style="position:absolute;bottom:22mm;right:18mm;text-align:right"><div style="font-size:10pt;color:#9cc7ba">Buscamos</div><div style="font-size:24pt;font-weight:800;color:#fff">110.000 €</div><div style="font-size:10pt;color:#9cc7ba">por el 20 %</div></div>
+</section>
+
+<!-- 2. PROBLEMA -->
+<section class="s">
+  <div class="eti">El problema</div>
+  <h1>Cada avería son diez pasos manuales que nadie quiere hacer</h1>
+  <h2>Administradores de fincas, gestoras de alquiler y propietarios con varias viviendas</h2>
+  <div class="grid g3" style="margin-top:6mm">
+    <div class="t"><div class="big">3,3</div><div class="lbl">solicitudes de mantenimiento por vivienda y año <span class="med">DATO</span><br><span style="font-size:8.5pt">Hemlane 2024</span></div></div>
+    <div class="t"><div class="big">~45 min</div><div class="lbl">de gestor por incidencia: leer, clasificar, buscar técnico, presupuestar, agendar, avisar <span class="est">ESTIMACIÓN</span></div></div>
+    <div class="t"><div class="big">~20 h</div><div class="lbl">al mes por cada 100 viviendas, en tareas de coordinación repetitivas <span class="est">ESTIMACIÓN</span></div></div>
+  </div>
+  <p class="cita">«Hola, desde ayer el lavavajillas suelta agua y se está mojando la cocina. ¿Podéis mandar a alguien?»</p>
+  <div class="pie"><span>PropertyFix</span><span>2</span></div>
+</section>
+
+<!-- 3. SOLUCIÓN -->
+<section class="s">
+  <div class="eti">La solución</div>
+  <h1>Del mensaje del inquilino a la cita en el calendario, sin teclear nada</h1>
+  <div class="grid g2" style="margin-top:7mm">
+    <div>
+      <div class="paso"><b class="num">1</b><p><b>Entiende</b> el texto libre o el email: lavavajillas, urgencia alta.</p></div>
+      <div class="paso"><b class="num">2</b><p><b>Decide</b> si sigue, si pregunta algo o si lo escala a una persona.</p></div>
+      <div class="paso"><b class="num">3</b><p><b>Compara</b> técnicos por precio, distancia, valoración y rapidez, y justifica su elección.</p></div>
+      <div class="paso"><b class="num">4</b><p><b>Busca hueco</b> cruzando la agenda del técnico con tu Google Calendar.</p></div>
+      <div class="paso humano"><b class="num">✓</b><p><b>Tú apruebas.</b> Nada se reserva, se paga ni se envía antes.</p></div>
+      <div class="paso"><b class="num">5</b><p><b>Ejecuta:</b> cita en Calendar, presupuesto en Drive, emails por Gmail, historial en Sheets.</p></div>
+    </div>
+    <div class="t" style="background:#f3f8f6">
+      <h3>No es un chatbot: son agentes que actúan</h3>
+      <p>Un formulario recoge datos. Un chatbot decide qué <i>decir</i>. PropertyFix decide qué <i>hacer</i> y lo hace en cinco plataformas reales, con un humano en el punto de gasto.</p>
+      <p style="margin-top:5mm"><b>Probado de verdad</b> el 25/11/2026: una incidencia aprobada creó el evento en Google Calendar, el Google Doc del presupuesto y dos emails reales en Gmail.</p>
+      <p style="margin-top:5mm"><b>Funciona hoy:</b> la app arranca en local con <code>iniciar.bat</code>.</p>
+    </div>
+  </div>
+  <div class="pie"><span>PropertyFix</span><span>3</span></div>
+</section>
+
+<!-- 4. ARQUITECTURA -->
+<section class="s">
+  <div class="eti">Cómo funciona</div>
+  <h1>Un orquestador, tres especialistas y cinco conexiones MCP</h1>
+  <svg viewBox="0 0 900 330" width="100%" style="margin-top:2mm">
+    <defs><marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6b7d85"/></marker></defs>
+    <rect x="300" y="6" width="300" height="62" rx="10" fill="#0f6e56"/>
+    <text x="450" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">ORQUESTADOR</text>
+    <text x="450" y="54" text-anchor="middle" font-size="12" fill="#cfeadf">máquina de estados + decisión del LLM verificada</text>
+    <g stroke="#6b7d85" stroke-width="1.6"><line x1="360" y1="68" x2="150" y2="110" marker-end="url(#f)"/><line x1="450" y1="68" x2="450" y2="110" marker-end="url(#f)"/><line x1="540" y1="68" x2="750" y2="110" marker-end="url(#f)"/></g>
+    <g font-size="12" text-anchor="middle">
+      <rect x="30" y="110" width="240" height="78" rx="9" fill="#e8f3ef" stroke="#0f6e56"/><text x="150" y="138" font-size="16" font-weight="700">Clasificador</text><text x="150" y="158">categoría → trabajo → urgencia</text><text x="150" y="176">ve solo el texto</text>
+      <rect x="330" y="110" width="240" height="78" rx="9" fill="#e8f3ef" stroke="#0f6e56"/><text x="450" y="138" font-size="16" font-weight="700">Proveedores</text><text x="450" y="158">compara y elige con justificación</text><text x="450" y="176">ve clasificación + coordenadas</text>
+      <rect x="630" y="110" width="240" height="78" rx="9" fill="#e8f3ef" stroke="#0f6e56"/><text x="750" y="138" font-size="16" font-weight="700">Comunicaciones</text><text x="750" y="158">calendario, documento, emails</text><text x="750" y="176">solo tras la aprobación</text>
+    </g>
+    <rect x="30" y="210" width="840" height="40" rx="8" fill="#fff4e2" stroke="#e1b86a"/>
+    <text x="450" y="236" text-anchor="middle" font-size="13.5" font-weight="700">Permisos por agente · aprobación humana · bucles · tiempo máximo · respaldo si falla · traza de tokens</text>
+    <g font-size="13" text-anchor="middle">
+      <rect x="30" y="272" width="156" height="44" rx="7" fill="#fff" stroke="#9bb3ab"/><text x="108" y="299">Directorio + OSM</text>
+      <rect x="201" y="272" width="156" height="44" rx="7" fill="#fff" stroke="#9bb3ab"/><text x="279" y="299">Gmail</text>
+      <rect x="372" y="272" width="156" height="44" rx="7" fill="#fff" stroke="#9bb3ab"/><text x="450" y="299">Calendar</text>
+      <rect x="543" y="272" width="156" height="44" rx="7" fill="#fff" stroke="#9bb3ab"/><text x="621" y="299">Drive</text>
+      <rect x="714" y="272" width="156" height="44" rx="7" fill="#fff" stroke="#9bb3ab"/><text x="792" y="299">Sheets</text>
+    </g>
+  </svg>
+  <p style="font-size:11pt;color:#4d6068;margin:2mm 0 0">Modelo: <b>Qwen 2.5 3B</b> (abierto, Apache 2.0) en <b>Ollama</b> · temperature 0, seed 42 · salida JSON con esquema · los agentes <b>no comparten contexto</b>: menos tokens y menos datos personales expuestos.</p>
+  <div class="pie"><span>PropertyFix</span><span>4</span></div>
+</section>
+
+<!-- 5. EVALUACIÓN -->
+<section class="s">
+  <div class="eti">Lo que hemos medido</div>
+  <h1>Encontramos el fallo, lo medimos y lo corregimos</h1>
+  <h2>En pruebas reales confundió un lavavajillas con «pintar». Así lo arreglamos sin reentrenar el modelo.</h2>
+  <div class="grid g2">
+    <div class="t">
+      <table>
+        <tr><th>Clasificador · examen ciego (30 casos)</th><th class="n">Acierto</th></tr>
+        <tr><td>v1 · un paso entre 35 trabajos</td><td class="n">33 %</td></tr>
+        <tr class="dest"><td>v2.1 · dos pasos + verificador + segunda opinión</td><td class="n">83 %</td></tr>
+        <tr><td>Mensajes que no son averías, detectados</td><td class="n">3/3</td></tr>
+      </table>
+      <p style="margin-top:4mm;font-size:9.5pt"><span class="med">MEDIDO</span> con <code>evaluar_clasificador.py</code>. Examen escrito después de congelar la versión, para no evaluar con lo que ya habíamos visto.</p>
+    </div>
+    <div class="t" style="background:#f3f8f6">
+      <h3>Cómo lo conseguimos</h3>
+      <ul>
+        <li>Elegir primero entre 10 categorías y después entre 3–6 trabajos, en vez de entre 35 a la vez.</li>
+        <li>Un verificador corrige al modelo cuando el texto nombra un objeto inequívoco.</li>
+        <li>«No es una avería» → revisión humana, con segunda opinión antes de descartar.</li>
+        <li>Siguiente paso: modelo de 7B en la misma GPU, con objetivo de ≥ 85 % en un examen ciego nuevo.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pie"><span>PropertyFix</span><span>5</span></div>
+</section>
+
+<!-- 6. MERCADO -->
+
+<section class="s">
+  <div class="eti">Mercado</div>
+  <h1>3,9 millones de viviendas en alquiler en España</h1>
+  <div class="grid g3" style="margin-top:8mm">
+    <div class="t"><div class="eti" style="color:#4d6068">TAM</div><div class="big">93 M€</div><div class="lbl">todas las viviendas en alquiler (INE 2025) × 1,98 €/vivienda/mes <span class="est">ESTIMACIÓN</span></div></div>
+    <div class="t"><div class="eti" style="color:#4d6068">SAM</div><div class="big">31 M€</div><div class="lbl">1,31 M viviendas de propietarios con 2 o más (52,8 %, datos de la AEAT); sin contar sociedades</div></div>
+    <div class="t" style="border-color:#0f6e56"><div class="eti">SOM a 3 años</div><div class="big">0,46 M€</div><div class="lbl">296 clientes · 19.246 viviendas · 1,5 % del SAM</div></div>
+  </div>
+  <p style="font-size:12pt;margin-top:8mm;color:#33464e">Canal: <b>más de 15.400 administradores de fincas colegiados</b> en 37 colegios, con congresos y revistas propias. Entramos por pilotos gratuitos en Madrid.</p>
+  <div class="pie"><span>Fuentes: INE (ECP 2025), Ministerio de Derechos Sociales/AEAT (abr. 2026), CGCAFE</span><span>6</span></div>
+</section>
+
+<!-- 7. COMPETENCIA -->
+<section class="s">
+  <div class="eti">Competencia y posicionamiento</div>
+  <h1>Los demás registran la incidencia; nosotros la resolvemos</h1>
+  <div class="grid g2" style="grid-template-columns:1.1fr 1fr">
+    <svg viewBox="0 0 460 330" width="100%">
+      <line x1="40" y1="300" x2="440" y2="300" stroke="#9bb3ab" stroke-width="2"/><line x1="40" y1="300" x2="40" y2="20" stroke="#9bb3ab" stroke-width="2"/>
+      <text x="240" y="324" text-anchor="middle" font-size="13" fill="#4d6068">registra → ejecuta el proceso</text>
+      <text x="18" y="160" text-anchor="middle" font-size="13" fill="#4d6068" transform="rotate(-90 18 160)">genérico → especializado</text>
+      <g font-size="13">
+        <circle cx="120" cy="90" r="9" fill="#9bb3ab"/><text x="134" y="95">Fixflo</text>
+        <circle cx="150" cy="120" r="9" fill="#9bb3ab"/><text x="164" y="125">Gesfincas / Finca3</text>
+        <circle cx="190" cy="150" r="9" fill="#9bb3ab"/><text x="204" y="155">Homming</text>
+        <circle cx="330" cy="255" r="9" fill="#9bb3ab"/><text x="300" y="282">Asistentes generalistas</text>
+        <circle cx="390" cy="55" r="14" fill="#0f6e56"/><text x="320" y="38" font-weight="700" fill="#0f6e56">PropertyFix</text>
+      </g>
+    </svg>
+    <div class="t">
+      <table>
+        <tr><th>Competidor</th><th>Precio</th></tr>
+        <tr><td>Fixflo (Reino Unido)</td><td>0,30 £/vivienda/mes</td></tr>
+        <tr><td>Homming (España, 40.000 activos)</td><td>a medida</td></tr>
+        <tr><td>Software de fincas</td><td>no publicado</td></tr>
+        <tr class="dest"><td>PropertyFix</td><td>1,98 €/vivienda/mes</td></tr>
+      </table>
+      <p style="margin-top:4mm"><b>¿Y si ChatGPT lo hace gratis en un año?</b> No tendrá la cartera, la red de proveedores con tarifas, el historial por vivienda ni el flujo de aprobación auditable. Y si los modelos mejoran, los usamos por dentro: cambiar de modelo es una línea de configuración.</p>
+    </div>
+  </div>
+  <div class="pie"><span>Fuentes: fixflo.com/pricing; Vozpópuli</span><span>7</span></div>
+</section>
+
+<!-- 8. MODELO DE NEGOCIO -->
+<section class="s">
+  <div class="eti">Modelo de negocio</div>
+  <h1>SaaS por tramos de viviendas, sin comisión por reparación</h1>
+  <div class="grid g2" style="margin-top:4mm">
+    <div class="t">
+      <table>
+        <tr><th>Plan</th><th class="n">€/mes</th><th class="n">Viviendas</th><th class="n">Mezcla</th></tr>
+        <tr><td>Starter</td><td class="n">49 €</td><td class="n">hasta 25</td><td class="n">50 %</td></tr><tr><td>Professional</td><td class="n">149 €</td><td class="n">hasta 100</td><td class="n">35 %</td></tr><tr><td>Business</td><td class="n">349 €</td><td class="n">hasta 300</td><td class="n">15 %</td></tr>
+        <tr class="dest"><td>Ingreso medio (ARPU)</td><td class="n">129 €</td><td></td><td></td></tr>
+      </table>
+      <p style="margin-top:3mm;font-size:9.5pt"><span class="est">ESTIMACIÓN</span> precios del plan de negocio, a validar en los pilotos.</p>
+    </div>
+    <div class="grid" style="gap:5mm">
+      <div class="t"><div class="big">96 %</div><div class="lbl">margen de contribución por cliente: el modelo es un coste fijo, no por uso</div></div>
+      <div class="t"><div class="big">~240 €</div><div class="lbl">de tiempo ahorrado al mes a un cliente Professional (70 viviendas) frente a 149 € de cuota <span class="est">ESTIMACIÓN</span></div></div>
+    </div>
+  </div>
+  <div class="pie"><span>PropertyFix</span><span>8</span></div>
+</section>
+
+<!-- 9. COSTES -->
+<section class="s">
+  <div class="eti">Costes · tokens medidos</div>
+  <h1>Una incidencia cuesta 1.915 tokens de entrada y 303 de salida</h1>
+  <div class="grid g4" style="margin-top:6mm">
+    <div class="t"><div class="big" style="font-size:26pt">17,9</div><div class="lbl">incidencias por cliente y mes <span class="est">ESTIMACIÓN</span></div></div>
+    <div class="t"><div class="big" style="font-size:26pt">34k / 5,4k</div><div class="lbl">tokens de entrada / salida por cliente y mes <span class="med">MEDIDO</span>×est.</div></div>
+    <div class="t"><div class="big" style="font-size:26pt">51 %</div><div class="lbl">de la entrada son instrucciones fijas que se pueden cachear <span class="med">MEDIDO</span></div></div>
+    <div class="t"><div class="big" style="font-size:26pt">28 €</div><div class="lbl">coste en tokens de construir el MVP con Claude Code <span class="med">MEDIDO</span></div></div>
+  </div>
+  <div class="grid g2" style="margin-top:6mm">
+    <div class="t">
+      <table>
+        <tr><th>Coste del modelo por cliente y mes</th><th class="n">€</th></tr>
+        <tr class="dest"><td>GPU propia (Hetzner GEX45, 24 GB VRAM, 214 €/mes, ~24.161 clientes)</td><td class="n">0,009 €</td></tr>
+        <tr><td>Comparación: API Claude Haiku 5.5</td><td class="n">0,006 €</td></tr>
+        <tr><td>Comparación: API Claude Opus 5.5</td><td class="n">0,23 €</td></tr>
+      </table>
+    </div>
+    <div class="t" style="background:#f3f8f6"><h3>Por qué un modelo abierto en servidor propio</h3><p>Los datos de inquilinos no salen hacia un proveedor de IA (RGPD); no dependemos de la tarifa de nadie; el servidor de 214 € se paga con dos clientes. Una API puede quedar como respaldo si la GPU cae.</p></div>
+  </div>
+  <div class="pie"><span>Medido con medir_consumo.py (8 incidencias completas) y el registro de uso de Claude Code</span><span>9</span></div>
+</section>
+
+<!-- 10. FINANCIERO -->
+
+
+
+<section class="s">
+  <div class="eti">Modelo financiero</div>
+  <h1>Equilibrio en el mes 18; 3,3× para el inversor a 3 años</h1>
+  <div class="grid g2" style="grid-template-columns:1.25fr 1fr;margin-top:3mm">
+    <div class="t" style="padding:4mm 5mm">
+      <svg viewBox="0 0 560 300" width="100%">
+        
+        <line x1="50" y1="146.09684607294952" x2="545" y2="146.09684607294952" stroke="#9bb3ab" stroke-dasharray="4 3"/>
+        <text x="46" y="150.09684607294952" text-anchor="end" font-size="11" fill="#4d6068">0 €</text>
+        <text x="46" y="34" text-anchor="end" font-size="11" fill="#4d6068">97k</text>
+        <text x="46" y="264" text-anchor="end" font-size="11" fill="#4d6068">-95k</text>
+        <polyline fill="none" stroke="#0f6e56" stroke-width="3" points="50.0,165.8185216422495 64.14285714285714,174.47953435583463 78.28571428571428,183.1405470694197 92.42857142857143,191.80155978300485 106.57142857142857,200.0171284582305 120.71428571428571,207.64954862087276 134.85714285714286,214.7095971428274 149.0,221.20805089599017 163.14285714285714,227.15688418246754 177.28571428571428,232.56687387415528 191.42857142857142,237.4487968429492 205.57142857142856,241.8134299607451 219.71428571428572,248.133466612522 233.85714285714286,253.0860379637439 248.0,256.6962900488343 262.1428571428571,258.9929611928487 276.2857142857143,260.0 290.42857142857144,259.7461447953436 304.57142857142856,258.25414675288164 318.71428571428567,255.54915190703775 332.85714285714283,251.65750372244608 347.0,246.59955851268757 361.1428571428571,240.4016597423963 375.2857142857143,233.08536115536396 389.42857142857144,227.6777663240975 403.57142857142856,220.0333718593488 417.7142857142857,210.19768010912233 431.8571428571429,198.21379856100125 446.0,184.12483470256876 460.14285714285717,167.97389602140797 474.2857142857143,149.80049771447017 488.4285714285714,129.64654983912786 502.57142857142856,107.55156759233228 516.7142857142858,83.55267131061339 530.8571428571429,57.6905736211331 545.0,30.0 "/>
+        <text x="205.57142857142856" y="284" text-anchor="middle" font-size="11" fill="#4d6068">mes 12</text><text x="375.2857142857143" y="284" text-anchor="middle" font-size="11" fill="#4d6068">mes 24</text><text x="545.0" y="284" text-anchor="end" font-size="11" fill="#4d6068">mes 36</text>
+        <text x="300" y="20" font-size="12.5" font-weight="700" fill="#0f6e56">Caja acumulada (incluye la inversión inicial)</text>
+      </svg>
+    </div>
+    <div class="t">
+      <table>
+        <tr><td>Inversión antes del primer ingreso</td><td class="n"><b>38.169 €</b></td></tr>
+        <tr><td>… de ella, construir el MVP <span class="med">MEDIDO</span></td><td class="n">28 €</td></tr>
+        <tr><td>Necesidad máxima de caja</td><td class="n">95.123 €</td></tr>
+        <tr><td>Equilibrio en clientes (año 1)</td><td class="n">58</td></tr>
+        <tr><td>Recuperación de lo invertido</td><td class="n">mes 32</td></tr>
+        <tr><td>Clientes en los meses 12 / 24 / 36</td><td class="n">29 / 130 / 296</td></tr>
+        <tr class="dest"><td>ARR en el mes 36</td><td class="n">458.316 €</td></tr>
+        <tr class="dest"><td>Valor del 20 % (4× ARR) <span class="est">ESTIMACIÓN</span></td><td class="n">366.653 €</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="pie"><span>docs/modelo_financiero/modelo_financiero.py · supuestos etiquetados en la memoria §6</span><span>10</span></div>
+</section>
+
+<!-- 11. CUMPLIMIENTO -->
+<section class="s">
+  <div class="eti">Cumplimiento</div>
+  <h1>Riesgo limitado según el AI Act, y ya cumplimos el artículo 50</h1>
+  <div class="grid g3" style="margin-top:6mm">
+    <div class="t"><h3>Reglamento (UE) 2024/1689</h3><ul>
+      <li><b>No prohibido</b> (art. 5).</li>
+      <li><b>No es de alto riesgo</b> (art. 6 y anexo III): no evalúa crédito, prestaciones ni emergencias; no es infraestructura crítica.</li>
+      <li><b>Transparencia (art. 50)</b>, en vigor desde el 2/8/2026: aviso en cada email y cabecera <code>X-PropertyFix-AI-Generated</code>. <b>Hecho.</b></li>
+      <li>Alfabetización en IA (art. 4).</li></ul></div>
+    <div class="t"><h3>RGPD</h3><ul>
+      <li>El modelo corre en servidor propio en la UE: los datos de inquilinos no viajan a ningún proveedor de IA.</li>
+      <li>Google solo con OAuth del propio gestor y alcances mínimos (<code>drive.file</code>, no todo el Drive).</li>
+      <li>Somos encargados del tratamiento, con contrato con cada cliente.</li></ul></div>
+    <div class="t"><h3>Barandillas en el producto</h3><ul>
+      <li>Aprobación humana antes de gastar o enviar; doble confirmación por encima de 1.000 €.</li>
+      <li>Permisos por agente y lista blanca de destinatarios en el servidor de Gmail.</li>
+      <li>Detección de inyección de prompt, límite de tokens, detector de bucles.</li>
+      <li>Traza auditable de cada acción. 18 tests automáticos.</li></ul></div>
+  </div>
+  <div class="pie"><span>Fuentes: Reglamento (UE) 2024/1689; artificialintelligenceact.eu</span><span>11</span></div>
+</section>
+
+<!-- 12. RIESGOS -->
+<section class="s">
+  <div class="eti">Riesgos</div>
+  <h1>Qué pasa si…</h1>
+  <div class="t" style="margin-top:5mm">
+    <table>
+      <tr><th style="width:28%">Riesgo</th><th>Impacto</th><th>Respuesta</th></tr>
+      <tr><td><b>La GPU sube un 50 %</b></td><td>Equilibrio en el mes 18 (antes 18); caja en el mes 36: 93.103 € <span class="med">calculado</span></td><td>Cambiar de proveedor de GPU o comprar la tarjeta; el código no cambia.</td></tr>
+      <tr><td><b>Retiran el modelo</b></td><td>Ninguno: los pesos abiertos están descargados.</td><td>Llama 3.2 o Qwen 7B con el mismo arnés; el examen de evaluación decide en una tarde.</td></tr>
+      <tr><td><b>Un generalista lo hace gratis</b></td><td>Presión sobre el precio de entrada.</td><td>Foso en datos, red de proveedores, aprobación y cumplimiento; usamos el mejor modelo por dentro.</td></tr>
+      <tr><td><b>El modelo se equivoca</b></td><td>83 % de acierto en casos ciegos con 3B.</td><td>Verificador + humano antes de actuar; 7B en la misma GPU con objetivo de ≥ 85 %.</td></tr>
+      <tr><td><b>Google restringe el acceso a Gmail</b></td><td>Necesitamos verificación de seguridad.</td><td>Presupuestada (3.000 €); alternativa: buzón de reenvío propio.</td></tr>
+    </table>
+  </div>
+  <div class="pie"><span>PropertyFix</span><span>12</span></div>
+</section>
+
+<!-- 13. ROADMAP -->
+<section class="s">
+  <div class="eti">Roadmap</div>
+  <h1>Hitos medibles, no promesas</h1>
+  <div class="grid" style="grid-template-columns:repeat(5,1fr);gap:4mm;margin-top:8mm">
+    
+    <div class="t" style="border-top:4px solid #0f6e56"><div class="eti">Meses 1–4</div><p style="font-weight:700;font-size:12pt">Producto multiempresa · 7B en GPU</p><p style="font-size:10pt">≥ 85 % de acierto en un examen ciego nuevo</p></div>
+    
+    <div class="t" style="border-top:4px solid #0f6e56"><div class="eti">Mes 5</div><p style="font-weight:700;font-size:12pt">3 pilotos en Madrid · 30 proveedores reales</p><p style="font-size:10pt">≥ 60 % de propuestas aceptadas sin editar</p></div>
+    
+    <div class="t" style="border-top:4px solid #0f6e56"><div class="eti">Mes 12</div><p style="font-weight:700;font-size:12pt">29 clientes de pago</p><p style="font-size:10pt">−60 % de tiempo de gestor por incidencia</p></div>
+    
+    <div class="t" style="border-top:4px solid #0f6e56"><div class="eti">Mes 18</div><p style="font-weight:700;font-size:12pt">Asesor LAU con RAG (quién paga)</p><p style="font-size:10pt">acierto@3 ≥ 0,8</p></div>
+    
+    <div class="t" style="border-top:4px solid #0f6e56"><div class="eti">Mes 36</div><p style="font-weight:700;font-size:12pt">296 clientes</p><p style="font-size:10pt">ARR 458.316 €</p></div>
+    
+  </div>
+  <div class="pie"><span>PropertyFix</span><span>13</span></div>
+</section>
+
+<!-- 14. ASK -->
+<section class="s osc">
+  <div class="eti">La propuesta</div>
+  <h1 style="color:#fff">110.000 € por el 20 %</h1>
+  <h2>Para convertir un MVP que ya funciona con Google real en el operario digital de los administradores de fincas.</h2>
+  <div class="grid g3" style="margin-top:8mm">
+    <div><div class="big">95.123 €</div><div class="lbl">necesidad máxima de caja: la ronda la cubre con margen</div></div>
+    <div><div class="big">mes 18</div><div class="lbl">primer mes con flujo de caja operativo positivo</div></div>
+    <div><div class="big">3,3×</div><div class="lbl">valor de la participación a 3 años (4× ARR, <span class="est">ESTIMACIÓN</span>)</div></div>
+  </div>
+  <p style="margin-top:12mm;font-size:13pt;color:#d6ece5">Uso de los fondos: producto y verificación de Google · pilotos y red de proveedores · primer comercial en el mes 13.</p>
+  <div class="pie"><span>[Nombre 1] · [Nombre 2] · [Nombre 3] · github.com/i-astarloa/propertyfix</span><span>14</span></div>
+</section>
+</body>
+</html>

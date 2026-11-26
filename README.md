@@ -60,6 +60,19 @@ python -m propertyfix
 
 ---
 
+## Entregables
+
+| Entregable | Dónde |
+|---|---|
+| App | carpeta [`app/`](app/) (arranque: `app/iniciar.bat` o `app/iniciar.sh`) |
+| Memoria (plan de negocio) | [`memoria.pdf`](memoria.pdf) |
+| Pitch | [`slides.pdf`](slides.pdf) |
+| Evaluación del clasificador | [`docs/evaluacion_clasificador.md`](docs/evaluacion_clasificador.md) |
+| Modelo financiero reproducible | [`docs/modelo_financiero/`](docs/modelo_financiero/) |
+| Coste de construcción (tokens) | [`docs/coste_construccion/`](docs/coste_construccion/) |
+
+Todas las cifras de la memoria y las diapositivas se generan desde los resultados de los scripts del repositorio con `docs/entregables/generar.py`: no hay ningún número copiado a mano.
+
 ## Qué hace el agente que no haría un formulario
 
 Un formulario recoge datos y los guarda. PropertyFix **decide y actúa**:

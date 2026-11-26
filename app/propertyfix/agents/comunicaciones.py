@@ -134,7 +134,7 @@ async def reservar(hub: HubMCP, iid: str) -> dict:
 <li><b>Cita:</b> {cuando}</li><li><b>Dirección:</b> {escape(ubicacion)}</li>
 <li><b>Presupuesto:</b> {prop['presupuesto']['total']:.2f} € (IVA incluido)</li></ul>
 <p>Adjuntamos el presupuesto con la comparativa de ofertas. También puedes verlo aquí: {doc.get('enlace', '')}</p>
-<p>Un saludo,<br>PropertyFix</p></div>"""
+<p>Un saludo,<br>PropertyFix</p><p style="color:#6b7a85;font-size:12px;border-top:1px solid #e2e8e6;padding-top:8px">Aviso (art. 50 del Reglamento europeo de IA): este mensaje ha sido redactado con ayuda de un sistema de inteligencia artificial y su envío ha sido aprobado por el gestor. Importes y fechas proceden de la base de datos de proveedores, no del modelo.</p></div>"""
     mail = await hub.llamar(AGENTE, "gmail.enviar_email", {
         "para": inc["usuario"], "asunto": f"Reparación reservada: {prop['trabajo']} · {cuando}",
         "cuerpo_html": cuerpo_cliente, "adjunto_ruta": doc.get("pdf", "")})
@@ -148,7 +148,7 @@ async def reservar(hub: HubMCP, iid: str) -> dict:
 <p>Hola, {escape(prov['nombre'])}:</p><p>Le confirmamos la siguiente orden de trabajo:</p>
 <ul><li><b>Trabajo:</b> {escape(textos['instrucciones_proveedor'])}</li><li><b>Cita:</b> {cuando}</li>
 <li><b>Dirección:</b> {escape(ubicacion)}</li><li><b>Importe aceptado:</b> {prop['presupuesto']['total']:.2f} € IVA incl.</li></ul>
-<p>Gracias,<br>PropertyFix</p></div>"""
+<p>Gracias,<br>PropertyFix</p><p style="color:#6b7a85;font-size:12px;border-top:1px solid #e2e8e6;padding-top:8px">Aviso (art. 50 del Reglamento europeo de IA): este mensaje ha sido redactado con ayuda de un sistema de inteligencia artificial y su envío ha sido aprobado por el gestor. Importes y fechas proceden de la base de datos de proveedores, no del modelo.</p></div>"""
     mail_p = await hub.llamar(AGENTE, "gmail.enviar_email", {
         "para": CUENTA_SANDBOX, "asunto": f"[Orden de trabajo {iid}] {prop['trabajo']} · {cuando}",
         "cuerpo_html": cuerpo_prov, "adjunto_ruta": ""})
